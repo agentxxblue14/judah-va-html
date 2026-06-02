@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Your Detail-Obsessed VA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1715;        /* charcoal */
+    --ink2:#221E1B;
+    --panel:#2A2521;
+    --red:#E63B2E;        /* brand red */
+    --coral:#FF6B5C;
+    --cream:#FBF4EC;
+    --cream2:#F2E7DA;
+    --gold:#F2B705;
+    --mute:#9C8E83;
+    --inkmute:#7A6E66;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',sans-serif;
+    background:var(--ink);
+    color:var(--cream);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:#fff}
+
+  /* grain overlay */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+    opacity:.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{line-height:1.02;letter-spacing:-.01em}
+  .anton{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em}
+  .frau{font-family:'Fraunces',serif}
+
+  /* ---------- floating progress bar ---------- */
+  #bar{position:fixed;top:0;left:0;height:4px;background:var(--red);width:0;z-index:200;transition:width .1s linear}
+
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;justify-content:space-between;align-items:center;
+    padding:18px 28px;background:rgba(26,23,21,0);transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+  nav.solid{background:rgba(26,23,21,.92);backdrop-filter:blur(10px);padding:12px 28px;border-color:rgba(255,255,255,.08)}
+  nav .brand{font-family:'Anton';text-transform:uppercase;font-size:15px;letter-spacing:.06em;color:#fff}
+  nav .brand b{color:var(--red)}
+  nav .cta{font-family:'Archivo';font-weight:700;font-size:13px;text-decoration:none;color:var(--ink);
+    background:var(--gold);padding:9px 18px;border-radius:40px;transition:transform .25s, background .25s}
+  nav .cta:hover{transform:translateY(-2px);background:#fff}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:140px 0 80px;overflow:hidden}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0}
+  .b1{width:520px;height:520px;background:var(--red);top:-160px;right:-120px;animation:float1 14s ease-in-out infinite}
+  .b2{width:420px;height:420px;background:#7a1d16;bottom:-160px;left:-120px;animation:float2 18s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,40px) scale(1.08)}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(1.12)}}
+
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{display:flex;align-items:center;gap:14px;font-family:'Archivo';font-weight:700;letter-spacing:.25em;
+    text-transform:uppercase;font-size:13px;color:var(--gold);margin-bottom:26px;opacity:0;animation:rise .8s .1s forwards}
+  .eyebrow .stars{color:var(--red);letter-spacing:.2em;font-size:15px}
+  .hero h1{font-size:clamp(48px,9vw,118px);color:#fff;text-transform:uppercase}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line span{display:block;transform:translateY(105%);animation:reveal .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1 .l2 span{animation-delay:.16s}
+  .hero h1 em{font-family:'Fraunces';font-style:italic;font-weight:600;text-transform:none;color:var(--red)}
+  .hero .sub{font-family:'Fraunces';font-style:italic;font-size:clamp(18px,2.4vw,27px);color:var(--cream);
+    max-width:740px;margin:34px 0 0;opacity:0;animation:rise 1s .55s forwards}
+  .hero .meta{margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;align-items:center;opacity:0;animation:rise 1s .75s forwards}
+  .hero .name{font-family:'Anton';font-size:20px;color:#fff;text-transform:uppercase;letter-spacing:.04em}
+  .hero .role{color:var(--mute);font-size:14px;font-weight:500}
+  .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:var(--mute);
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;
+    opacity:0;animation:rise 1s 1s forwards}
+  .scrollcue .dotline{width:1px;height:42px;background:linear-gradient(var(--red),transparent);position:relative;overflow:hidden}
+  .scrollcue .dotline::after{content:"";position:absolute;top:-12px;left:0;width:1px;height:12px;background:#fff;animation:drop 1.6s infinite}
+  @keyframes drop{0%{top:-12px}100%{top:42px}}
+
+  @keyframes reveal{to{transform:translateY(0)}}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--red);color:#fff;padding:16px 0;overflow:hidden;white-space:nowrap;border-top:2px solid #000;border-bottom:2px solid #000}
+  .marquee .track{display:inline-block;animation:scroll 26s linear infinite}
+  .marquee span{font-family:'Anton';text-transform:uppercase;font-size:22px;letter-spacing:.04em;padding:0 28px}
+  .marquee .star{color:var(--ink)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{position:relative}
+  .sec-cream{background:var(--cream);color:var(--ink)}
+  .sec-ink{background:var(--ink);color:var(--cream)}
+  .pad{padding:96px 0}
+  .kicker{font-family:'Archivo';font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:13px;
+    color:var(--red);margin-bottom:16px}
+  .sec-title{font-family:'Anton';text-transform:uppercase;font-size:clamp(34px,5.4vw,64px);line-height:.98}
+  .sec-cream .sec-title{color:var(--ink)}
+  .sec-ink .sec-title{color:#fff}
+  .sec-title em{font-family:'Fraunces';font-style:italic;font-weight:600;text-transform:none;color:var(--red)}
+  .lede{font-family:'Fraunces';font-size:clamp(17px,2vw,21px);max-width:760px;margin-top:18px;line-height:1.45}
+  .sec-cream .lede{color:var(--inkmute)}
+  .sec-ink .lede{color:var(--cream)}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsibility cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:54px}
+  .card{background:#fff;border:1px solid var(--cream2);border-radius:18px;padding:30px 26px 28px;position:relative;
+    overflow:hidden;transition:transform .35s,box-shadow .35s}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--red);transform:scaleX(0);
+    transform-origin:left;transition:transform .4s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 44px -22px rgba(140,90,60,.5)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .ic{width:50px;height:50px;border-radius:14px;background:var(--cream2);display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;transition:background .35s,transform .35s}
+  .card:hover .ic{background:var(--red);transform:rotate(-6deg) scale(1.05)}
+  .card .ic svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:2;transition:stroke .35s}
+  .card:hover .ic svg{stroke:#fff}
+  .card h3{font-family:'Archivo';font-weight:700;font-size:19px;color:var(--ink);margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--inkmute);line-height:1.5}
+  .card .tag{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--red)}
+
+  /* ---------- traits (split rows) ---------- */
+  .traits{margin-top:54px;border-top:1px solid rgba(255,255,255,.12)}
+  .trait{display:grid;grid-template-columns:64px 1fr 1.4fr;gap:24px;align-items:center;padding:26px 6px;
+    border-bottom:1px solid rgba(255,255,255,.12);transition:padding-left .35s,background .35s}
+  .trait:hover{padding-left:22px;background:linear-gradient(90deg,rgba(230,59,46,.10),transparent)}
+  .trait .num{font-family:'Anton';font-size:26px;color:var(--red);transition:transform .35s}
+  .trait:hover .num{transform:translateX(4px)}
+  .trait h3{font-family:'Archivo';font-weight:700;font-size:clamp(19px,2.4vw,26px);color:#fff}
+  .trait p{color:var(--cream);font-size:15px;line-height:1.5;opacity:.85}
+
+  /* ---------- requirements ---------- */
+  .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:54px}
+  .req-col h4{font-family:'Archivo';font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px;margin-bottom:24px}
+  .req-col.left h4{color:var(--red)}
+  .req-item{display:grid;grid-template-columns:34px 1fr;gap:14px;margin-bottom:26px}
+  .req-item .check{width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .req-item .check svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:3}
+  .req-item .rt{font-family:'Archivo';font-weight:700;font-size:16.5px;color:var(--ink);margin-bottom:4px}
+  .req-item .rd{font-size:14px;color:var(--inkmute);line-height:1.5}
+  .bonus{background:var(--ink);border-radius:20px;padding:36px 34px;position:relative;overflow:hidden}
+  .bonus::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--red)}
+  .bonus h4{color:var(--gold)}
+  .bonus .req-item .check{background:transparent;border:2px solid var(--coral)}
+  .bonus .req-item .check svg{stroke:var(--coral)}
+  .bonus .rt{color:#fff}
+  .bonus .rd{color:var(--cream);opacity:.85}
+
+  /* ---------- quote / story ---------- */
+  .story{position:relative;overflow:hidden}
+  .story .qmark{position:absolute;top:40px;left:0;font-family:'Fraunces';font-size:280px;line-height:.6;
+    color:var(--red);opacity:.12;font-style:italic;z-index:0}
+  .story .wrap{position:relative;z-index:2}
+  .bigquote{font-family:'Fraunces';font-size:clamp(22px,3vw,38px);line-height:1.35;color:#fff;max-width:1000px;margin-top:30px}
+  .bigquote b{color:var(--coral);font-weight:600}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:54px}
+  .ba .box{padding:30px;border-radius:16px}
+  .ba .before{background:var(--panel);border-left:5px solid var(--mute)}
+  .ba .after{background:var(--red);border-left:5px solid var(--gold)}
+  .ba .lab{font-family:'Anton';letter-spacing:.12em;font-size:15px;margin-bottom:10px}
+  .ba .before .lab{color:var(--coral)}
+  .ba .after .lab{color:var(--ink)}
+  .ba .txt{font-size:19px;line-height:1.4}
+  .ba .before .txt{color:var(--cream)}
+  .ba .after .txt{color:#fff;font-weight:600}
+
+  /* ---------- timeline ---------- */
+  .tl{margin-top:60px;position:relative}
+  .tl::before{content:"";position:absolute;left:0;right:0;top:30px;height:2px;background:rgba(255,255,255,.14)}
+  .tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .tl-step{position:relative;padding-top:64px}
+  .tl-step .mark{position:absolute;top:18px;left:0;width:26px;height:26px;border-radius:50%;background:var(--ink);
+    border:3px solid var(--red);transition:transform .35s,background .35s}
+  .tl-step:hover .mark{transform:scale(1.25);background:var(--red)}
+  .tl-step .wk{font-family:'Anton';letter-spacing:.1em;color:var(--gold);font-size:14px;margin-bottom:6px}
+  .tl-step h3{font-family:'Archivo';font-weight:700;font-size:21px;color:#fff;margin-bottom:10px}
+  .tl-step p{font-size:14px;color:var(--cream);opacity:.82;line-height:1.5}
+
+  /* ---------- close ---------- */
+  .close{position:relative;overflow:hidden;text-align:left}
+  .close .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;z-index:0}
+  .close .bb1{width:480px;height:480px;background:var(--red);bottom:-180px;right:-120px;animation:float1 16s ease-in-out infinite}
+  .close .wrap{position:relative;z-index:2}
+  .close h2{font-family:'Anton';text-transform:uppercase;font-size:clamp(40px,7vw,86px);color:#fff;line-height:.96}
+  .close h2 em{font-family:'Fraunces';font-style:italic;text-transform:none;color:var(--red);font-weight:600}
+  .close .ct{font-family:'Fraunces';font-size:clamp(17px,2vw,22px);color:var(--cream);max-width:720px;margin-top:26px;line-height:1.45}
+  .btn{display:inline-flex;align-items:center;gap:12px;margin-top:38px;background:var(--red);color:#fff;
+    font-family:'Archivo';font-weight:700;font-size:17px;text-decoration:none;padding:18px 34px;border-radius:50px;
+    transition:transform .3s,background .3s,box-shadow .3s;box-shadow:0 14px 30px -12px rgba(230,59,46,.7)}
+  .btn:hover{transform:translateY(-3px);background:var(--coral)}
+  .btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.4;transition:transform .3s}
+  .btn:hover svg{transform:translateX(5px)}
+  .links{margin-top:42px;display:flex;flex-direction:column;gap:16px}
+  .links a{color:var(--cream);text-decoration:none;display:flex;align-items:center;gap:14px;font-size:15px;transition:color .25s}
+  .links a:hover{color:#fff}
+  .links a b{color:#fff}
+  .links .ico{width:34px;height:34px;border-radius:9px;background:var(--panel);display:flex;align-items:center;justify-content:center}
+  .links .ico svg{width:17px;height:17px;stroke:var(--coral);fill:none;stroke-width:2}
+  .signoff{font-family:'Anton';letter-spacing:.1em;color:var(--gold);font-size:16px;margin-top:40px}
+
+  footer{background:#000;color:var(--mute);text-align:center;padding:30px;font-size:12.5px;letter-spacing:.05em}
+  footer b{color:var(--cream)}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:920px){
+    .cards{grid-template-columns:1fr 1fr}
+    .req-grid{grid-template-columns:1fr}
+    .ba{grid-template-columns:1fr}
+    .tl::before{display:none}
+    .tl-grid{grid-template-columns:1fr 1fr}
+    .trait{grid-template-columns:48px 1fr;gap:14px}
+    .trait p{grid-column:1/-1}
+  }
+  @media(max-width:560px){
+    .cards{grid-template-columns:1fr}
+    .tl-grid{grid-template-columns:1fr}
+    nav .brand{font-size:13px}
+    .pad{padding:70px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .hero h1 .line span{transform:none}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav id="nav">
+  <div class="brand">JUDAH<b>.</b> <span style="opacity:.6;font-size:12px;letter-spacing:.15em">DETAIL-OBSESSED VA</span></div>
+  <a class="cta" href="#close">Let's talk →</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="stars">✶ ✶ ✶</span> I'm your detail-obsessed VA</div>
+    <h1>
+      <span class="line l1"><span>Visible</span></span>
+      <span class="line l2"><span>coaching.</span></span>
+      <span class="line l3"><span><em>Invisible</em> admin.</span></span>
+    </h1>
+    <p class="sub">You stay front of camera with your community. I keep everything behind it running quietly, warm, and exactly on-brand.</p>
+    <div class="meta">
+      <div>
+        <div class="name">Judah Rivera</div>
+        <div class="role">Executive Assistant · Community &amp; Creator Support</div>
+      </div>
+      <div class="role" style="border-left:1px solid rgba(255,255,255,.2);padding-left:30px">Prepared for Hattie · productmarketers.com</div>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<div class="dotline"></div></div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="track" id="mtrack">
+    <span>Visible &amp; Valued</span><span class="star">✶</span><span>Supportive Vibes Only</span><span class="star">✶</span><span>No BS, No Posturing</span><span class="star">✶</span><span>Noticing The Small Things</span><span class="star">✶</span>
+    <span>Visible &amp; Valued</span><span class="star">✶</span><span>Supportive Vibes Only</span><span class="star">✶</span><span>No BS, No Posturing</span><span class="star">✶</span><span>Noticing The Small Things</span><span class="star">✶</span>
+  </div>
+</div>
+
+<!-- RESPONSIBILITIES -->
+<section class="sec-cream pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">What I'll own for you</div>
+      <h2 class="sec-title">This isn't a <em>task-ticking</em> role.</h2>
+      <p class="lede">Good. I don't work that way. You asked for someone who notices, thinks ahead, and brings ideas. Here's exactly what I heard you need.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
+        <h3>Inbox &amp; DM triage</h3>
+        <p>Monitor your email and LinkedIn DMs, summarise what matters, and flag the action points for you.</p>
+        <span class="tag">You decide. I prepare.</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 11a3 3 0 100-6"/><path d="M21 20c0-2.5-2-4.2-4-4.6"/></svg></div>
+        <h3>Community care</h3>
+        <p>Tag members, answer questions, keep the space tidy and welcoming. Supportive vibes only.</p>
+        <span class="tag">Members feel looked after</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+        <h3>Calls &amp; scheduling</h3>
+        <p>Set up and run your Zoom calls and calendar links, no back-and-forth landing on your plate.</p>
+        <span class="tag">Zero scheduling friction</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+        <h3>SOP execution</h3>
+        <p>Send emails, update pages, and run scheduled comms, exactly to your playbook, every time.</p>
+        <span class="tag">Your system, followed</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 9l6-3v12l-6-3"/></svg></div>
+        <h3>Content support</h3>
+        <p>Light editing and uploading of your social videos across LinkedIn, YouTube, and Instagram.</p>
+        <span class="tag">Creator engine, fed</span>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/></svg></div>
+        <h3>Course &amp; challenge pages</h3>
+        <p>Update masterclass and challenge pages as directed, not one detail missed.</p>
+        <span class="tag">Launch-ready, always</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAITS -->
+<section class="sec-ink pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Why I fit your brief</div>
+      <h2 class="sec-title">You wrote a list of the <em>person you want.</em></h2>
+      <p class="lede">Reading it felt like reading my own job description. Here's the match, point for point.</p>
+    </div>
+    <div class="traits">
+      <div class="trait reveal"><div class="num">01</div><h3>Exceptionally detail-oriented</h3><p>I catch the small things others miss. It's the habit that holds an EA and an accountant together.</p></div>
+      <div class="trait reveal"><div class="num">02</div><h3>Proactive, takes ownership</h3><p>4+ years running US-hours operations. I move before being asked, not after being told.</p></div>
+      <div class="trait reveal"><div class="num">03</div><h3>A natural systems organiser</h3><p>I build and document SOPs and clean up messy spaces so they work better, not just look tidier.</p></div>
+      <div class="trait reveal"><div class="num">04</div><h3>Warm and professional</h3><p>I've supported coaches and personal-brand founders. Every member message gets real care.</p></div>
+      <div class="trait reveal"><div class="num">05</div><h3>Brings ideas, not just hands</h3><p>I'll tell you what I notice and suggest ways to make the member experience even better.</p></div>
+      <div class="trait reveal"><div class="num">06</div><h3>Learns new tools fast</h3><p>GoHighLevel, course platforms, community tools, automations. I pick things up quickly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="sec-cream pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">The receipts</div>
+      <h2 class="sec-title">I already <em>tick every box.</em></h2>
+      <p class="lede">Every must-have on your list, plus the bonus points, with the experience behind each.</p>
+    </div>
+    <div class="req-grid">
+      <div class="req-col left reveal">
+        <h4>Required</h4>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">1+ year VA / online business support</div><div class="rd">4+ years freelance, working US business hours across EA, ops, and project management.</div></div></div>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">Strong written English, client-facing</div><div class="rd">I run inbox triage, member comms, and community replies daily for US and UK clients.</div></div></div>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">Managing an online community</div><div class="rd">I support founder communities and client accounts: tagging, answering, keeping spaces welcoming.</div></div></div>
+      </div>
+      <div class="req-col bonus reveal">
+        <h4>And the bonus points too</h4>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">Online course platforms</div><div class="rd">Hands-on with GoHighLevel funnels and course pages. Quick to learn Kajabi, Circle, Skool, Teachable.</div></div></div>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">LinkedIn inbox management</div><div class="rd">Comfortable monitoring DMs, summarising threads, and flagging what needs your decision.</div></div></div>
+        <div class="req-item"><div class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="rt">Supporting a coach / personal brand</div><div class="rd">I currently support a CEO and multiple personal-brand clients, end to end.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="sec-ink pad story">
+  <div class="qmark">"</div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">In my own words</div>
+      <h2 class="sec-title">A system I <em>made better.</em></h2>
+      <p class="bigquote">A client's inbox was the bottleneck. Messages slipped, replies were slow, and nothing was tracked. I mapped the recurring message types, then built an email triage workflow that <b>auto-sorts and summarises</b> incoming mail and flags only what needs a human decision. I documented it as a simple SOP so it runs without me babysitting it. The result: a clean, prioritised inbox every morning, faster replies, and <b>hours of manual sorting gone each week.</b> I now reuse that same system across multiple client accounts.</p>
+    </div>
+    <div class="ba">
+      <div class="box before reveal"><div class="lab">BEFORE</div><div class="txt">Messages slipped. Slow replies. Nothing tracked.</div></div>
+      <div class="box after reveal"><div class="lab">AFTER</div><div class="txt">Prioritised inbox daily. Faster replies. Hours saved.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec-ink pad" style="background:var(--ink2)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">The plan</div>
+      <h2 class="sec-title">My first <em>30 days</em> with you.</h2>
+      <p class="lede">Proactive from day one. No hand-holding required.</p>
+    </div>
+    <div class="tl reveal">
+      <div class="tl-grid">
+        <div class="tl-step"><div class="mark"></div><div class="wk">WEEK 1</div><h3>Learn your world</h3><p>Absorb your SOPs, tools, voice, and community. Get inbox, DMs, and calendar fully covered.</p></div>
+        <div class="tl-step"><div class="mark"></div><div class="wk">WEEK 2</div><h3>Take the weight</h3><p>Run scheduled comms, manage Zoom and calendar links, keep the community warm and tidy.</p></div>
+        <div class="tl-step"><div class="mark"></div><div class="wk">WEEK 3–4</div><h3>Find the gaps</h3><p>Spot what's clunky or repetitive, propose small fixes, and start documenting them.</p></div>
+        <div class="tl-step"><div class="mark"></div><div class="wk">ONGOING</div><h3>Make it better</h3><p>Bring ideas that lift the member experience, so you stay free to coach and create.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="sec-ink pad close" id="close">
+  <div class="blob bb1"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Let's make your business<br><em>run quietly well.</em></h2>
+      <p class="ct">I'm ready to take the admin and customer support off your plate, so you stay in your zone of genius: coaching and marketing. I'd love a quick chat about your setup and where I can help first.</p>
+      <a class="btn" href="mailto:?subject=I'm your detail-obsessed VA">Free for a 15-minute chat? <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="links">
+        <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span><span><b>Portfolio</b> · agentxxblue14.github.io/judah-portfolio-ea/</span></a>
+        <a href="#"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.9H22l-5.8 4.3L18.6 22 12 17.6 5.4 22l2.4-8.8L2 8.9h7.6z"/></svg></span><span><b>Applying as</b> · your detail-obsessed VA</span></a>
+      </div>
+      <div class="signoff">— JUDAH RIVERA</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Prepared for <b>Hattie · productmarketers.com</b> &nbsp;·&nbsp; A pitch from <b>Judah Rivera</b>, your detail-obsessed VA
+</footer>
+
+<script>
+  // progress bar + nav solidify
+  const bar=document.getElementById('bar'),nav=document.getElementById('nav');
+  function onScroll(){
+    const h=document.documentElement,sc=h.scrollTop,max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(sc/max*100):0)+'%';
+    nav.classList.toggle('solid',sc>40);
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // scroll reveal with stagger inside grids
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    // stagger siblings in card/trait/timeline groups
+    const parent=el.parentElement;
+    const sibs=[...parent.children].filter(c=>c.classList.contains('reveal'));
+    const idx=sibs.indexOf(el);
+    if(idx>0) el.style.transitionDelay=(idx*0.08)+'s';
+    io.observe(el);
+  });
+
+  // subtle parallax on hero blobs
+  const b1=document.querySelector('.b1'),b2=document.querySelector('.b2');
+  window.addEventListener('mousemove',e=>{
+    const x=(e.clientX/window.innerWidth-.5),y=(e.clientY/window.innerHeight-.5);
+    if(b1)b1.style.transform=`translate(${x*30}px,${y*30}px)`;
+    if(b2)b2.style.transform=`translate(${x*-24}px,${y*-24}px)`;
+  });
+</script>
+</body>
+</html>
