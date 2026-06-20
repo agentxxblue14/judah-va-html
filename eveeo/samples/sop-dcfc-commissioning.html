@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample SOP — DC Fast Charging Commissioning · built for EVEEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0A1A2F;--ink:#0F1B2D;--blue:#1763E6;--charge:#18C98A;--muted:#5B6B80;--line:#E4EAF2;--mist:#F4F7FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:16px}
+  .doc{max-width:840px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;letter-spacing:-.01em}
+  .topbar{background:var(--navy);color:#E8EEF6;padding:14px 0;margin-bottom:36px}
+  .topbar .in{max-width:840px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .topbar a{color:#9DC2FF;text-decoration:none}
+  .badge{display:inline-block;background:rgba(24,201,138,.16);color:#0a6b4a;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:5px 11px;border-radius:8px;margin-bottom:16px}
+  h1{font-size:32px;line-height:1.15;margin-bottom:10px}
+  .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+  .note{background:var(--mist);border-left:3px solid var(--blue);padding:14px 18px;border-radius:8px;font-size:14px;color:#33445c;margin:20px 0}
+  h2{font-size:21px;margin:34px 0 12px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:8px}
+  h3{font-size:16px;margin:22px 0 8px}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:var(--mist);font-weight:600}
+  ol,ul{margin:10px 0 10px 22px}
+  li{margin:6px 0}
+  .check li{list-style:none;position:relative;padding-left:26px}
+  .check li:before{content:"";position:absolute;left:2px;top:6px;width:13px;height:13px;border:2px solid var(--blue);border-radius:3px}
+  .pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:rgba(23,99,230,.1);color:var(--blue)}
+  footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  @media print{.topbar{background:#0A1A2F !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><span>SAMPLE · built by Judah for the EVEEO Strategic PM role</span><a href="../index.html">&larr; Back to pitch</a></div></div>
+<div class="doc">
+  <span class="badge">Sample SOP</span>
+  <h1>SOP 04: DC Fast Charging Station Commissioning &amp; Energization</h1>
+  <div class="meta">Owner: Strategic PM · Applies to: all DCFC site go-lives · Version: sample v1</div>
+  <div class="note">This is a sample I built to show the format and rigor I would bring to EVEEO's SOP library. It uses standard DCFC commissioning practice. On the job, every step would be calibrated to EVEEO's actual hardware vendors, utility partners, and historical lessons learned.</div>
+
+  <h2>1. Purpose</h2>
+  <p>Ensure every DC Fast Charging station is safely energized, tested, and handed to operations in a repeatable way, so any qualified technician can run a go-live without tribal knowledge and nothing reaches the client untested.</p>
+
+  <h2>2. Roles &amp; responsibilities</h2>
+  <table>
+    <tr><th>Role</th><th>Owns</th></tr>
+    <tr><td>Strategic PM</td><td>Readiness gate, sign-off, exception calls</td></tr>
+    <tr><td>Lead electrician</td><td>Interconnection, torque checks, insulation tests</td></tr>
+    <tr><td>Commissioning tech</td><td>Charger config, network registration, test sessions</td></tr>
+    <tr><td>Site host contact</td><td>Access, parking control, final walkthrough</td></tr>
+  </table>
+
+  <h2>3. Pre-energization gate (do not proceed until all true)</h2>
+  <ul class="check">
+    <li>Utility interconnection approved and meter set <span class="pill">permit on file</span></li>
+    <li>As-built matches approved electrical drawings</li>
+    <li>Transformer and switchgear inspected, torque-marked</li>
+    <li>Equipment grounding verified and recorded</li>
+    <li>ADA stall dimensions, signage, and clearances confirmed</li>
+    <li>Firmware version logged for each dispenser</li>
+  </ul>
+
+  <h2>4. Energization sequence</h2>
+  <ol>
+    <li>Confirm lockout/tagout removed only by the authorized lead electrician.</li>
+    <li>Energize upstream, verify voltage and phase rotation against spec.</li>
+    <li>Power each dispenser in sequence; confirm boot, no fault codes.</li>
+    <li>Register each unit to the network management system; confirm online status.</li>
+    <li>Set pricing, access mode, and load-management profile per the site plan.</li>
+  </ol>
+
+  <h2>5. Commissioning tests (record pass/fail per unit)</h2>
+  <table>
+    <tr><th>Test</th><th>Method</th><th>Pass criteria</th></tr>
+    <tr><td>Insulation resistance</td><td>Megohmmeter on de-energized circuit</td><td>Within manufacturer threshold</td></tr>
+    <tr><td>Live charge session</td><td>Test EV or load box, full handshake</td><td>Reaches rated power, clean stop</td></tr>
+    <tr><td>Emergency stop</td><td>Trigger E-stop mid-session</td><td>Immediate safe shutdown</td></tr>
+    <tr><td>Payment / activation</td><td>Run app and RFID start</td><td>Both start and bill correctly</td></tr>
+    <tr><td>Network reporting</td><td>Confirm session in dashboard</td><td>Session and kWh logged</td></tr>
+  </table>
+
+  <h2>6. Handover to operations</h2>
+  <ul class="check">
+    <li>All units online, zero open faults for 24 hours</li>
+    <li>Test sessions and readings filed to the project record</li>
+    <li>Site host walkthrough complete, signage and access confirmed</li>
+    <li>Maintenance schedule and warranty contacts entered into the tracker</li>
+    <li>PM final sign-off; project moved to "Operational"</li>
+  </ul>
+
+  <h2>7. Exceptions</h2>
+  <p>Any failed gate item or test stops the go-live. The commissioning tech logs it, the PM decides remediate-and-retest or reschedule. No station is handed over with an open exception.</p>
+
+  <footer>Sample document for evaluation only. Built by Judah Rivera for the EVEEO Strategic Project Manager application, June 2026.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample Go or No-Go Scorecard · built for EVEEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0A1A2F;--ink:#0F1B2D;--blue:#1763E6;--charge:#18C98A;--stop:#E5484D;--muted:#5B6B80;--line:#E4EAF2;--mist:#F4F7FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:16px}
+  .doc{max-width:840px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;letter-spacing:-.01em}
+  .topbar{background:var(--navy);color:#E8EEF6;padding:14px 0;margin-bottom:36px}
+  .topbar .in{max-width:840px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .topbar a{color:#9DC2FF;text-decoration:none}
+  .badge{display:inline-block;background:rgba(23,99,230,.1);color:var(--blue);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:5px 11px;border-radius:8px;margin-bottom:16px}
+  h1{font-size:32px;line-height:1.15;margin-bottom:10px}
+  .meta{color:var(--muted);font-size:14px}
+  .note{background:var(--mist);border-left:3px solid var(--blue);padding:14px 18px;border-radius:8px;font-size:14px;color:#33445c;margin:20px 0}
+  h2{font-size:21px;margin:34px 0 12px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:8px}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:var(--mist);font-weight:600}
+  td.c,th.c{text-align:center}
+  ul,ol{margin:10px 0 10px 22px}li{margin:6px 0}
+  .verdict{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+  .vcard{flex:1;min-width:200px;border:1px solid var(--line);border-radius:12px;padding:16px}
+  .vcard b{font-family:"Space Grotesk";display:block;font-size:18px;margin-bottom:4px}
+  .go{border-left:4px solid var(--charge)}.hold{border-left:4px solid var(--blue)}.nogo{border-left:4px solid var(--stop)}
+  .crit{color:var(--stop);font-weight:600;font-size:12px}
+  footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  @media print{.topbar{background:#0A1A2F !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><span>SAMPLE · built by Judah for the EVEEO Strategic PM role</span><a href="../index.html">&larr; Back to pitch</a></div></div>
+<div class="doc">
+  <span class="badge">Sample scorecard</span>
+  <h1>Project Go or No-Go Scorecard</h1>
+  <div class="meta">Use: every incoming charging or inspection lead, before any quote · Decision owner: Strategic PM &rarr; Leadership</div>
+  <div class="note">This is the paper version of the live gate on the pitch page, built to show how I would standardize EVEEO's "should we pursue this?" call. The weights below are a sensible starting point. The first thing I would do on the job is recalibrate them against your historical win/loss data.</div>
+
+  <h2>1. How it works</h2>
+  <ol>
+    <li>Score each factor 0, 1, or 2 (0 = fail, 1 = caution, 2 = clear).</li>
+    <li>Two factors are <span class="crit">critical</span>. A 0 on either is an automatic NO-GO regardless of total.</li>
+    <li>Otherwise compare the weighted total against the thresholds in section 3.</li>
+  </ol>
+
+  <h2>2. Scoring grid</h2>
+  <table>
+    <tr><th>Factor</th><th class="c">Weight</th><th>What a 2 (clear) looks like</th></tr>
+    <tr><td>Utility grid capacity <span class="crit">CRITICAL</span></td><td class="c">x2</td><td>Feeder supports the load with no major upgrade</td></tr>
+    <tr><td>Margin after hardware &amp; transformer <span class="crit">CRITICAL</span></td><td class="c">x2</td><td>Profit holds once interconnection costs land</td></tr>
+    <tr><td>Zoning &amp; permitting</td><td class="c">x1</td><td>Use is permitted, no variance fight</td></tr>
+    <tr><td>Hardware lead time vs client deadline</td><td class="c">x1</td><td>Equipment arrives inside the timeline</td></tr>
+    <tr><td>Fit with EVEEO track record</td><td class="c">x1</td><td>We have executed this profile before</td></tr>
+    <tr><td>Operational capacity to staff it</td><td class="c">x1</td><td>Crew and PM bandwidth available on schedule</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--muted)">Maximum weighted score: 16. (Inspection-program leads swap the EV-specific rows for diagnostic tooling, lane throughput, and compliance readiness, same scoring logic.)</p>
+
+  <h2>3. Decision thresholds</h2>
+  <div class="verdict">
+    <div class="vcard go"><b>GO</b>Both critical factors clear and total at or above 13. Build full scope and proposal.</div>
+    <div class="vcard hold"><b>HOLD</b>Criticals clear but total 9 to 12. Resolve the weak factors before quoting.</div>
+    <div class="vcard nogo"><b>NO-GO</b>Any critical scored 0, or total below 9. Decline and protect the team's time.</div>
+  </div>
+
+  <h2>4. Worked example (illustrative numbers)</h2>
+  <table>
+    <tr><th>Factor</th><th class="c">Score</th><th class="c">Weighted</th></tr>
+    <tr><td>Utility grid capacity</td><td class="c">2</td><td class="c">4</td></tr>
+    <tr><td>Margin after costs</td><td class="c">1</td><td class="c">2</td></tr>
+    <tr><td>Zoning &amp; permitting</td><td class="c">2</td><td class="c">2</td></tr>
+    <tr><td>Hardware lead time</td><td class="c">1</td><td class="c">1</td></tr>
+    <tr><td>Track record fit</td><td class="c">2</td><td class="c">2</td></tr>
+    <tr><td>Operational capacity</td><td class="c">2</td><td class="c">2</td></tr>
+    <tr><td><b>Total</b></td><td class="c"></td><td class="c"><b>13</b></td></tr>
+  </table>
+  <p><b>Verdict: GO, with a watch.</b> Criticals clear and total hits 13, so it is worth a proposal. Margin scored only 1, so the PM flags it: tighten the interconnection cost estimate before the number goes to the client.</p>
+
+  <h2>5. Why this matters</h2>
+  <p>The scorecard turns a gut call into a defensible, repeatable decision leadership can trust, and it creates a paper trail. Over time the scored leads become the historical data that sharpens the weights.</p>
+
+  <footer>Sample document for evaluation only. Built by Judah Rivera for the EVEEO Strategic Project Manager application, June 2026.</footer>
+</div>
+</body>
+</html>
