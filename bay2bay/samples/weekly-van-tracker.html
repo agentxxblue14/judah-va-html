@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample: Weekly Per-Van Performance Tracker · built for Bay2Bay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0E2A47;--ink:#10243B;--blue:#2563EB;--amber:#F59E0B;--go:#16A34A;--stop:#DC2626;--muted:#5A6B80;--line:#E3E9F2;--mist:#F3F6FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;font-size:16px}
+  .doc{max-width:960px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;letter-spacing:-.01em}
+  .topbar{background:var(--navy);color:#E8EEF6;padding:14px 0;margin-bottom:34px}
+  .topbar .in{max-width:960px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .topbar a{color:#9DC2FF;text-decoration:none}
+  .badge{display:inline-block;background:rgba(37,99,235,.1);color:var(--blue);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:5px 11px;border-radius:8px;margin-bottom:14px}
+  h1{font-size:30px;margin-bottom:8px}
+  .meta{color:var(--muted);font-size:14px}
+  .note{background:var(--mist);border-left:3px solid var(--blue);padding:13px 17px;border-radius:8px;font-size:14px;color:#33445c;margin:18px 0}
+  h2{font-size:19px;margin:30px 0 12px;color:var(--navy)}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+  @media(max-width:680px){.cards{grid-template-columns:1fr 1fr}}
+  .kpi{border:1px solid var(--line);border-radius:12px;padding:14px}
+  .kpi .l{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .kpi .v{font-family:"Space Grotesk";font-size:24px;font-weight:600;margin-top:4px}
+  table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:var(--navy);color:#fff;font-weight:600;border-color:var(--navy)}
+  tbody tr:nth-child(even){background:var(--mist)}
+  tfoot td{font-weight:700;background:#eef3fb}
+  .chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px}
+  .on{background:rgba(22,163,74,.12);color:#127a39}
+  .watch{background:rgba(245,158,11,.16);color:#9a6400}
+  .behind{background:rgba(220,38,38,.12);color:#b91c1c}
+  footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  @media print{.topbar{background:#0E2A47 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><span>SAMPLE · built by Judah for the Bay2Bay Ops Manager / EA role</span><a href="../index.html">&larr; Back to pitch</a></div></div>
+<div class="doc">
+  <span class="badge">Sample tracker</span>
+  <h1>Weekly Per-Van Performance Tracker</h1>
+  <div class="meta">Week of [Mon-Sun] · Owner view · One row per van, goal status at a glance</div>
+  <div class="note">This is a mockup of the weekly tracker I would build in your Google Sheets. Numbers are illustrative placeholders. The point is the structure: revenue and every cost per van, net, percent to goal, and a clear on or off goal flag so you see in five seconds which vans need attention.</div>
+
+  <div class="cards">
+    <div class="kpi"><div class="l">Fleet revenue</div><div class="v">$18,240</div></div>
+    <div class="kpi"><div class="l">Total expenses</div><div class="v">$11,905</div></div>
+    <div class="kpi"><div class="l">Net</div><div class="v" style="color:var(--go)">$6,335</div></div>
+    <div class="kpi"><div class="l">Vans off goal</div><div class="v" style="color:var(--stop)">2 of 6</div></div>
+  </div>
+
+  <h2>Per-van breakdown</h2>
+  <table>
+    <thead><tr><th>Van / Driver</th><th>Revenue</th><th>Fuel</th><th>Hotel</th><th>Maint.</th><th>Net</th><th>% to goal</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Van 1 · M. Reyes</td><td>$3,420</td><td>$640</td><td>$180</td><td>$0</td><td>$2,600</td><td>108%</td><td><span class="chip on">On goal</span></td></tr>
+      <tr><td>Van 2 · D. Cole</td><td>$3,180</td><td>$590</td><td>$220</td><td>$140</td><td>$2,230</td><td>99%</td><td><span class="chip watch">Watch</span></td></tr>
+      <tr><td>Van 3 · A. Singh</td><td>$3,510</td><td>$610</td><td>$160</td><td>$0</td><td>$2,740</td><td>112%</td><td><span class="chip on">On goal</span></td></tr>
+      <tr><td>Van 4 · J. Pratt</td><td>$2,260</td><td>$700</td><td>$300</td><td>$520</td><td>$740</td><td>61%</td><td><span class="chip behind">Behind</span></td></tr>
+      <tr><td>Van 5 · L. Ortiz</td><td>$3,090</td><td>$560</td><td>$140</td><td>$0</td><td>$2,390</td><td>104%</td><td><span class="chip on">On goal</span></td></tr>
+      <tr><td>Van 6 · R. Banks</td><td>$2,780</td><td>$680</td><td>$260</td><td>$305</td><td>$1,535</td><td>74%</td><td><span class="chip behind">Behind</span></td></tr>
+    </tbody>
+    <tfoot><tr><td>Fleet total</td><td>$18,240</td><td>$3,780</td><td>$1,260</td><td>$1,065</td><td>$6,335</td><td>93%</td><td></td></tr></tfoot>
+  </table>
+
+  <h2>What I would flag to you this week</h2>
+  <ul style="margin:8px 0 0 20px">
+    <li><b>Van 4</b> is behind on revenue and high on maintenance ($520). I would check the route assignment and the maintenance cause before it repeats.</li>
+    <li><b>Van 6</b> hotel and fuel are running high for the miles. Worth a quick driver conversation, logged.</li>
+    <li>Everything else on or near goal. Nothing here needs your time unless you want it.</li>
+  </ul>
+
+  <footer>Sample for evaluation only, illustrative numbers. Built by Judah Rivera for the Bay2Bay Courier application, June 2026.</footer>
+</div>
+</body>
+</html>

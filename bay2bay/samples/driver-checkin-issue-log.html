@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample: Driver Check-in & Issue Log SOP · built for Bay2Bay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0E2A47;--ink:#10243B;--blue:#2563EB;--amber:#F59E0B;--go:#16A34A;--stop:#DC2626;--muted:#5A6B80;--line:#E3E9F2;--mist:#F3F6FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;font-size:16px}
+  .doc{max-width:900px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;letter-spacing:-.01em}
+  .topbar{background:var(--navy);color:#E8EEF6;padding:14px 0;margin-bottom:34px}
+  .topbar .in{max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .topbar a{color:#9DC2FF;text-decoration:none}
+  .badge{display:inline-block;background:rgba(245,158,11,.16);color:#9a6400;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:5px 11px;border-radius:8px;margin-bottom:14px}
+  h1{font-size:29px;margin-bottom:8px}
+  .meta{color:var(--muted);font-size:14px}
+  .note{background:var(--mist);border-left:3px solid var(--blue);padding:13px 17px;border-radius:8px;font-size:14px;color:#33445c;margin:18px 0}
+  h2{font-size:19px;margin:30px 0 12px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:7px}
+  ol,ul{margin:8px 0 8px 20px}li{margin:5px 0}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  thead th{background:var(--navy);color:#fff;font-weight:600;border-color:var(--navy)}
+  tbody tr:nth-child(even){background:var(--mist)}
+  .chip{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px}
+  .open{background:rgba(220,38,38,.12);color:#b91c1c}.prog{background:rgba(245,158,11,.16);color:#9a6400}.done{background:rgba(22,163,74,.12);color:#127a39}
+  .esc{background:#0E2A47;color:#fff}
+  footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  @media print{.topbar{background:#0E2A47 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><span>SAMPLE · built by Judah for the Bay2Bay Ops Manager / EA role</span><a href="../index.html">&larr; Back to pitch</a></div></div>
+<div class="doc">
+  <span class="badge">Sample SOP + log</span>
+  <h1>Driver Daily Check-in &amp; Issue Log</h1>
+  <div class="meta">Owner: Ops Manager / EA · Goal: every driver heard, every issue tracked to resolution, owner only pulled in when needed</div>
+  <div class="note">This shows how I would run driver communication and keep the records you asked for. The SOP keeps it consistent and professional with proper boundaries; the log makes sure nothing falls through the cracks. Names and entries are illustrative.</div>
+
+  <h2>Daily check-in SOP</h2>
+  <ol>
+    <li><b>Morning ping (group chat):</b> post the day's reminders, confirm each driver is rolling, note anyone who does not respond by the cutoff.</li>
+    <li><b>Listen and triage:</b> answer routine questions directly. Anything about pay, safety, or a vehicle problem gets logged immediately.</li>
+    <li><b>Log it:</b> every real concern goes in the issue log with date, driver, category, and next step. Nothing lives only in chat.</li>
+    <li><b>Resolve or escalate:</b> handle what I can within policy. Escalate to ownership only for major decisions or emergencies, with a one-line summary and a recommendation.</li>
+    <li><b>Close the loop:</b> follow up with the driver, mark resolved, keep the record.</li>
+  </ol>
+  <p style="font-size:14px;color:var(--muted)"><b>Boundaries:</b> friendly and respectful, never personal. Consistent rules for everyone. Promises only on what policy allows.</p>
+
+  <h2>Issue log (sample week)</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Driver</th><th>Category</th><th>Issue</th><th>Action / resolution</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Jun 16</td><td>J. Pratt</td><td>Maintenance</td><td>Brake warning light</td><td>Pulled van, booked shop, reassigned route</td><td><span class="chip done">Resolved</span></td></tr>
+      <tr><td>Jun 16</td><td>D. Cole</td><td>Pay question</td><td>Unsure about hotel reimbursement</td><td>Explained policy, sent the receipt form</td><td><span class="chip done">Resolved</span></td></tr>
+      <tr><td>Jun 17</td><td>R. Banks</td><td>Performance</td><td>Late starts two days running</td><td>Logged, friendly check-in, watching this week</td><td><span class="chip prog">In progress</span></td></tr>
+      <tr><td>Jun 18</td><td>M. Reyes</td><td>Equipment</td><td>Requesting second dolly</td><td>Priced it, sent to owner for approval</td><td><span class="chip esc">Escalated</span></td></tr>
+      <tr><td>Jun 19</td><td>A. Singh</td><td>Scheduling</td><td>Time-off request next week</td><td>Confirmed coverage, updated schedule</td><td><span class="chip done">Resolved</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14px"><b>This week:</b> 5 issues, 3 resolved same day, 1 being watched, 1 escalated to you (the dolly cost). That is the only one that needed your time.</p>
+
+  <footer>Sample for evaluation only, illustrative entries. Built by Judah Rivera for the Bay2Bay Courier application, June 2026.</footer>
+</div>
+</body>
+</html>
