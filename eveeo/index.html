@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Judah for EVEEO — Strategic Project Manager</title>
+<meta name="description" content="A pitch from Judah Rivera for the EVEEO Strategic Project Manager role. Includes a live Go or No-Go evaluation gate, the same discipline the role is built around." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0A1A2F; --navy-2:#102845; --ink:#0F1B2D;
+    --blue:#1763E6; --blue-soft:#5C9BFF;
+    --charge:#18C98A; --stop:#E5484D;
+    --paper:#FFFFFF; --mist:#F4F7FB; --muted:#5B6B80;
+    --line:#E4EAF2; --line-dk:rgba(255,255,255,.10);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink); background:var(--paper); line-height:1.6; font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1;letter-spacing:-.02em;font-weight:600}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:600}
+  .label.on-dark{color:var(--blue-soft)}
+  .muted{color:var(--muted)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:"Space Grotesk";font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+  .brand b{color:var(--blue)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--blue)}
+  .btn{display:inline-block;background:var(--blue);color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
+  .btn:hover{transform:translateY(-2px);background:#1052c4}
+  .btn.ghost{background:transparent;border:1px solid var(--line-dk);color:#E8EEF6}
+  .btn.ghost:hover{background:rgba(255,255,255,.06)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* hero */
+  .hero{background:var(--navy);color:#E8EEF6;padding:96px 0 88px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background:
+    radial-gradient(60% 90% at 85% 0%, rgba(23,99,230,.22), transparent 60%),
+    radial-gradient(40% 60% at 0% 100%, rgba(24,201,138,.10), transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative}
+  .hero h1{font-size:60px;color:#fff;max-width:14ch;margin:18px 0 20px}
+  .hero p.lead{font-size:21px;color:#B8C6D8;max-width:60ch}
+  .hero .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .built-for{display:inline-flex;align-items:center;gap:8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue-soft);font-weight:600}
+  .built-for .dot{width:7px;height:7px;border-radius:50%;background:var(--charge);box-shadow:0 0 0 4px rgba(24,201,138,.18)}
+  @media(max-width:760px){.hero h1{font-size:38px}.hero p.lead{font-size:18px}.hero{padding:64px 0 56px}}
+
+  /* sections */
+  section{padding:96px 0}
+  section.mist{background:var(--mist)}
+  .sec-head{max-width:62ch;margin-bottom:40px}
+  .sec-head h2{font-size:40px;margin:12px 0 14px}
+  .sec-head p{font-size:18px;color:var(--muted)}
+  @media(max-width:760px){section{padding:56px 0}.sec-head h2{font-size:30px}}
+
+  /* gate */
+  .gate{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+  @media(max-width:880px){.gate{grid-template-columns:1fr}}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+  .lead-card{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px}
+  .lead-card .name{font-family:"Space Grotesk";font-weight:600;font-size:17px}
+  .factor{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .factor:last-child{border-bottom:none}
+  .factor .ftxt{font-size:15px}
+  .factor .ftxt small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .toggle{position:relative;flex:0 0 auto}
+  .toggle input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;margin:0}
+  .switch{display:inline-flex;width:120px;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px;font-weight:600;user-select:none}
+  .switch span{flex:1;text-align:center;padding:8px 0;color:var(--muted);transition:.15s}
+  .toggle input:focus-visible + .switch{outline:2px solid var(--blue);outline-offset:2px}
+  .toggle[data-state="yes"] .switch .yes{background:var(--charge);color:#04231a}
+  .toggle[data-state="no"] .switch .no{background:var(--stop);color:#2a0708}
+
+  .verdict{background:var(--navy);color:#E8EEF6;border-radius:16px;padding:26px;position:sticky;top:84px}
+  .verdict .label{margin-bottom:10px}
+  .verdict h3{font-size:34px;color:#fff;display:flex;align-items:center;gap:12px}
+  .vbadge{font-size:14px;font-family:Inter;font-weight:600;padding:5px 12px;border-radius:999px}
+  .meter{height:10px;border-radius:999px;background:rgba(255,255,255,.10);margin:18px 0;overflow:hidden}
+  .meter i{display:block;height:100%;width:0;border-radius:999px;transition:width .6s cubic-bezier(.2,.7,.2,1),background .3s}
+  .verdict .reason{font-size:15px;color:#C5D2E2;min-height:48px}
+  .verdict .score{font-size:13px;color:var(--blue-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:14px}
+
+  /* two-column scope */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(15,27,45,.06)}
+  .card h3{font-size:20px;margin-bottom:6px}
+  .card ul{list-style:none;margin-top:14px}
+  .card li{padding:8px 0 8px 26px;position:relative;font-size:15px;border-top:1px solid var(--line)}
+  .card li:before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:2px;background:var(--blue)}
+
+  /* timeline */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+  .step .n{font-family:"Space Grotesk";font-weight:700;font-size:15px;color:var(--blue);letter-spacing:.04em}
+  .step h3{font-size:19px;margin:8px 0 10px}
+  .step p{font-size:15px;color:var(--muted)}
+
+  /* receipts */
+  .receipts{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.receipts{grid-template-columns:1fr}}
+  .rcpt{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .rcpt .tag{flex:0 0 auto;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);background:rgba(23,99,230,.08);padding:4px 9px;border-radius:8px}
+  .rcpt p{font-size:15px}
+
+  /* honest gap */
+  .honest{background:var(--navy);color:#E8EEF6;border-radius:20px;padding:40px}
+  .honest h2{color:#fff;font-size:30px;margin-bottom:14px}
+  .honest p{color:#C5D2E2;max-width:70ch}
+  .honest .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+  @media(max-width:760px){.honest .two{grid-template-columns:1fr}}
+  .honest .two h3{color:var(--blue-soft);font-size:15px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .honest .two li{color:#D6E0EC;font-size:15px;margin:6px 0;list-style:none;padding-left:18px;position:relative}
+  .honest .two li:before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--charge)}
+
+  /* cta */
+  .final{text-align:center}
+  .final h2{font-size:42px}
+  .final p{font-size:19px;color:var(--muted);max-width:54ch;margin:14px auto 28px}
+  .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .links a.text{color:var(--ink);font-weight:500;align-self:center}
+  @media(max-width:760px){.final h2{font-size:30px}}
+
+  footer{background:var(--navy);color:#8DA0B8;padding:30px 0;font-size:14px;text-align:center}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span class="muted">for</span> <b>EVEEO</b></div>
+    <div class="nav-links">
+      <a href="#gate">The gate</a>
+      <a href="#scope">Scope</a>
+      <a href="#plan">30/60/90</a>
+      <a href="#receipts">Receipts</a>
+      <a class="btn" href="#contact">Reply to me</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="built-for"><span class="dot"></span>Built for EVEEO Inc · Strategic Project Manager</span>
+    <h1>Most PMs say yes faster. This role is about knowing when to say no.</h1>
+    <p class="lead">You are hiring a gatekeeper and a system builder: someone to decide whether a charging or inspection project is worth pursuing, then turn the approved ones into repeatable SOPs. That filter and that documentation habit are exactly what I do. So I built the filter into this page.</p>
+    <div class="cta-row">
+      <a class="btn" href="#gate">Try the Go or No-Go gate</a>
+      <a class="btn ghost" href="#contact">Skip to how to reach me</a>
+    </div>
+  </div>
+</header>
+
+<!-- SIGNATURE: GO / NO-GO GATE -->
+<section id="gate">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Responsibility 1 · Go or No-Go</span>
+      <h2>A live evaluation gate, the same call your post asks for</h2>
+      <p>Here is a sample charging-station lead. Flip each factor the way a real site would land and watch the verdict move. This is the discipline I would run on every incoming EVEEO opportunity, scored against your strategic goals and historical data.</p>
+    </div>
+    <div class="gate">
+      <div class="panel reveal">
+        <div class="lead-card">
+          <div>
+            <div class="name">Lead: 6-stall DC Fast Charging site, suburban retail lot</div>
+            <div class="muted" style="font-size:14px">Prospect wants a quote in 10 days</div>
+          </div>
+        </div>
+        <div class="factor">
+          <div class="ftxt">Utility grid capacity<small>Can the local feeder support the load without a major upgrade?</small></div>
+          <label class="toggle" data-state="yes" data-weight="2">
+            <input type="checkbox" checked aria-label="Utility grid capacity sufficient" />
+            <span class="switch"><span class="no">No-Go</span><span class="yes">OK</span></span>
+          </label>
+        </div>
+        <div class="factor">
+          <div class="ftxt">Zoning &amp; permitting<small>Is the use permitted, or are we facing a variance fight?</small></div>
+          <label class="toggle" data-state="yes" data-weight="1">
+            <input type="checkbox" checked aria-label="Zoning and permitting clear" />
+            <span class="switch"><span class="no">Risk</span><span class="yes">Clear</span></span>
+          </label>
+        </div>
+        <div class="factor">
+          <div class="ftxt">Margin after hardware &amp; transformer<small>Does the deal still profit once interconnection costs land?</small></div>
+          <label class="toggle" data-state="yes" data-weight="2">
+            <input type="checkbox" checked aria-label="Margin healthy" />
+            <span class="switch"><span class="no">Thin</span><span class="yes">Healthy</span></span>
+          </label>
+        </div>
+        <div class="factor">
+          <div class="ftxt">Hardware lead time<small>Do chargers arrive inside the client's timeline?</small></div>
+          <label class="toggle" data-state="yes" data-weight="1">
+            <input type="checkbox" checked aria-label="Hardware lead time acceptable" />
+            <span class="switch"><span class="no">Late</span><span class="yes">On time</span></span>
+          </label>
+        </div>
+        <div class="factor">
+          <div class="ftxt">Fit with EVEEO's track record<small>Have we executed this profile before, or is it net-new risk?</small></div>
+          <label class="toggle" data-state="yes" data-weight="1">
+            <input type="checkbox" checked aria-label="Fits EVEEO track record" />
+            <span class="switch"><span class="no">Net-new</span><span class="yes">Proven</span></span>
+          </label>
+        </div>
+      </div>
+
+      <aside class="verdict reveal">
+        <div class="label on-dark">Verdict</div>
+        <h3 id="vTitle">GO <span class="vbadge" id="vBadge" style="background:rgba(24,201,138,.18);color:#7BE8C0">pursue</span></h3>
+        <div class="meter"><i id="vMeter" style="width:100%;background:var(--charge)"></i></div>
+        <div class="reason" id="vReason">All critical factors clear. Worth a full scope and proposal.</div>
+        <div class="score" id="vScore">Confidence 7 / 7</div>
+        <p class="muted" style="font-size:13px;margin-top:16px;color:#8DA0B8">The weighting is illustrative. The real version is calibrated to EVEEO's historical project data, which is the first thing I would ask for.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section id="scope" class="mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Responsibility 2 · Scope teardown</span>
+      <h2>From a one-line request to an executable, technical scope</h2>
+      <p>A "should we build chargers here" or "stand up an inspection lane" request hides dozens of requirements. I break it into buckets, flag bottlenecks early, and hand the technical team a checklist instead of a vibe. Here are the two domains in your post.</p>
+    </div>
+    <div class="cols">
+      <div class="card reveal">
+        <span class="label">EV charging deployment</span>
+        <h3>What the scope has to nail</h3>
+        <ul>
+          <li>Electrical load demand and transformer upgrade needs</li>
+          <li>Utility interconnection and permitting timeline</li>
+          <li>Level 2 vs DC Fast Charging hardware selection</li>
+          <li>Hardware and software interoperability</li>
+          <li>ADA compliance and physical site layout</li>
+          <li>Supply chain lead times flagged as schedule risk</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <span class="label">Vehicle inspection setup</span>
+        <h3>What the scope has to nail</h3>
+        <ul>
+          <li>Diagnostic tool integration and calibration steps</li>
+          <li>Physical lane layout and throughput planning</li>
+          <li>Safety testing and regulatory compliance criteria</li>
+          <li>Data management and records systems</li>
+          <li>Technician training and quality-control checks</li>
+          <li>Permitting and regional compliance factors</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 30/60/90 -->
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Responsibilities 3 &amp; 4 · First 90 days</span>
+      <h2>What I would actually do in your first 30, 60, and 90 days</h2>
+      <p>No vague onboarding. Concrete deliverables that compound.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">DAYS 1 - 30</div>
+        <h3>Learn the data, build the scorecard</h3>
+        <p>Pull EVEEO's historical project outcomes, sit with the engineers, and turn the go or no go call into a written scorecard leadership can trust. First real leads run through it by week four.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">DAYS 31 - 60</div>
+        <h3>Lock the proposal and SOW review</h3>
+        <p>Standardize how proposals, RFPs, and SOWs get drafted and reviewed, with a scope-creep checklist that protects margin before anything reaches a client or municipality.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">DAYS 61 - 90</div>
+        <h3>Ship the first SOP library</h3>
+        <p>Document the first end-to-end SOP set: station installation, commissioning, safety testing, and inspection-lane QC, written so a new technician can follow it without asking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECEIPTS -->
+<section id="receipts" class="mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Receipts · real work, no invented numbers</span>
+      <h2>The process and documentation muscle, already built</h2>
+      <p>Different industries, same job: evaluate, scope, document, repeat.</p>
+    </div>
+    <div class="receipts">
+      <div class="rcpt reveal"><span class="tag">SOP</span><p>Took a client's chaotic, one-off task handling and built a board-ownership system with action-step subtasks and a daily digest, so work became repeatable instead of reinvented each week.</p></div>
+      <div class="rcpt reveal"><span class="tag">Evaluate</span><p>Built an audit tool that flags overdue, stale, and no-due-date work across multiple client workspaces, so leadership sees what is worth attention before it slips.</p></div>
+      <div class="rcpt reveal"><span class="tag">Proposals</span><p>Built a reusable proposal engine that researches each client, mirrors their requirements item by item, and logs every proposal through to outcome in a tracker.</p></div>
+      <div class="rcpt reveal"><span class="tag">Systems</span><p>Wrote Python and API automations that standardize recurring reporting and handoffs across Asana, ClickUp, Front, and Google Workspace.</p></div>
+      <div class="rcpt reveal"><span class="tag">Tools</span><p>ClickUp, Asana, Monday, Trello, and Notion day to day. Process mapping in Lucidchart and Miro. Comfortable picking up Jira fast.</p></div>
+      <div class="rcpt reveal"><span class="tag">Numbers</span><p>BS Accountancy background, so feasibility and margin math is native, not a stretch. Useful when a deal looks exciting but does not actually profit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST GAP -->
+<section>
+  <div class="wrap">
+    <div class="honest reveal">
+      <span class="label on-dark">Straight talk</span>
+      <h2>What I bring, and what I would ramp on</h2>
+      <p>You are a technical company. The fastest way to lose your trust would be to pretend I have four years inside EV infrastructure. I do not. Here is the honest split.</p>
+      <div class="two">
+        <div>
+          <h3>Bring on day one</h3>
+          <ul>
+            <li>Go or no go evaluation and feasibility discipline</li>
+            <li>Scope teardown, bottleneck and risk flagging</li>
+            <li>Proposal and SOW drafting and strict review</li>
+            <li>SOP libraries and repeatable field workflows</li>
+            <li>ClickUp, Asana, Monday, Lucidchart, Miro</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ramp on, fast and documented</h3>
+          <ul>
+            <li>Level 2 and DC Fast Charging specifics</li>
+            <li>Utility interconnection and permitting detail</li>
+            <li>Vehicle inspection compliance standards</li>
+            <li>Reading utility sheets and technical site plans</li>
+            <li>PMP or Lean Six Sigma if useful to the role</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="mist">
+  <div class="wrap final reveal">
+    <span class="label">One clear ask</span>
+    <h2>Let me run one of your real leads through the gate</h2>
+    <p>Give me a recent opportunity you said yes or no to. I will score it the way I would on the job and walk you through the call. That is the fastest way to see if I am the filter you want.</p>
+    <div class="links">
+      <a class="btn" href="mailto:katrinajudah14@gmail.com?subject=EVEEO%20Strategic%20PM%20-%20Judah">Email me</a>
+      <a class="text" href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / Ops portfolio</a>
+      <a class="text" href="https://drive.google.com/file/d/1lNbULeLakz6eSZpdKMRvFqV2u98c9v49/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Built by Judah Rivera as a work sample for the EVEEO Strategic Project Manager role. June 2026.</div>
+</footer>
+
+<script>
+  // Go / No-Go gate logic
+  (function(){
+    var toggles = Array.prototype.slice.call(document.querySelectorAll('.toggle'));
+    var meter = document.getElementById('vMeter');
+    var title = document.getElementById('vTitle');
+    var badge = document.getElementById('vBadge');
+    var reason = document.getElementById('vReason');
+    var scoreEl = document.getElementById('vScore');
+
+    var CHARGE = getComputedStyle(document.documentElement).getPropertyValue('--charge').trim();
+    var STOP = getComputedStyle(document.documentElement).getPropertyValue('--stop').trim();
+    var BLUE = getComputedStyle(document.documentElement).getPropertyValue('--blue').trim();
+
+    var critical = { 0:'utility grid capacity', 2:'margin after interconnection' }; // weight-2 factors
+
+    function compute(){
+      var total = 0, max = 0, failedCritical = [];
+      toggles.forEach(function(t, i){
+        var w = parseInt(t.getAttribute('data-weight'),10);
+        max += w;
+        var yes = t.querySelector('input').checked;
+        t.setAttribute('data-state', yes ? 'yes' : 'no');
+        if(yes){ total += w; }
+        else if(w === 2){ failedCritical.push(critical[i]); }
+      });
+      var pct = Math.round((total/max)*100);
+      meter.style.width = pct + '%';
+
+      var verdict;
+      if(failedCritical.length > 0){
+        verdict = 'NO-GO';
+      } else if(pct >= 80){
+        verdict = 'GO';
+      } else {
+        verdict = 'HOLD';
+      }
+
+      if(verdict === 'GO'){
+        meter.style.background = CHARGE;
+        title.firstChild.textContent = 'GO ';
+        badge.textContent = 'pursue'; badge.style.background='rgba(24,201,138,.18)'; badge.style.color='#7BE8C0';
+        reason.textContent = 'All critical factors clear. Worth a full scope and proposal.';
+      } else if(verdict === 'HOLD'){
+        meter.style.background = BLUE;
+        title.firstChild.textContent = 'HOLD ';
+        badge.textContent = 'fix first'; badge.style.background='rgba(92,155,255,.18)'; badge.style.color='#9DC2FF';
+        reason.textContent = 'Critical factors are fine, but enough soft factors slipped that I would resolve them before committing a quote.';
+      } else {
+        meter.style.background = STOP;
+        title.firstChild.textContent = 'NO-GO ';
+        badge.textContent = 'walk away'; badge.style.background='rgba(229,72,77,.18)'; badge.style.color='#FF9DA0';
+        reason.textContent = 'Deal-breaker on ' + failedCritical.join(' and ') + '. No proposal until that is solved, or we pass and protect the team\'s time.';
+      }
+      scoreEl.textContent = 'Confidence ' + total + ' / ' + max;
+    }
+
+    toggles.forEach(function(t){
+      t.querySelector('input').addEventListener('change', compute);
+    });
+    compute();
+  })();
+
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold:.12 });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>
