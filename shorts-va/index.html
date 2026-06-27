@@ -66,6 +66,11 @@
   .cta-strip .sub{font-size:11px;color:#E7D9C5}
   .cta-strip .play{width:34px;height:34px;border-radius:50%;background:var(--clay);display:flex;align-items:center;justify-content:center}
   .cta-strip .play svg{width:14px;height:14px;fill:#fff}
+  .short-video{width:100%;height:100%;object-fit:cover;display:block;border-radius:26px;background:#1c1814}
+  .sound-btn{position:absolute;top:14px;right:14px;z-index:4;display:flex;align-items:center;gap:7px;background:rgba(28,24,20,.62);backdrop-filter:blur(4px);border:none;border-radius:99px;padding:8px 13px 8px 11px;color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer;transition:background .2s ease}
+  .sound-btn:hover{background:rgba(28,24,20,.82)}
+  .sound-btn svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .mock-cap{text-align:center;margin-top:16px;font-family:var(--sans);font-size:13.5px;color:var(--muted)}
   .disc{position:absolute;bottom:64px;left:14px;font-size:9px;color:var(--muted);font-family:var(--sans)}
 
   section{padding:80px 0}
@@ -197,21 +202,20 @@
     </div>
 
     <div class="phone-wrap" id="sampleMock">
-      <div class="phone" aria-label="Sample 9 by 16 Short: one-touch jar opener">
+      <div class="phone" aria-label="Sample 9 by 16 Short for a one-touch jar opener, edited by Judah">
         <div class="screen">
-          <div class="topbar"><div class="notch"></div></div>
-          <div class="badge-find">Find of the day</div>
-          <div class="prod">
-            <div class="jar"><div class="body"></div><div class="lid"></div></div>
-          </div>
-          <div class="capbar" id="capbar">If opening a jar has become a <span>whole event</span>...</div>
-          <div class="disc">As an Amazon Associate I earn from qualifying purchases.</div>
-          <div class="cta-strip">
-            <div><div class="lk">One-touch jar opener</div><div class="sub">Link below</div></div>
-            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
+          <video id="shortVid" class="short-video" playsinline muted loop autoplay preload="metadata"
+                 poster="assets/sample-short-poster.jpg">
+            <source src="assets/sample-short-jar-opener.mp4" type="video/mp4">
+          </video>
+          <button id="soundBtn" class="sound-btn" aria-label="Toggle sound">
+            <svg id="iconMuted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg>
+            <svg id="iconOn" viewBox="0 0 24 24" style="display:none"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 010 8M18.5 6a8 8 0 010 12"/></svg>
+            <span id="soundLbl">Tap for sound</span>
+          </button>
         </div>
       </div>
+      <div class="mock-cap">A real sample Short, edited start to finish by Judah</div>
     </div>
   </div>
 </header>
@@ -267,7 +271,7 @@
     <div class="sec-head">
       <div class="label">Proof, not promises</div>
       <h2>I already wrote you a sample Short</h2>
-      <p class="lead">For a real women-50+ product, a one-touch jar opener. Here is the full 34 second script, and the same checklist I would run before it ever goes live. The phone above is this exact Short.</p>
+      <p class="lead">The phone at the top is a real, finished Short I edited end to end for a one-touch jar opener: sourced b-roll, AI voiceover, captions, badge, lower-third, and the disclosure. Tap it for sound. Here is the full script behind it and the checklist I run before anything goes live.</p>
     </div>
 
     <div class="proof-grid">
@@ -408,20 +412,22 @@
 </footer>
 
 <script>
-  // cycle the caption bar through the script lines
-  var lines = [
-    'If opening a jar has become a <span>whole event</span>...',
-    'Set it on top, <span>press once</span>',
-    'It does the <span>twisting for you</span>',
-    'Fits tiny spice jars to <span>big sauce jars</span>',
-    'Around <span>$30</span>',
-    '<span>Link below</span>. Tap it.'
-  ];
-  var i = 0, bar = document.getElementById('capbar');
-  setInterval(function(){ i = (i+1) % lines.length; bar.style.opacity = 0;
-    setTimeout(function(){ bar.innerHTML = lines[i]; bar.style.opacity = 1; }, 220);
-  }, 2400);
-  bar.style.transition = 'opacity .22s ease';
+  // sample Short: tap-to-unmute (autoplays muted, like a real Shorts feed)
+  var vid = document.getElementById('shortVid');
+  var btn = document.getElementById('soundBtn');
+  var lbl = document.getElementById('soundLbl');
+  var im = document.getElementById('iconMuted');
+  var io2 = document.getElementById('iconOn');
+  btn.addEventListener('click', function(){
+    vid.muted = !vid.muted;
+    if(!vid.muted){ vid.play(); im.style.display='none'; io2.style.display='inline'; lbl.textContent='Sound on'; }
+    else { im.style.display='inline'; io2.style.display='none'; lbl.textContent='Tap for sound'; }
+  });
+  // pause when scrolled out of view, resume when back
+  var vio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ vid.play(); } else { vid.pause(); } });
+  }, {threshold:.4});
+  vio.observe(vid);
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
