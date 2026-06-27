@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Executive Assistant for ITAD &amp; Electronics Operations</title>
+<meta name="description" content="An organized EA who holds your inbox, Google Sheets, and follow-ups for an ITAD and wholesale electronics business. Real sample workbook and systems by Judah Rivera.">
+<style>
+  :root{
+    --ink:#22303A; --teal:#2F6F6A; --amber:#C58A2E; --bg:#F5F8F8; --card:#FFFFFF;
+    --muted:#5B6B70; --hair:#E1E8EA;
+    --shadow:0 12px 34px rgba(34,48,58,.07); --shadow-lg:0 22px 56px rgba(34,48,58,.12);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.13;font-weight:700;letter-spacing:-.01em}
+  h2{font-size:31px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:62ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:var(--teal)}
+  .tnum{font-variant-numeric:tabular-nums}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(245,248,248,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:700;font-size:19px}
+  .brand span{color:var(--teal)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-block;border-radius:10px;font-weight:600;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+  .btn-primary{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(47,111,106,.24)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(47,111,106,.3)}
+  .btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:76px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+  .hero h1{font-size:50px;letter-spacing:-.025em}
+  .hero h1 .hl{color:var(--teal)}
+  .hero p.sub{margin:20px 0 26px;font-size:19px;color:var(--muted);max-width:54ch}
+  .badge-read{display:inline-flex;align-items:center;gap:8px;background:rgba(197,138,46,.13);color:#8a5e16;font-size:13px;font-weight:600;padding:6px 13px;border-radius:99px;margin-bottom:16px}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+  /* triage mini panel */
+  .panel{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .panel .ph{background:var(--ink);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+  .panel .ph .t{font-weight:600;font-size:15px}
+  .panel .ph .m{font-size:12px;color:#A9BBC0}
+  .panel table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .panel td{padding:11px 14px;border-bottom:1px solid var(--hair)}
+  .panel tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px}
+  .pill.u{background:#F6D9D4;color:#9c3b2a}
+  .pill.h{background:#FBE6CC;color:#8a5e16}
+  .pill.l{background:#E2EAEC;color:#52636a}
+  .pill.d{background:#D4E7E2;color:#236054}
+
+  section{padding:84px 0}
+  .sec-head{max-width:64ch;margin-bottom:34px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:26px}
+  .card h3{font-size:18.5px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15.5px}
+  .card .ic{width:42px;height:42px;border-radius:11px;background:rgba(47,111,106,.10);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .card .ic svg{width:21px;height:21px;stroke:var(--teal);fill:none;stroke-width:1.7}
+
+  .dark{background:var(--ink);color:#fff}
+  .dark .lead{color:#A9BBC0}
+  .dark .label{color:var(--amber)}
+
+  /* workbook tabs preview */
+  .wb{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;margin-top:6px}
+  .wb .tabs{display:flex;gap:2px;background:#EEF3F3;padding:8px 8px 0;flex-wrap:wrap}
+  .wb .tab{font-size:13px;font-weight:600;padding:9px 14px;border-radius:8px 8px 0 0;color:var(--muted);cursor:default}
+  .wb .tab.on{background:var(--card);color:var(--ink);box-shadow:0 -2px 0 var(--teal) inset}
+  .wb table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .wb thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:11px 14px;border-bottom:1px solid var(--hair);background:#F7FAFA}
+  .wb tbody td{padding:10px 14px;border-bottom:1px solid var(--hair)}
+  .wb tbody tr:last-child td{border-bottom:none}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .step{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:20px}
+  .step .n{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.04em}
+  .step h3{margin:7px 0 6px;font-size:16.5px}
+  .step p{color:var(--muted);font-size:14px}
+  .dark .step{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+  .dark .step h3{color:#fff}
+  .dark .step p{color:#A9BBC0}
+  .dark .step .n{color:var(--amber)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .listcard{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:28px}
+  .listcard h3{font-size:18.5px;margin-bottom:14px}
+  .listcard ul{list-style:none}
+  .listcard li{padding:9px 0 9px 26px;position:relative;font-size:15.5px;color:var(--muted);border-bottom:1px solid var(--hair)}
+  .listcard li:last-child{border-bottom:none}
+  .listcard li:before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:2px;background:var(--teal)}
+  .listcard li b{color:var(--ink);font-weight:600}
+  .tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .chip{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:8px 15px;font-size:14px;font-weight:500;box-shadow:var(--shadow)}
+
+  .cta-card{background:var(--ink);color:#fff;border-radius:20px;padding:52px;text-align:center;box-shadow:var(--shadow-lg)}
+  .cta-card h2{font-size:34px;color:#fff;margin-bottom:12px}
+  .cta-card p{color:#A9BBC0;max-width:54ch;margin:0 auto 24px}
+  .cta-meta{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);font-weight:700}
+  .cta-meta .v{font-size:16px;color:#fff;font-weight:500}
+  .cta-meta .v a{color:#fff}
+
+  footer{padding:38px 0 54px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid,.two{grid-template-columns:1fr}
+    .grid-3,.steps{grid-template-columns:1fr}
+    .hero h1{font-size:38px}
+    h2{font-size:26px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:34px 22px}
+    .wb{overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>Rivera</span></div>
+    <div class="nav-links">
+      <a href="#workbook">The workbook</a>
+      <a href="#email">Email system</a>
+      <a href="#tasks">Task system</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Work with Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge-read">Warehouse Excellence · yes, I read the whole posting</div>
+      <h1>The EA who keeps your <span class="hl">inbox, sheets, and follow-ups</span> under control.</h1>
+      <p class="sub">You run an ITAD and wholesale electronics business that lives on email, spreadsheets, and chasing vendors and customers. I hold all three so nothing slips, and my accountancy background fits the asset and inventory side.</p>
+      <div class="hero-cta">
+        <a href="#hire" class="btn btn-primary">Let's talk</a>
+        <a href="#workbook" class="btn btn-ghost">See the workbook I built</a>
+      </div>
+    </div>
+
+    <div class="panel reveal" aria-label="Sample email triage">
+      <div class="ph"><div class="t">Email Triage, this morning</div><div class="m">sample</div></div>
+      <table>
+        <tr><td>Dell raised lot bid 6%, needs yes by EOD</td><td><span class="pill u">Urgent</span></td></tr>
+        <tr><td>Hospital needs Certificate of Destruction today</td><td><span class="pill d">Done</span></td></tr>
+        <tr><td>Customer chasing the monitor quote</td><td><span class="pill h">High</span></td></tr>
+        <tr><td>Stripe payout notice, no action</td><td><span class="pill l">FYI</span></td></tr>
+      </table>
+    </div>
+  </div>
+</header>
+
+<!-- I get your business -->
+<section style="padding-top:22px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">I understand the operation</div>
+      <h2>This is a fast, follow-up-heavy business</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v2M16 18v2"/></svg></div>
+        <h3>Physical and data-bearing assets</h3>
+        <p>Used and refurb electronics, scrap, and drives that need tracking from intake to data wipe to resale or recycle. Detail matters here.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3>Email and follow-ups everywhere</h3>
+        <p>Vendors, customers, partners. The job is making sure the urgent ones surface fast and the rest never go cold.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg></div>
+        <h3>Growing fast, needs systems</h3>
+        <p>Clean Sheets, clear SOPs, one source of truth. I build the systems so growth does not turn into chaos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- workbook -->
+<section id="workbook" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Application requirement #3</div>
+      <h2 style="color:#fff">A spreadsheet I built for your exact business</h2>
+      <p class="lead">A 5-tab ITAD operations workbook. Sample data is illustrative, the structure is what I'd actually run for you.</p>
+    </div>
+    <div class="wb">
+      <div class="tabs">
+        <div class="tab on">Vendor &amp; Customer Follow-Ups</div>
+        <div class="tab">ITAD Asset Intake</div>
+        <div class="tab">Email Triage Log</div>
+        <div class="tab">SOP Index</div>
+        <div class="tab">Overview</div>
+      </div>
+      <table>
+        <thead><tr><th>Date</th><th>Company</th><th>Type</th><th>Subject</th><th>Status</th><th>Next follow-up</th></tr></thead>
+        <tbody>
+          <tr><td class="tnum">Jun 22</td><td>Dell Asset Recovery</td><td>Vendor</td><td>Q3 laptop lot pricing</td><td><span class="pill h">Awaiting reply</span></td><td class="tnum">Jun 30</td></tr>
+          <tr><td class="tnum">Jun 24</td><td>Pacific Wholesale</td><td>Customer</td><td>500x refurb monitors quote</td><td><span class="pill d">Quoted</span></td><td class="tnum">Jun 28</td></tr>
+          <tr><td class="tnum">Jun 24</td><td>CityHospital IT</td><td>Customer</td><td>Hard drive shredding pickup</td><td><span class="pill d">Scheduled</span></td><td class="tnum">Jul 01</td></tr>
+          <tr><td class="tnum">Jun 25</td><td>ScrapMetro</td><td>Vendor</td><td>Scrap board buy price</td><td><span class="pill h">Awaiting reply</span></td><td class="tnum">Jun 29</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:20px"><a href="assets/Sample_ITAD_EA_Workbook.xlsx" class="btn btn-primary" download>Download the full workbook (.xlsx)</a></div>
+  </div>
+</section>
+
+<!-- email system -->
+<section id="email">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Application requirement #4</div>
+      <h2>How I make sure important emails are never missed</h2>
+      <p class="lead">I treat the inbox like a system, not a pile. Scheduled sweeps, four buckets, nothing archived until it is done or logged.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01 · SWEEP</div><h3>At set times</h3><p>I process the inbox at scheduled points in the day instead of reacting all day long.</p></div>
+      <div class="step reveal"><div class="n">02 · SORT</div><h3>Four buckets</h3><p>Every email becomes Urgent, Action, Waiting, or FYI. No email sits unsorted.</p></div>
+      <div class="step reveal"><div class="n">03 · FLAG</div><h3>Urgent to you</h3><p>Urgent items go to you right away with a one-line summary and the decision needed.</p></div>
+      <div class="step reveal"><div class="n">04 · LOG</div><h3>Never on memory</h3><p>Anything actionable becomes a task with an owner and due date, logged in the triage tab. Inbox ends at zero.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- task system -->
+<section id="tasks" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Application requirement #5</div>
+      <h2 style="color:#fff">My reminder and task management system</h2>
+      <p class="lead">One source of truth, reviewed daily, with a follow-up cadence so nothing goes cold.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">CAPTURE</div><h3>One tracker</h3><p>Every commitment, yours or mine, logged the moment it appears with a due date.</p></div>
+      <div class="step reveal"><div class="n">REVIEW</div><h3>Every morning</h3><p>I start the day on what's due today plus anything overdue, so nothing slips quietly.</p></div>
+      <div class="step reveal"><div class="n">CADENCE</div><h3>Follow-ups on rails</h3><p>A first nudge, then a second a few days later, so vendors and customers never go cold.</p></div>
+      <div class="step reveal"><div class="n">BACKSTOP</div><h3>Calendar + weekly</h3><p>Time-specific items get a calendar reminder, and a weekly review catches anything aging.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- what I'd own + tools -->
+<section style="padding-top:84px">
+  <div class="wrap">
+    <div class="two">
+      <div class="listcard reveal">
+        <h3>What I'd own</h3>
+        <ul>
+          <li><b>Inbox monitoring:</b> watch executive inboxes, flag urgent, summarize what needs a decision.</li>
+          <li><b>Google Workspace:</b> keep Drive and Sheets clean, named, and consistent.</li>
+          <li><b>Follow-ups:</b> chase vendors, customers, and partners on cadence.</li>
+          <li><b>Tasks and reminders:</b> one source of truth, reviewed daily.</li>
+          <li><b>SOPs, calendar, research:</b> document processes, schedule, and run admin projects.</li>
+        </ul>
+      </div>
+      <div class="listcard reveal">
+        <h3>Tools I bring</h3>
+        <p style="color:var(--muted);font-size:15px;margin-bottom:8px">Everything the role lists, plus a quick learning curve on anything new.</p>
+        <div class="tools">
+          <span class="chip">Google Sheets</span><span class="chip">Google Docs</span><span class="chip">Drive</span>
+          <span class="chip">Gmail</span><span class="chip">Calendar</span><span class="chip">Excel</span>
+          <span class="chip">Notion</span><span class="chip">ClickUp</span><span class="chip">Asana</span><span class="chip">Slack</span>
+        </div>
+        <p style="color:var(--muted);font-size:14px;margin-top:18px">BS Accountancy background: financial tracking and reconciliations come naturally, which fits an asset-heavy business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Hand me the inbox and the sheets</h2>
+      <p>Give me access and your priorities, and I'll set up the triage system, the trackers, and the follow-up cadence in the first week. Happy to start with a small paid task so you can see the organization firsthand.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Executive%20Assistant%20%28ITAD%29%20application" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Availability</div><div class="v">35 hrs/wk, agreed hours</div></div>
+        <div><div class="k">Overlap</div><div class="v">Strong US-hours overlap</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by Judah Rivera for the ITAD Executive Assistant role. A working sample, not a template. · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
