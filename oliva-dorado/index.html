@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Executive &amp; Operations Assistant for Oliva Dorado</title>
+<meta name="description" content="A calm, organized operator for Oliva Dorado: founder support, customer email, and a wholesale pipeline for grocery, built and ready by Judah Rivera.">
+<style>
+  :root{
+    --ink:#22301E; --bg:#F7F3EA; --card:#FFFDF8; --gold:#C0922F;
+    --olive:#5E6B4A; --dark:#161C12; --muted:#7C7A6E; --hair:#E6DECB;
+    --shadow:0 12px 36px rgba(34,48,30,.07);
+    --shadow-lg:0 22px 60px rgba(34,48,30,.12);
+    --serif:"Cormorant Garamond","Georgia",serif;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.12;font-weight:700;letter-spacing:-.01em}
+  h2{font-size:32px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:62ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--gold)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(247,243,234,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-family:var(--serif);font-weight:700;font-size:25px;letter-spacing:.3px}
+  .brand span{color:var(--gold)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-block;border-radius:10px;font-weight:600;font-size:15.5px;padding:13px 23px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;font-family:var(--sans)}
+  .btn-primary{background:var(--gold);color:#fff;box-shadow:0 8px 20px rgba(192,146,47,.26)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(192,146,47,.32)}
+  .btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:80px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:52px;font-weight:700;letter-spacing:-.025em}
+  .hero h1 .hl{color:var(--gold);font-family:var(--serif);font-style:italic;font-weight:600}
+  .hero p.sub{margin:22px 0 28px;font-size:19px;color:var(--muted);max-width:54ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .readline{margin-top:22px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:9px}
+  .leaf{width:16px;height:16px;stroke:var(--olive);fill:none;stroke-width:1.6}
+
+  /* brief card (hero visual) */
+  .brief{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .brief .top{background:var(--ink);color:#fff;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+  .brief .top .t{font-family:var(--serif);font-size:21px;font-weight:700}
+  .brief .top .d{font-size:12px;color:#C8CBB4}
+  .brief .bd{padding:18px 20px}
+  .brief .sec{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;margin:12px 0 7px}
+  .brief .sec:first-child{margin-top:0}
+  .brief .row{display:flex;gap:10px;font-size:14.5px;padding:4px 0;color:var(--ink)}
+  .brief .row .n{color:var(--gold);font-weight:700}
+  .brief .chip{display:inline-block;font-size:11px;font-weight:600;background:rgba(94,107,74,.13);color:var(--olive);padding:3px 9px;border-radius:99px;margin-left:6px}
+
+  section{padding:88px 0}
+  .sec-head{max-width:64ch;margin-bottom:36px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);padding:26px}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15.5px}
+  .card .ic{width:42px;height:42px;border-radius:11px;background:rgba(192,146,47,.10);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  .card .ic svg{width:21px;height:21px;stroke:var(--gold);fill:none;stroke-width:1.7}
+
+  /* responsibility cards */
+  .grid-resp{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .resp{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:22px}
+  .resp .k{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:6px}
+  .resp .k b{color:var(--gold)}
+  .resp p{color:var(--muted);font-size:14.5px}
+
+  /* 30/60/90 */
+  .warm{background:#EFE8D6}
+  .plan{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+  .pcol{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);padding:26px;position:relative}
+  .pcol .d{font-family:var(--serif);font-size:38px;font-weight:700;color:var(--gold);line-height:1}
+  .pcol h3{font-size:17px;margin:6px 0 12px}
+  .pcol ul{list-style:none}
+  .pcol li{padding:7px 0 7px 22px;position:relative;font-size:14.5px;color:var(--muted);border-bottom:1px solid var(--hair)}
+  .pcol li:last-child{border-bottom:none}
+  .pcol li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+  /* proof: wholesale pipeline */
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .col{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .col .ch{font-size:12px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--olive);margin-bottom:10px;display:flex;justify-content:space-between}
+  .col .ch span{background:rgba(94,107,74,.13);border-radius:99px;padding:1px 8px;font-size:11px}
+  .deal{background:#FBF7EC;border:1px solid var(--hair);border-radius:10px;padding:11px 12px;margin-bottom:9px}
+  .deal:last-child{margin-bottom:0}
+  .deal .s{font-weight:700;font-size:14px}
+  .deal .m{font-size:12px;color:var(--muted);margin-top:2px}
+  .deal .pill{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:99px;margin-top:7px}
+  .pill.gold{background:rgba(192,146,47,.16);color:#8a6716}
+  .pill.olive{background:rgba(94,107,74,.16);color:var(--olive)}
+  .pill.ink{background:rgba(34,48,30,.08);color:var(--ink)}
+
+  .stat-row{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}
+  .stat .v{font-family:var(--serif);font-size:38px;font-weight:700;color:var(--ink)}
+  .stat .k{font-size:13px;color:var(--muted)}
+
+  /* outreach + kit */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+  .mailcard{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);padding:26px}
+  .mailcard .subj{font-weight:700;font-size:15px;border-bottom:1px solid var(--hair);padding-bottom:10px;margin-bottom:12px}
+  .mailcard p{font-size:14.5px;color:#3a4533;margin-bottom:10px}
+  .qa{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;margin-bottom:12px}
+  .qa .q{font-weight:700;font-size:15.5px;color:var(--ink);margin-bottom:6px;display:flex;gap:9px}
+  .qa .q .dot{color:var(--gold)}
+  .qa .a{font-size:14.5px;color:var(--muted)}
+
+  .listcard{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);padding:28px}
+  .listcard h3{font-size:19px;margin-bottom:14px}
+  .listcard ul{list-style:none}
+  .listcard li{padding:9px 0 9px 26px;position:relative;font-size:15.5px;color:var(--muted);border-bottom:1px solid var(--hair)}
+  .listcard li:last-child{border-bottom:none}
+  .listcard li:before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+  .listcard li b{color:var(--ink);font-weight:600}
+  .tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .chip2{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:8px 15px;font-size:14px;font-weight:500;box-shadow:var(--shadow)}
+
+  .cta-card{background:var(--dark);color:#fff;border-radius:22px;padding:54px;text-align:center;box-shadow:var(--shadow-lg)}
+  .cta-card h2{font-family:var(--serif);font-size:38px;color:#fff;margin-bottom:12px}
+  .cta-card p{color:#C8CBB4;max-width:54ch;margin:0 auto 26px}
+  .cta-meta{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);font-weight:700}
+  .cta-meta .v{font-size:16px;color:#fff;font-weight:500}
+  .cta-meta .v a{color:#fff}
+
+  footer{padding:40px 0 56px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted)}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid,.two{grid-template-columns:1fr}
+    .grid-3,.grid-resp,.plan,.board{grid-template-columns:1fr}
+    .hero h1{font-size:39px}
+    h2{font-size:27px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:34px 22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>Rivera</span></div>
+    <div class="nav-links">
+      <a href="#help">How I'd help</a>
+      <a href="#proof">Proof</a>
+      <a href="#about">About</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Work with Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="label">Executive &amp; Operations Assistant · for Oliva Dorado</div>
+      <h1>The calm operator behind your <span class="hl">liquid gold</span>.</h1>
+      <p class="sub">You're growing Oliva Dorado fast across direct sales, customer email, and wholesale into grocery, and you're the bottleneck for all of it. I take the recurring work off your plate and run it proactively, so you get your day back to grow the brand.</p>
+      <div class="hero-cta">
+        <a href="#hire" class="btn btn-primary">Let's talk</a>
+        <a href="#proof" class="btn btn-ghost">See what I built you</a>
+      </div>
+      <div class="readline">
+        <svg class="leaf" viewBox="0 0 24 24"><path d="M12 21c0-7 3-11 9-12-1 7-4 11-9 12z"/><path d="M12 21c0-5-2-8-7-9 1 5 3 8 7 9z"/></svg>
+        Yes, I read your Journey page: single-origin Arbequina, pressed within hours, Zaragoza.
+      </div>
+    </div>
+
+    <div class="brief reveal" aria-label="Sample founder daily brief">
+      <div class="top"><div class="t">Founder's Monday Brief</div><div class="d">sample</div></div>
+      <div class="bd">
+        <div class="sec">Top 3 today</div>
+        <div class="row"><span class="n">1</span><span>Approve Whole Foods NorCal sample shipment</span></div>
+        <div class="row"><span class="n">2</span><span>Review reply to the recipe-collab DM</span></div>
+        <div class="row"><span class="n">3</span><span>Decide Discovery Set restock qty</span></div>
+        <div class="sec">Waiting on you</div>
+        <div class="row"><span>Wholesale 10% tier at 24+ units?</span></div>
+        <div class="sec">I already handled</div>
+        <div class="row"><span>Support inbox cleared <span class="chip">zero</span></span></div>
+        <div class="row"><span>3 finalized posts scheduled</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- studied strip -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">I studied Oliva Dorado</div>
+      <h2>I understand the actual business, not just "admin"</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 11V7a5 5 0 0110 0v4"/><rect x="5" y="11" width="14" height="9" rx="2"/></svg></div>
+        <h3>A single-origin product</h3>
+        <p>Your customers ask specific things: harvest date, freshness, polyphenols, storage. I can answer those accurately and on-brand, because I took the time to learn them.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l1-4h16l1 4"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Wholesale into grocery</h3>
+        <p>Growth means getting onto more shelves. That is a pipeline: research buyers, send samples, follow up on cadence, never let a warm store go cold.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></div>
+        <h3>Founder-led and fast</h3>
+        <p>Priorities shift week to week. I stay calm, keep one source of truth, and surface only the decisions that truly need you, with a recommendation attached.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- what I'd take off your plate -->
+<section id="help">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">What I'd take off your plate</div>
+      <h2>Every area in your post, with the concrete thing I'd own</h2>
+    </div>
+    <div class="grid-resp">
+      <div class="resp reveal"><div class="k"><b>Executive</b> support</div><p>Calendar and scheduling, meeting coordination, inbox triage and drafted replies, follow-ups on every open action, research, and travel logistics.</p></div>
+      <div class="resp reveal"><div class="k"><b>Customer</b> experience</div><p>Fast, professional email replies in your voice, issues resolved at my level, a high service standard that protects the brand.</p></div>
+      <div class="resp reveal"><div class="k"><b>Wholesale</b> &amp; partnerships</div><p>Grocery outreach, a tracked pipeline, follow-up cadence, and steady care of existing wholesale relationships.</p></div>
+      <div class="resp reveal"><div class="k"><b>Marketing</b> &amp; website</div><p>Publish finalized social posts, upload and format blog posts, keep digital files and content libraries tidy.</p></div>
+      <div class="resp reveal"><div class="k"><b>Operations</b> &amp; admin</div><p>Build and maintain trackers, document processes, and run special projects end to end.</p></div>
+      <div class="resp reveal" style="background:var(--ink);color:#fff;border-color:var(--ink)"><div class="k" style="color:#fff">The point</div><p style="color:#C8CBB4">You stop holding all of this in your head. It lives in clean systems, and I run them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 30/60/90 -->
+<section class="warm">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">A calm start</div>
+      <h2>My first 30, 60, and 90 days</h2>
+      <p class="lead">No chaos, no long ramp. I get oriented, take the recurring load, then start improving the systems.</p>
+    </div>
+    <div class="plan">
+      <div class="pcol reveal"><div class="d">30</div><h3>Learn and absorb</h3><ul>
+        <li>Master your products, FAQs, and brand voice</li>
+        <li>Take over the support inbox and calendar</li>
+        <li>Set up the daily brief and EOD recap</li>
+        <li>Build the wholesale pipeline tracker</li>
+      </ul></div>
+      <div class="pcol reveal"><div class="d">60</div><h3>Own the routine</h3><ul>
+        <li>Run customer email end to end</li>
+        <li>Drive wholesale follow-ups on cadence</li>
+        <li>Publish social and blog content on schedule</li>
+        <li>Keep Drive and content libraries organized</li>
+      </ul></div>
+      <div class="pcol reveal"><div class="d">90</div><h3>Improve and extend</h3><ul>
+        <li>Tighten SOPs from what I have learned</li>
+        <li>Grow the wholesale prospect list</li>
+        <li>Spot recurring questions, improve the FAQ</li>
+        <li>Take on special projects as they come</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF: wholesale pipeline -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Proof, not promises</div>
+      <h2>Your wholesale pipeline, already structured</h2>
+      <p class="lead">This is how I'd move grocery prospects from research to stocked, with a follow-up date set before I ever close a row. Prospects shown are illustrative samples.</p>
+    </div>
+    <div class="board">
+      <div class="col reveal"><div class="ch">Researching <span>1</span></div>
+        <div class="deal"><div class="s">Harvest Co-op</div><div class="m">Madison, WI · co-op</div><span class="pill ink">Intro drafted</span></div>
+      </div>
+      <div class="col reveal"><div class="ch">Contacted <span>1</span></div>
+        <div class="deal"><div class="s">Olive &amp; Vine</div><div class="m">Brooklyn, NY · deli</div><span class="pill ink">Follow-up 1 due Jul 10</span></div>
+      </div>
+      <div class="col reveal"><div class="ch">Sampling <span>1</span></div>
+        <div class="deal"><div class="s">Coastal Market</div><div class="m">Austin, TX · grocer</div><span class="pill gold">Loved polyphenol story</span></div>
+      </div>
+      <div class="col reveal"><div class="ch">Stocked <span>1</span></div>
+        <div class="deal"><div class="s">Sunridge Grocers</div><div class="m">Phoenix, AZ · 3 stores</div><span class="pill olive">Reorder check Aug 01</span></div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="v" data-count="6">0</div><div class="k">touchpoints logged per prospect</div></div>
+      <div class="stat"><div class="v">0</div><div class="k">follow-ups left to chance</div></div>
+      <div class="stat"><div class="v" data-count="24">0</div><div class="k">hour target to first reply</div></div>
+    </div>
+
+    <div class="two">
+      <div class="mailcard reveal">
+        <div class="label" style="margin-bottom:10px">Sample buyer outreach · your voice</div>
+        <div class="subj">Subject: Single-origin Spanish EVOO for your shelves, samples on us</div>
+        <p>Hi [Buyer], I'm reaching out from Oliva Dorado, a small-batch organic EVOO from one family farm in Zaragoza, Spain. We press 100% Arbequina within about three hours of harvest and bottle in dark glass, so it reaches your shelf genuinely fresh, single-origin, and lab-tested.</p>
+        <p>I think it's a strong fit for customers who care where their food comes from. Could I send a sample set this week, no strings? I can include a one-page wholesale sheet with case pricing.</p>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:0">Every claim is true to your brand. I keep buyer messaging accurate, never overstated.</p>
+      </div>
+      <div class="reveal">
+        <div class="label" style="margin-bottom:10px">Customer response kit · ready replies</div>
+        <div class="qa"><div class="q"><span class="dot">·</span> "How fresh is it? Harvest date?"</div><div class="a">Early-harvest, cold-pressed within about three hours, sealed in dark glass. Your bottle is from our latest harvest, date on the label.</div></div>
+        <div class="qa"><div class="q"><span class="dot">·</span> "Why is it worth the price?"</div><div class="a">100% Arbequina, one farm in Zaragoza, early harvest, third-party tested around 407 mg/kg polyphenols. Single origin, never blended.</div></div>
+        <div class="qa"><div class="q"><span class="dot">·</span> "My bottle arrived cracked."</div><div class="a">So sorry. Send a quick photo and a replacement ships today, no return needed. Flagged with the carrier too.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- tools + about -->
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="two">
+      <div class="listcard reveal">
+        <h3>Real track record</h3>
+        <ul>
+          <li><b>4+ years supporting founders</b> and small business owners as an EA and VA.</li>
+          <li>Ran <b>inboxes and calendars</b> for busy founders: triage, scheduling across time zones, drafting in their voice.</li>
+          <li>Built and kept <b>Google Sheets and Excel trackers</b> for tasks, outreach, and status across multiple clients.</li>
+          <li>Handled <b>customer and partner communication</b> and chased follow-ups so nothing slipped.</li>
+          <li><b>BS Accountancy</b> background: numbers and clean records are second nature.</li>
+        </ul>
+      </div>
+      <div class="listcard reveal">
+        <h3>Tools I bring</h3>
+        <p style="color:var(--muted);font-size:15px;margin-bottom:10px">Everything your post lists, plus the AI tooling that makes drafting and research fast and still human.</p>
+        <div class="tools">
+          <span class="chip2">Google Workspace</span><span class="chip2">Shopify</span><span class="chip2">Canva</span>
+          <span class="chip2">Notion</span><span class="chip2">ClickUp</span><span class="chip2">Asana</span>
+          <span class="chip2">Slack</span><span class="chip2">Calendly</span><span class="chip2">HubSpot</span>
+          <span class="chip2">ChatGPT</span><span class="chip2">Claude</span>
+        </div>
+        <p style="color:var(--muted);font-size:14px;margin-top:18px">I pick up new systems quickly, and I review every AI draft by hand so it stays accurate and on-brand.</p>
+      </div>
+    </div>
+    <div class="card reveal" style="padding:34px;margin-top:24px">
+      <div class="label">About Judah</div>
+      <h2 style="margin-top:6px;font-family:var(--serif)">Proactive, not reactive</h2>
+      <p style="color:var(--muted);max-width:72ch;margin-top:8px">I'm an Executive and Operations Assistant based in the Philippines who treats a founder's time as the scarce resource it is. I'm organized, I follow through, and I stay calm when the week reshuffles. Hand me something and you won't need to remember to chase me on it. I keep strong overlap with U.S. hours, run on reliable 60 Mbps fiber, and I'd genuinely enjoy growing into this role as Oliva Dorado grows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Let's get your day back</h2>
+      <p>Send me a few of your recurring tasks and your must-haves, and I'll set up the inbox system, the daily brief, and the wholesale tracker in the first week. Happy to start with a small paid task so you can see how I work.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Executive%20%26%20Operations%20Assistant%2C%20Oliva%20Dorado" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Availability</div><div class="v">10 to 20 hrs/wk, Mon to Fri</div></div>
+        <div><div class="k">US overlap</div><div class="v">~8am to 12pm ET</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by Judah Rivera for Oliva Dorado's Executive &amp; Operations Assistant role. A working sample, not a template. · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // count-up for stats
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, target = +el.dataset.count, t0 = null;
+      function step(ts){ if(!t0) t0 = ts; var p = Math.min((ts-t0)/900,1);
+        el.textContent = Math.round(p*target); if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step); cio.unobserve(el);
+    });
+  }, {threshold:.6});
+  document.querySelectorAll('.stat .v[data-count]').forEach(function(el){ cio.observe(el); });
+</script>
+</body>
+</html>
