@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah · Sample Marketing Content for New Image Homes</title>
+<meta name="description" content="Ready-to-run marketing samples for New Image Homes: before-and-after social posts, a local-SEO blog, an email newsletter, a 2-week content calendar and a monthly report. Built before being hired, by Judah.">
+<style>
+  :root{
+    --bg:#12151C; --card:#1B1F29; --amber:#FF8A3D; --blue:#4FB6FF;
+    --text:#F1F3F8; --muted:#99A2B4; --hair:#2A3140;
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.13;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:32px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18px;max-width:66ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--amber)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(18,21,28,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:19px}
+  .brand span{color:var(--amber)}
+  .nav-links{display:flex;gap:22px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease}
+  .btn-primary{background:var(--amber);color:#12151C;box-shadow:0 8px 22px rgba(255,138,61,.32)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--amber)}
+  .nav-cta{padding:10px 18px;font-size:14px}
+
+  .hero{padding:80px 0 50px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,61,.22),transparent 62%);pointer-events:none}
+  .hero h1{font-size:52px;letter-spacing:-.03em;max-width:18ch}
+  .hero h1 .hl{color:var(--amber)}
+  .hero p.sub{margin:20px 0 26px;font-size:19px;color:var(--muted);max-width:60ch}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .note-strip{margin-top:22px;font-size:13.5px;color:var(--muted);max-width:64ch;background:rgba(79,182,255,.08);border:1px solid rgba(79,182,255,.25);border-radius:10px;padding:12px 15px}
+  .note-strip b{color:var(--blue)}
+
+  section{padding:60px 0}
+  .sec-head{max-width:68ch;margin-bottom:30px}
+
+  /* social posts */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .post{background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .post .visual{height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-weight:800;font-size:15px;color:#12151C;position:relative}
+  .v-ba{background:linear-gradient(135deg,#FF8A3D,#FFC36B)}
+  .v-trust{background:linear-gradient(135deg,#4FB6FF,#8AD6FF)}
+  .v-review{background:linear-gradient(135deg,#39D98A,#9BF0C4)}
+  .post .visual small{display:block;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+  .post .body{padding:18px 19px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .post .ptype{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);font-weight:800}
+  .post .cap{font-size:14px;color:var(--text);line-height:1.55}
+  .post .tags{font-size:12.5px;color:var(--blue);margin-top:auto}
+
+  /* blog */
+  .blog{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:30px 32px;box-shadow:var(--shadow)}
+  .meta-row{font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:18px}
+  .meta-row b{color:var(--amber)}
+  .blog h3{font-size:25px;margin-bottom:6px}
+  .blog h4{font-size:16px;margin:18px 0 6px;color:var(--blue)}
+  .blog p{font-size:15px;color:#D9DEEA;margin-bottom:10px}
+  .blog .seo{background:rgba(255,138,61,.08);border:1px solid rgba(255,138,61,.25);border-radius:10px;padding:13px 15px;font-size:13px;color:var(--muted);margin-bottom:20px}
+  .blog .seo b{color:var(--amber)}
+
+  /* two-col */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .panel{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:26px}
+  .panel h3{font-size:19px;margin-bottom:4px}
+  .panel .sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+  .email-line{font-size:14px;margin-bottom:8px;color:#D9DEEA}
+  .email-line b{color:var(--text)}
+  .subject-pill{background:rgba(79,182,255,.10);border:1px solid rgba(79,182,255,.3);border-radius:8px;padding:8px 12px;font-size:13.5px;color:var(--blue);font-weight:700;margin-bottom:12px;display:inline-block}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--amber)}
+  td .d{color:var(--muted);font-size:12px}
+
+  .report-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .report-list li{font-size:13.5px;color:#D9DEEA;background:#12151C;border:1px solid var(--hair);border-radius:8px;padding:9px 12px}
+  .report-list li b{color:var(--amber)}
+
+  .cta-card{background:linear-gradient(135deg,#241a12,#1B1F29);border:1px solid var(--hair);border-radius:20px;padding:50px;text-align:center;box-shadow:var(--shadow)}
+  .cta-card h2{font-size:33px;margin-bottom:12px}
+  .cta-card p{color:var(--muted);max-width:56ch;margin:0 auto 24px}
+  .cta-meta{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--hair)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);font-weight:700}
+  .cta-meta .v{font-size:15.5px;font-weight:500}
+  .cta-meta .v a{color:var(--text)}
+
+  footer{padding:36px 0 52px;text-align:center;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-3,.grid-2,.report-list{grid-template-columns:1fr}
+    .hero h1{font-size:37px}
+    h2{font-size:25px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:32px 20px}
+    .blog{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>· for New Image Homes</span></div>
+    <div class="nav-links">
+      <a href="#social">Social</a>
+      <a href="#blog">Blog</a>
+      <a href="#email">Email</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Hire Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">Marketing & Content VA · samples, not promises</div>
+    <h1>I made the content first. Here's a week of marketing for <span class="hl">New Image Homes</span>.</h1>
+    <p class="sub">You asked what I can provide. Easier to show you. Below are real, ready-to-run samples in your voice: before-and-after social posts, a local-SEO blog, an email, a content calendar, and the monthly report you'd get from me. All built before you hired me.</p>
+    <div class="hero-cta">
+      <a href="#social" class="btn btn-primary">See the samples</a>
+      <a href="#hire" class="btn btn-ghost">Work with me</a>
+    </div>
+    <div class="note-strip">Honest note: where a real project, suburb, or client name belongs, I've left a <b>[bracket]</b>. Hand me your project photos and details and these go live the same week, no guesswork on the facts.</div>
+  </div>
+</header>
+
+<!-- SOCIAL -->
+<section id="social" style="padding-top:14px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 1 · social posts</div>
+      <h2>Three posts that turn finished builds into enquiries</h2>
+      <p class="lead">Your strongest content already exists: the projects. These are written for the Waikato, with captions, a graphic direction, and local hashtags ready to schedule across Facebook, Instagram and LinkedIn.</p>
+    </div>
+    <div class="grid-3">
+      <div class="post reveal">
+        <div class="visual v-ba"><div><small>Carousel · before / after</small>Swipe to see the transformation</div></div>
+        <div class="body">
+          <div class="ptype">Before &amp; after reveal</div>
+          <div class="cap">A tired 90s kitchen in [suburb], same footprint, completely new feel. Honest timeline, a fixed quote up front, and a Certified Builders guarantee behind every job. Thinking about your own space? Send us a message, we'll tell you straight what's possible.</div>
+          <div class="tags">#WaikatoBuilder #HamiltonRenovations #BeforeAndAfter #NewImageHomes</div>
+        </div>
+      </div>
+      <div class="post reveal">
+        <div class="visual v-trust"><div><small>Single image · on site</small>What "stress-free" actually means</div></div>
+        <div class="body">
+          <div class="ptype">Process &amp; trust</div>
+          <div class="cap">"Stress-free build" gets thrown around a lot. Here's what it means with us: you understand the process before we start, you get one point of contact, and our own contractors do the work so quality and cost stay in our hands. That's the difference.</div>
+          <div class="tags">#HamiltonBuilder #NewBuildNZ #Waikato #CertifiedBuilders</div>
+        </div>
+      </div>
+      <div class="post reveal">
+        <div class="visual v-review"><div><small>Image + quote · handover</small>★★★★★ from [suburb]</div></div>
+        <div class="body">
+          <div class="ptype">Social proof + review request</div>
+          <div class="cap">Nothing means more to a builder than a family who'd do it all again. Huge thanks to [client first name] for the kind words after we handed over their new build in [suburb]. Built or renovated with us? A quick Google review helps other Waikato families find us, link in bio.</div>
+          <div class="tags">#NewImageHomes #HamiltonHomes #WaikatoBuilds #GoogleReview</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 2 · local-SEO blog</div>
+      <h2>A blog written to rank and to sound like a builder</h2>
+    </div>
+    <div class="blog reveal">
+      <div class="seo"><b>SEO title:</b> Building New vs Renovating in the Waikato: How to Decide in 2026 &nbsp;·&nbsp; <b>Meta:</b> New build or renovation in Hamilton? A Waikato builder breaks down cost, timeline and resale so you can decide with confidence. &nbsp;·&nbsp; <b>Target keyword:</b> Waikato builder / Hamilton renovations</div>
+      <div class="meta-row">Category: <b>Advice</b> · ~500 words · CTA to a free on-site consult · Internal links to your new-builds and renovations pages</div>
+      <h3>Building New vs Renovating in the Waikato: How to Decide</h3>
+      <p>It's the question we hear most from Hamilton and Waikato homeowners: do we renovate the house we have, or start fresh with a new build? There's no single right answer, but there is a right answer for your section, your budget and how long you plan to stay. Here's how we help clients think it through.</p>
+      <h4>Start with the bones, not the paint</h4>
+      <p>A renovation makes sense when the structure is sound and the layout is close to what you want. If the foundations, framing and roof are in good shape, you're often better off investing in the spaces you use every day, a reworked kitchen, an extra bedroom, an indoor-outdoor flow that actually works. When the bones are tired, or the layout fights you at every turn, a new build can cost less heartache and sometimes less money over the long run.</p>
+      <h4>Count the whole cost, not just the build</h4>
+      <p>New builds give you certainty: a fixed plan, modern insulation and a Certified Builders guarantee from day one. Renovations can surprise you once the linings come off, which is why we price in honest contingencies rather than a number that looks good and blows out later. Either way, you should leave the first conversation knowing the real range, not a guess.</p>
+      <h4>Think about resale in your suburb</h4>
+      <p>In parts of the Waikato, a well-judged renovation lifts value without over-capitalising for the street. In growth areas, a new build or a duplex development can be the smarter long-term play. Local knowledge matters here, and it's exactly the kind of thing we'll talk through on site.</p>
+      <h4>The honest next step</h4>
+      <p>The best way to decide is to have someone who builds both walk your property with you. We'll tell you straight which path gives you the most home for your money. Book a free on-site chat and we'll bring the experience, you bring the questions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL + REPORT -->
+<section id="email" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="panel reveal">
+        <div class="label" style="color:var(--blue)">Sample 3 · email newsletter</div>
+        <h3>Monthly client &amp; enquiry newsletter</h3>
+        <div class="sub">Mailchimp, sent to your past-client and enquiry list. Short, useful, never salesy.</div>
+        <span class="subject-pill">Subject: The reno question we get asked every winter</span>
+        <div class="email-line"><b>Hi [first name],</b></div>
+        <div class="email-line">Cold months are when most Waikato families realise their home isn't quite working, the cold rooms, the cramped kitchen, the space the kids have outgrown.</div>
+        <div class="email-line">This month we shared a [suburb] before-and-after that turned a closed-off 90s layout into one open living space. Same footprint, completely different home.</div>
+        <div class="email-line">→ See the transformation [link]</div>
+        <div class="email-line">→ Read: new build vs renovation, how to decide [link]</div>
+        <div class="email-line">Thinking about a project for spring? Reply to this email and we'll book a free on-site chat. No pressure, just honest advice.</div>
+        <div class="email-line" style="color:var(--muted)">Cheers, the New Image Homes team</div>
+      </div>
+      <div class="panel reveal">
+        <div class="label">Sample 5 · monthly report</div>
+        <h3>The report you'd get every month</h3>
+        <div class="sub">One page, plain English, what worked and what I'd change. No vanity metrics for their own sake.</div>
+        <ul class="report-list">
+          <li><b>Reach</b> &amp; followers, by platform</li>
+          <li><b>Engagement</b> rate vs last month</li>
+          <li><b>Top 3 posts</b> and why they worked</li>
+          <li><b>Website</b> visits from social</li>
+          <li><b>Enquiries</b> / messages tracked to source</li>
+          <li><b>Google reviews</b> gained + rating</li>
+          <li><b>Email</b> open &amp; click rates</li>
+          <li><b>Ad spend</b> &amp; cost per enquiry</li>
+          <li><b>What I'd change</b> next month</li>
+          <li><b>One experiment</b> to test</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 4 · content calendar</div>
+      <h2>A repeatable fortnight, so posting never goes quiet</h2>
+      <p class="lead">A simple Mon / Wed / Fri rhythm you can sustain. Mix of projects, education, trust and light behind-the-scenes, planned ahead so nothing's last minute.</p>
+    </div>
+    <div class="panel reveal" style="padding:18px 20px">
+      <table>
+        <tr><th>Day</th><th>Format</th><th>Theme</th></tr>
+        <tr><td>Mon W1</td><td>Carousel</td><td>Before &amp; after reveal <span class="d">flagship content</span></td></tr>
+        <tr><td>Wed W1</td><td>Reel / short</td><td>Site progress time-lapse <span class="d">15–20 sec</span></td></tr>
+        <tr><td>Fri W1</td><td>Single image</td><td>"Stress-free build" trust post</td></tr>
+        <tr><td>Mon W2</td><td>Image + quote</td><td>Client review / handover</td></tr>
+        <tr><td>Wed W2</td><td>Reel / short</td><td>Quick build tip or term explained</td></tr>
+        <tr><td>Fri W2</td><td>Link post</td><td>New blog + email push</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:8px">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>This is week one, not a promise</h2>
+      <p>I write in your voice, I keep it consistent, and I track what's actually bringing enquiries. Give me your project photos and a couple of details and this goes live. Most of your requirements list is my normal week, and I'll tell you honestly where I'd want your input early, like trade terminology and your local search setup.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Marketing%20VA%20-%20New%20Image%20Homes" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Role</div><div class="v">Marketing / Content VA</div></div>
+        <div><div class="k">Based</div><div class="v">Philippines · full time</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Sample marketing content created by Judah for the New Image Homes Marketing / Content VA role. Brackets mark where real project details belong. · <a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a> · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / ops portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
