@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Ops Board · live demo · Judah</title>
+<meta name="description" content="A working short-term-rental operations board: add cleans, maintenance and guest issues, advance their status, watch the live counts, and generate an owner report. Built by Judah.">
+<style>
+  :root{
+    --bg:#0D1318; --card:#161F26; --teal:#19C3A6; --amber:#FFB020; --red:#FF7A6E;
+    --text:#EEF3F4; --muted:#92A1A6; --hair:#243139;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);font-size:15px;-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:var(--teal)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  header.top{border-bottom:1px solid var(--hair);background:rgba(13,19,24,.9);position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)}
+  .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:17px}
+  .brand span{color:var(--teal)}
+  .top .right{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .demo-tag{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);font-weight:800;border:1px solid rgba(255,176,32,.35);border-radius:99px;padding:4px 11px}
+  .btn{border-radius:9px;font-weight:700;font-size:13.5px;padding:9px 15px;border:1px solid var(--hair);background:transparent;color:var(--text);cursor:pointer;transition:.15s;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:var(--teal)}
+  .btn.primary{background:var(--teal);color:#06120F;border-color:var(--teal)}
+  .btn.danger:hover{border-color:var(--red);color:var(--red)}
+
+  .intro{padding:22px 0 6px}
+  .intro h1{font-size:25px;font-weight:800;letter-spacing:-.02em}
+  .intro p{color:var(--muted);font-size:14px;margin-top:5px;max-width:78ch}
+
+  /* counts */
+  .counts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 8px}
+  .count{background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:15px 16px}
+  .count .n{font-size:30px;font-weight:800;line-height:1}
+  .count .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+  .count.p1 .n{color:var(--red)} .count.clean .n{color:var(--amber)} .count.maint .n{color:var(--teal)} .count.guest .n{color:#7FB4FF}
+
+  /* toolbar */
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:16px 0}
+  .toolbar input[type=text]{background:var(--card);border:1px solid var(--hair);border-radius:9px;color:var(--text);padding:9px 12px;font-size:13.5px;min-width:200px;font-family:inherit}
+  .toolbar input::placeholder{color:var(--muted)}
+  .seg{display:flex;border:1px solid var(--hair);border-radius:9px;overflow:hidden}
+  .seg button{background:transparent;color:var(--muted);border:none;padding:9px 13px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+  .seg button.on{background:var(--teal);color:#06120F}
+  .spacer{flex:1}
+
+  /* board */
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:30px}
+  .col{background:rgba(22,31,38,.5);border:1px solid var(--hair);border-radius:14px;padding:13px;min-height:120px}
+  .col h3{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);font-weight:800;margin-bottom:11px;display:flex;justify-content:space-between}
+  .col h3 .c{color:var(--muted);font-weight:700}
+  .task{background:var(--bg);border:1px solid var(--hair);border-radius:10px;padding:11px 12px;margin-bottom:9px;border-left:3px solid var(--hair)}
+  .task.P1{border-left-color:var(--red)} .task.P2{border-left-color:var(--amber)} .task.P3{border-left-color:var(--teal)}
+  .task.is-done{opacity:.55}
+  .task .row1{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .task .prop{font-weight:700;font-size:13.5px}
+  .pri{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:6px}
+  .pri.P1{background:rgba(255,122,110,.16);color:var(--red)} .pri.P2{background:rgba(255,176,32,.16);color:var(--amber)} .pri.P3{background:rgba(25,195,166,.16);color:var(--teal)}
+  .task .note{font-size:12px;color:var(--muted);margin:5px 0 8px}
+  .task .acts{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .status{font-size:11.5px;font-weight:700;border:1px solid var(--hair);border-radius:7px;padding:4px 9px;cursor:pointer;background:var(--card);color:var(--text)}
+  .status.final{background:rgba(25,195,166,.15);border-color:rgba(25,195,166,.4);color:var(--teal)}
+  .task .x{margin-left:auto;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;background:none;border:none}
+  .task .x:hover{color:var(--red)}
+  .empty{color:var(--muted);font-size:12.5px;font-style:italic;padding:6px 2px}
+
+  /* add form */
+  .panel{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:18px 20px;margin-bottom:22px}
+  .panel h2{font-size:15px;margin-bottom:13px}
+  .form{display:grid;grid-template-columns:1.6fr 1fr .8fr 1fr 1.4fr auto;gap:10px;align-items:end}
+  .field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;font-weight:700}
+  .field input,.field select{width:100%;background:var(--bg);border:1px solid var(--hair);border-radius:9px;color:var(--text);padding:9px 11px;font-size:13.5px;font-family:inherit}
+
+  /* report */
+  .report-out{background:var(--bg);border:1px solid var(--hair);border-radius:10px;padding:15px;white-space:pre-wrap;font-size:13px;color:#D5DDDF;margin-top:12px;min-height:40px;font-family:ui-monospace,Menlo,monospace}
+  .rep-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .rep-row select,.rep-row input{background:var(--bg);border:1px solid var(--hair);border-radius:9px;color:var(--text);padding:9px 11px;font-size:13.5px;font-family:inherit}
+
+  footer{border-top:1px solid var(--hair);padding:20px 0;color:var(--muted);font-size:12.5px;text-align:center}
+
+  @media(max-width:900px){.counts,.board{grid-template-columns:1fr 1fr}.form{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.counts,.board{grid-template-columns:1fr}.form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand">Judah <span>· STR Ops Board</span></div>
+    <div class="right">
+      <span class="demo-tag">Live demo · saves to this browser</span>
+      <a href="index.html" class="btn">← Overview</a>
+      <button class="btn" id="seedBtn">Reset to sample</button>
+      <button class="btn danger" id="clearBtn">Clear all</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>The daily ops board, actually working</h1>
+    <p>This is not a screenshot. Add a clean, a maintenance job or a guest issue, click a status to advance it, watch the counts at the top react, then generate an owner report from the data. Everything you enter is saved in this browser, so refresh and it's still here. This is the kind of tool I'd run and improve in the role.</p>
+  </div>
+
+  <!-- counts -->
+  <div class="counts">
+    <div class="count p1"><div class="n" id="cP1">0</div><div class="k">P1 open</div></div>
+    <div class="count clean"><div class="n" id="cClean">0</div><div class="k">Cleans not ready</div></div>
+    <div class="count maint"><div class="n" id="cMaint">0</div><div class="k">Maintenance open</div></div>
+    <div class="count guest"><div class="n" id="cGuest">0</div><div class="k">Guest issues open</div></div>
+  </div>
+
+  <!-- add -->
+  <div class="panel">
+    <h2>Add to the board</h2>
+    <div class="form">
+      <div class="field"><label>Property</label><input type="text" id="fProp" placeholder="e.g. 12 Bay St, Byron"></div>
+      <div class="field"><label>Type</label>
+        <select id="fType">
+          <option value="clean">Clean / turnover</option>
+          <option value="maint">Maintenance</option>
+          <option value="guest">Guest issue</option>
+          <option value="ota">OTA / calendar</option>
+        </select>
+      </div>
+      <div class="field"><label>Priority</label>
+        <select id="fPri"><option>P1</option><option selected>P2</option><option>P3</option></select>
+      </div>
+      <div class="field"><label>Time / due</label><input type="text" id="fTime" placeholder="e.g. by 3pm"></div>
+      <div class="field"><label>Note</label><input type="text" id="fNote" placeholder="short detail"></div>
+      <div class="field"><button class="btn primary" id="addBtn" style="height:39px">Add</button></div>
+    </div>
+  </div>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search property or note...">
+    <div class="seg" id="filter">
+      <button data-f="all" class="on">All</button>
+      <button data-f="P1">P1 only</button>
+      <button data-f="open">Open only</button>
+    </div>
+    <div class="spacer"></div>
+    <span style="color:var(--muted);font-size:12.5px">Click a status chip to advance it</span>
+  </div>
+
+  <!-- board -->
+  <div class="board">
+    <div class="col"><h3>Cleans <span class="c" id="hClean">0</span></h3><div id="colClean"></div></div>
+    <div class="col"><h3>Maintenance <span class="c" id="hMaint">0</span></h3><div id="colMaint"></div></div>
+    <div class="col"><h3>Guest issues <span class="c" id="hGuest">0</span></h3><div id="colGuest"></div></div>
+    <div class="col"><h3>OTA / calendar <span class="c" id="hOta">0</span></h3><div id="colOta"></div></div>
+  </div>
+
+  <!-- report -->
+  <div class="panel">
+    <h2>Generate an owner weekly report</h2>
+    <div class="rep-row">
+      <select id="repProp"></select>
+      <button class="btn primary" id="repBtn">Generate</button>
+      <button class="btn" id="repCopy">Copy</button>
+      <span style="color:var(--muted);font-size:12.5px">Pulls live from the board for the chosen property</span>
+    </div>
+    <div class="report-out" id="repOut">Pick a property and hit Generate.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Working sample built by Judah for the Property Operations Coordinator role. Data lives only in your browser (localStorage), nothing is sent anywhere. · <a href="index.html">Back to overview</a></div>
+</footer>
+
+<script>
+const KEY='judah_str_ops_v1';
+const FLOW={clean:['Scheduled','In progress','QC','Ready'],maint:['Open','Assigned','Done'],guest:['Open','In progress','Resolved'],ota:['Needs check','Aligned']};
+const FINAL={clean:'Ready',maint:'Done',guest:'Resolved',ota:'Aligned'};
+const COLMAP={clean:'colClean',maint:'colMaint',guest:'colGuest',ota:'colOta'};
+const SAMPLE=[
+ {property:'12 Bay St, Byron',type:'clean',priority:'P2',status:'In progress',time:'by 3pm',note:'Same-day flip, next guest 3pm'},
+ {property:'8 Marine Pde, Coogee',type:'clean',priority:'P3',status:'Scheduled',time:'today',note:'Standard turnover'},
+ {property:'4 Hill Rd, Manly',type:'clean',priority:'P3',status:'Ready',time:'done',note:'QC photos in'},
+ {property:'12 Bay St, Byron',type:'maint',priority:'P1',status:'Assigned',time:'ETA 1pm',note:'No hot water, trade dispatched'},
+ {property:'19 Park Ave, Newcastle',type:'maint',priority:'P3',status:'Open',time:'this week',note:'Bulb out in hallway'},
+ {property:'8 Marine Pde, Coogee',type:'guest',priority:'P1',status:'In progress',time:'now',note:'Check-in code not working, on call'},
+ {property:'4 Hill Rd, Manly',type:'guest',priority:'P2',status:'Resolved',time:'',note:'Wifi reset, guest happy'},
+ {property:'Portfolio',type:'ota',priority:'P2',status:'Needs check',time:'9am + 4pm',note:'Airbnb / Booking.com / direct sync'}
+];
+let state=load();
+
+function load(){try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r);}catch(e){}return seed();}
+function seed(){const s=SAMPLE.map((t,i)=>({id:Date.now()+i,...t}));save(s);return s;}
+function save(s){state=s||state;localStorage.setItem(KEY,JSON.stringify(state));}
+function uid(){return Math.floor(Math.random()*1e9)+Date.now();}
+function isFinal(t){return t.status===FINAL[t.type];}
+
+function getFilter(){return document.querySelector('#filter .on').dataset.f;}
+function visible(t){
+  const f=getFilter(), q=document.getElementById('search').value.trim().toLowerCase();
+  if(f==='P1'&&t.priority!=='P1')return false;
+  if(f==='open'&&isFinal(t))return false;
+  if(q&&!(t.property.toLowerCase().includes(q)||(t.note||'').toLowerCase().includes(q)))return false;
+  return true;
+}
+
+function render(){
+  ['colClean','colMaint','colGuest','colOta'].forEach(id=>document.getElementById(id).innerHTML='');
+  const seen={clean:0,maint:0,guest:0,ota:0};
+  state.forEach(t=>{
+    seen[t.type]++;
+    if(!visible(t))return;
+    const el=document.createElement('div');
+    el.className='task '+t.priority+(isFinal(t)?' is-done':'');
+    el.innerHTML=`<div class="row1"><span class="prop"></span><span class="pri ${t.priority}">${t.priority}</span></div>
+      <div class="note"></div>
+      <div class="acts"><button class="status ${isFinal(t)?'final':''}" data-id="${t.id}">${t.status}</button>
+      <span style="color:var(--muted);font-size:11.5px"></span>
+      <button class="x" data-del="${t.id}" title="remove">×</button></div>`;
+    el.querySelector('.prop').textContent=t.property;
+    el.querySelector('.note').textContent=t.note||'';
+    el.querySelector('.acts span').textContent=t.time||'';
+    document.getElementById(COLMAP[t.type]).appendChild(el);
+  });
+  ['clean','maint','guest','ota'].forEach(k=>{
+    const col=document.getElementById(COLMAP[k]);
+    if(!col.children.length)col.innerHTML='<div class="empty">Nothing here</div>';
+  });
+  document.getElementById('hClean').textContent=seen.clean;
+  document.getElementById('hMaint').textContent=seen.maint;
+  document.getElementById('hGuest').textContent=seen.guest;
+  document.getElementById('hOta').textContent=seen.ota;
+  // counts
+  document.getElementById('cP1').textContent=state.filter(t=>t.priority==='P1'&&!isFinal(t)).length;
+  document.getElementById('cClean').textContent=state.filter(t=>t.type==='clean'&&!isFinal(t)).length;
+  document.getElementById('cMaint').textContent=state.filter(t=>t.type==='maint'&&!isFinal(t)).length;
+  document.getElementById('cGuest').textContent=state.filter(t=>t.type==='guest'&&!isFinal(t)).length;
+  refreshProps();
+}
+
+function refreshProps(){
+  const sel=document.getElementById('repProp');
+  const cur=sel.value;
+  const props=[...new Set(state.map(t=>t.property))].sort();
+  sel.innerHTML=props.map(p=>`<option>${p}</option>`).join('')||'<option>No properties yet</option>';
+  if(props.includes(cur))sel.value=cur;
+}
+
+// events
+document.getElementById('addBtn').onclick=()=>{
+  const prop=document.getElementById('fProp').value.trim();
+  if(!prop){document.getElementById('fProp').focus();return;}
+  const type=document.getElementById('fType').value;
+  const t={id:uid(),property:prop,type,priority:document.getElementById('fPri').value,
+    status:FLOW[type][0],time:document.getElementById('fTime').value.trim(),note:document.getElementById('fNote').value.trim()};
+  state.unshift(t);save();render();
+  document.getElementById('fProp').value='';document.getElementById('fTime').value='';document.getElementById('fNote').value='';
+  document.getElementById('fProp').focus();
+};
+document.querySelector('.board').addEventListener('click',e=>{
+  const s=e.target.closest('.status');
+  if(s){const t=state.find(x=>x.id==s.dataset.id);if(t){const f=FLOW[t.type];let i=f.indexOf(t.status);t.status=f[(i+1)%f.length];save();render();}return;}
+  const d=e.target.closest('[data-del]');
+  if(d){state=state.filter(x=>x.id!=d.dataset.del);save();render();}
+});
+document.getElementById('search').oninput=render;
+document.getElementById('filter').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#filter button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');render();
+});
+document.getElementById('seedBtn').onclick=()=>{if(confirm('Reset the board to the sample data?')){state=seed();render();}};
+document.getElementById('clearBtn').onclick=()=>{if(confirm('Clear every task?')){state=[];save();render();}};
+
+document.getElementById('repBtn').onclick=()=>{
+  const p=document.getElementById('repProp').value;
+  const items=state.filter(t=>t.property===p);
+  if(!items.length){document.getElementById('repOut').textContent='No items for that property.';return;}
+  const cleans=items.filter(t=>t.type==='clean');
+  const maint=items.filter(t=>t.type==='maint');
+  const guest=items.filter(t=>t.type==='guest');
+  const openMaint=maint.filter(t=>!isFinal(t));
+  const lines=[];
+  lines.push(`OWNER WEEKLY REPORT — ${p}`);
+  lines.push(`Generated from the live board\n`);
+  lines.push(`Turnovers: ${cleans.length} (${cleans.filter(isFinal).length} completed, ${cleans.filter(t=>!isFinal(t)).length} in progress)`);
+  lines.push(`Maintenance: ${maint.length} logged, ${openMaint.length} still open`);
+  openMaint.forEach(m=>lines.push(`   • ${m.priority} ${m.note||'maintenance'} (${m.status})`));
+  lines.push(`Guest issues: ${guest.length} (${guest.filter(isFinal).length} resolved)`);
+  guest.forEach(g=>lines.push(`   • ${g.priority} ${g.note||'issue'} — ${g.status}`));
+  lines.push(`\nNeeds your attention: ${openMaint.some(m=>m.priority==='P1')?'a P1 maintenance item is open':'nothing this week'}`);
+  document.getElementById('repOut').textContent=lines.join('\n');
+};
+document.getElementById('repCopy').onclick=()=>{
+  const txt=document.getElementById('repOut').textContent;
+  navigator.clipboard&&navigator.clipboard.writeText(txt);
+  const b=document.getElementById('repCopy');b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200);
+};
+
+render();
+</script>
+</body>
+</html>
