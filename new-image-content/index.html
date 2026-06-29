@@ -51,11 +51,16 @@
   /* social posts */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .post{background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-  .post .visual{height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-weight:800;font-size:15px;color:#12151C;position:relative}
-  .v-ba{background:linear-gradient(135deg,#FF8A3D,#FFC36B)}
-  .v-trust{background:linear-gradient(135deg,#4FB6FF,#8AD6FF)}
-  .v-review{background:linear-gradient(135deg,#39D98A,#9BF0C4)}
-  .post .visual small{display:block;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+  .post .visual{height:175px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left;padding:15px 16px;font-weight:800;font-size:15.5px;color:#fff;position:relative;background-size:cover;background-position:center;overflow:hidden}
+  .post .visual:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,18,.12) 0%,rgba(10,12,18,.18) 45%,rgba(10,12,18,.82) 100%);z-index:1}
+  .post .visual > *{position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+  .v-ba{background-image:url('img/kitchen.jpg')}
+  .v-trust{background-image:url('img/build.jpg')}
+  .v-review{background-image:url('img/home.jpg')}
+  .post .visual .tagline{display:inline-block;font-size:11px;letter-spacing:.04em;font-weight:700;color:#12151C;background:var(--amber);padding:3px 9px;border-radius:6px;margin-bottom:8px;text-shadow:none}
+  .v-trust .tagline{background:var(--blue)}
+  .v-review .tagline{background:#39D98A}
+  .post .visual small{display:block;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-bottom:5px}
   .post .body{padding:18px 19px;display:flex;flex-direction:column;gap:10px;flex:1}
   .post .ptype{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);font-weight:800}
   .post .cap{font-size:14px;color:var(--text);line-height:1.55}
@@ -137,7 +142,7 @@
       <a href="#social" class="btn btn-primary">See the samples</a>
       <a href="#hire" class="btn btn-ghost">Work with me</a>
     </div>
-    <div class="note-strip">Honest note: where a real project, suburb, or client name belongs, I've left a <b>[bracket]</b>. Hand me your project photos and details and these go live the same week, no guesswork on the facts.</div>
+    <div class="note-strip">Honest note: the photos below are free stock stand-ins to show the layout, and anywhere a real project, suburb or client name belongs I've left a <b>[bracket]</b>. Swap in your actual build photos and details and these go live the same week, no guesswork on the facts.</div>
   </div>
 </header>
 
@@ -151,7 +156,7 @@
     </div>
     <div class="grid-3">
       <div class="post reveal">
-        <div class="visual v-ba"><div><small>Carousel · before / after</small>Swipe to see the transformation</div></div>
+        <div class="visual v-ba"><small>Carousel · before / after</small><div>Swipe to see the transformation</div></div>
         <div class="body">
           <div class="ptype">Before &amp; after reveal</div>
           <div class="cap">A tired 90s kitchen in [suburb], same footprint, completely new feel. Honest timeline, a fixed quote up front, and a Certified Builders guarantee behind every job. Thinking about your own space? Send us a message, we'll tell you straight what's possible.</div>
@@ -159,7 +164,7 @@
         </div>
       </div>
       <div class="post reveal">
-        <div class="visual v-trust"><div><small>Single image · on site</small>What "stress-free" actually means</div></div>
+        <div class="visual v-trust"><small>Single image · on site</small><div>What "stress-free" actually means</div></div>
         <div class="body">
           <div class="ptype">Process &amp; trust</div>
           <div class="cap">"Stress-free build" gets thrown around a lot. Here's what it means with us: you understand the process before we start, you get one point of contact, and our own contractors do the work so quality and cost stay in our hands. That's the difference.</div>
@@ -167,7 +172,7 @@
         </div>
       </div>
       <div class="post reveal">
-        <div class="visual v-review"><div><small>Image + quote · handover</small>★★★★★ from [suburb]</div></div>
+        <div class="visual v-review"><small>Image + quote · handover</small><div>★★★★★ from [suburb]</div></div>
         <div class="body">
           <div class="ptype">Social proof + review request</div>
           <div class="cap">Nothing means more to a builder than a family who'd do it all again. Huge thanks to [client first name] for the kind words after we handed over their new build in [suburb]. Built or renovated with us? A quick Google review helps other Waikato families find us, link in bio.</div>
