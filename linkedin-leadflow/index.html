@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah · LinkedIn B2B Lead-Buyer System</title>
+<meta name="description" content="The actual system I'd run to turn your warm founder leads into a pipeline of buyers and JV partners: a buyer map, a 5-touch personalized sequence, safe send limits, and a tracked pipeline. By Judah.">
+<style>
+  :root{
+    --bg:#0B1020; --card:#141B30; --blue:#4F7CFF; --mint:#36E0B0;
+    --text:#EEF1FA; --muted:#94A0C0; --hair:#243150;
+    --shadow:0 18px 50px rgba(0,0,0,.42);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.13;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:33px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:66ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--mint)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:19px}
+  .brand span{color:var(--blue)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+  .btn-primary{background:var(--blue);color:#0B1020;box-shadow:0 8px 22px rgba(79,124,255,.34)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--blue)}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:84px 0 56px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(79,124,255,.26),transparent 62%);pointer-events:none}
+  .hero h1{font-size:54px;letter-spacing:-.03em;max-width:18ch}
+  .hero h1 .hl{color:var(--blue)}
+  .hero p.sub{margin:20px 0 26px;font-size:19.5px;color:var(--muted);max-width:60ch}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .seen{margin-top:22px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:9px;max-width:62ch}
+  .seen b{color:var(--mint)}
+
+  section{padding:78px 0}
+  .sec-head{max-width:68ch;margin-bottom:34px}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fcard{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:24px}
+  .fcard .n{font-size:13px;font-weight:800;color:var(--blue)}
+  .fcard h3{font-size:18px;margin:8px 0 6px}
+  .fcard p{color:var(--muted);font-size:14.5px}
+
+  /* buyer map */
+  .buyer{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:22px;margin-bottom:14px;display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
+  .buyer .lt{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--mint);font-weight:800}
+  .buyer .ld{font-size:21px;font-weight:800;margin-top:4px}
+  .buyer .who b{color:var(--text)}
+  .buyer .who{color:var(--muted);font-size:14.5px}
+  .buyer .nav-string{margin-top:12px;font-size:12.5px;color:var(--muted);background:rgba(79,124,255,.08);border:1px solid rgba(79,124,255,.25);border-radius:9px;padding:9px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .buyer .nav-string b{color:var(--blue);font-weight:700}
+
+  /* sequence */
+  .seq{position:relative;margin-top:8px}
+  .touch{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:22px 24px;margin-bottom:14px}
+  .touch .th{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+  .touch .day{background:var(--blue);color:#0B1020;font-size:12px;font-weight:800;padding:4px 11px;border-radius:99px}
+  .touch .tt{font-size:18px;font-weight:800}
+  .touch .goal{color:var(--muted);font-size:13.5px}
+  .msg{background:#0E1426;border:1px solid var(--hair);border-radius:10px;padding:15px 17px;font-size:14.5px;color:var(--text);line-height:1.6}
+  .msg .var{color:var(--mint);font-weight:700}
+  .touch .note{font-size:13px;color:var(--muted);margin-top:9px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .step{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:18px}
+  .step .n{font-size:22px;font-weight:800;color:var(--blue)}
+  .step h3{font-size:15px;margin:6px 0 5px}
+  .step p{color:var(--muted);font-size:13px}
+
+  /* pipeline */
+  .pipe{display:flex;gap:0;flex-wrap:wrap;margin-top:10px;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+  .stage{flex:1 1 0;min-width:120px;padding:16px 14px;border-right:1px solid var(--hair);background:var(--card)}
+  .stage:last-child{border-right:none}
+  .stage .s{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--mint);font-weight:800}
+  .stage .d{font-size:13px;color:var(--muted);margin-top:5px}
+  .kpis{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+  .kpi{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:9px 16px;font-size:13.5px;color:var(--muted)}
+  .kpi b{color:var(--text)}
+
+  .cta-card{background:linear-gradient(135deg,#16203c,#141B30);border:1px solid var(--hair);border-radius:20px;padding:52px;text-align:center;box-shadow:var(--shadow)}
+  .cta-card h2{font-size:34px;margin-bottom:12px}
+  .cta-card p{color:var(--muted);max-width:56ch;margin:0 auto 24px}
+  .cta-meta{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid var(--hair)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mint);font-weight:700}
+  .cta-meta .v{font-size:16px;font-weight:500}
+  .cta-meta .v a{color:var(--text)}
+
+  footer{padding:38px 0 54px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-3,.grid-2,.td-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .buyer{grid-template-columns:1fr;gap:10px}
+    .hero h1{font-size:38px}
+    h2{font-size:26px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:34px 22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>· LeadFlow</span></div>
+    <div class="nav-links">
+      <a href="#buyers">Buyer map</a>
+      <a href="#sequence">Sequence</a>
+      <a href="#safe">Safe sending</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Hire Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">LinkedIn B2B · the system, not just the pitch</div>
+    <h1>You collect warm founder leads. I'll build the <span class="hl">buyers</span> who pay for them.</h1>
+    <p class="sub">Below is the actual outreach system I'd run for your community: who the buyers are, the exact 5-touch messages that get replies, the daily limits that keep the account alive, and the pipeline that tracks every conversation to a booked call. Built before you hired me, so you can judge the thinking, not a promise.</p>
+    <div class="hero-cta">
+      <a href="#buyers" class="btn btn-primary">See the buyer map</a>
+      <a href="#hire" class="btn btn-ghost">Work with me</a>
+    </div>
+    <div class="seen">The whole edge here is that your leads are already <b>warm</b>. The buyers' biggest problem is finding qualified founders. That makes this an easy sell done right, and a banned account done wrong. The system is built for both.</div>
+  </div>
+</header>
+
+<!-- buyer map -->
+<section id="buyers" style="padding-top:18px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Step 1 · who actually buys founder leads</div>
+      <h2>The buyer map: every lead type matched to the firms that need it</h2>
+      <p class="lead">I don't message "business owners." I match each lead category you collect to the specific firms whose pipeline depends on reaching founders. Each row below is a separate Sales Navigator search and a separate message angle.</p>
+    </div>
+
+    <div class="buyer reveal">
+      <div><div class="lt">Hiring leads</div><div class="ld">Recruiters</div></div>
+      <div>
+        <div class="who"><b>Recruitment & staffing agencies, RPO firms, fractional-talent platforms, embedded-recruiting consultants.</b> They spend all day prospecting for companies that are hiring. A founder who said "I need to hire" is their highest-intent lead.</div>
+        <div class="nav-string"><b>Sales Nav:</b> title = "Founder/Director, Recruitment" OR "Talent Partner" · industry = Staffing & Recruiting · geography = Malaysia + SEA + remote-global · 2–50 employees</div>
+      </div>
+    </div>
+
+    <div class="buyer reveal">
+      <div><div class="lt">Capital leads</div><div class="ld">Capital intros</div></div>
+      <div>
+        <div class="who"><b>Fundraising advisors, capital-introduction firms, angel-network leads, debt and invoice-finance brokers, fractional CFOs.</b> Their business is connecting founders to money and taking a fee. A founder actively raising is exactly who they pay to find.</div>
+        <div class="nav-string"><b>Sales Nav:</b> title = "Fundraising Advisor" OR "Capital Introduction" OR "Fractional CFO" · keywords = "founders / startups / SME finance"</div>
+      </div>
+    </div>
+
+    <div class="buyer reveal">
+      <div><div class="lt">Exit leads</div><div class="ld">Brokers & M&A</div></div>
+      <div>
+        <div class="who"><b>Business brokers, boutique M&A advisors, exit-planning consultants.</b> They live or die on deal flow. A founder thinking about selling is the start of a six-figure mandate for them.</div>
+        <div class="nav-string"><b>Sales Nav:</b> title = "Business Broker" OR "M&A Advisor" OR "Exit Planning" · industry = Financial Services / Investment Banking · SME-focused</div>
+      </div>
+    </div>
+
+    <div class="buyer reveal">
+      <div><div class="lt">Growth leads</div><div class="ld">Agencies & CMOs</div></div>
+      <div>
+        <div class="who"><b>Marketing and growth agencies, fractional CMOs, paid-media and SEO shops.</b> A founder who said "I need to grow" is a warm retainer waiting to happen, and they normally pay cold-outreach VAs to find exactly that.</div>
+        <div class="nav-string"><b>Sales Nav:</b> title = "Founder, Agency" OR "Fractional CMO" OR "Head of Growth" · industry = Marketing & Advertising · 2–30 employees</div>
+      </div>
+    </div>
+
+    <div class="buyer reveal">
+      <div><div class="lt">Service leads</div><div class="ld">Ops & advisory</div></div>
+      <div>
+        <div class="who"><b>Fractional COOs, ops consultants, legal and accounting service providers, BPO and outsourcing firms.</b> Broad demand, lower intent, best used as JV partners who both buy leads and refer their own founders into your community.</div>
+        <div class="nav-string"><b>Sales Nav:</b> title = "Fractional COO" OR "Management Consultant" OR "Founder, BPO" · cross-reference with your existing community members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- sequence -->
+<section id="sequence" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Step 2 · the 5-touch sequence</div>
+      <h2>How a stranger becomes a booked call, in real copy</h2>
+      <p class="lead">No pitch in the connection request, ever. Value and proof before the ask. This is the recruiter-buyer version; every variable in <span style="color:var(--mint);font-weight:700">mint</span> is personalized by hand off the person's profile and recent activity. The JV version swaps touch 4 for a partnership angle.</p>
+    </div>
+
+    <div class="seq">
+      <div class="touch reveal">
+        <div class="th"><span class="day">Day 0</span><span class="tt">Connection request</span><span class="goal">get accepted, zero pitch</span></div>
+        <div class="msg">Hi <span class="var">[First name]</span>, I keep seeing your posts on <span class="var">[specific topic they post about]</span> and the SME hiring angle lines up with a founder community I work with here in Malaysia. Would be glad to connect.</div>
+        <div class="note">Under LinkedIn's note limit, references something real on their profile, sounds like a person, not a funnel.</div>
+      </div>
+
+      <div class="touch reveal">
+        <div class="th"><span class="day">On accept</span><span class="tt">Open the loop</span><span class="goal">context, still no hard sell</span></div>
+        <div class="msg">Thanks for connecting, <span class="var">[First name]</span>. Quick context: I help run a private founder community where owners come to us when they need to hire, raise, or grow. We get more "I need to hire" conversations than we can use, and I thought a firm like <span class="var">[their company]</span> might actually want those. Open to me sending one real example so you can see the quality?</div>
+        <div class="note">Ends on a low-friction yes/no. The "want me to send an example" frame makes the next message feel invited, not pushed.</div>
+      </div>
+
+      <div class="touch reveal">
+        <div class="th"><span class="day">Day 3</span><span class="tt">The proof</span><span class="goal">share the sample lead you provide</span></div>
+        <div class="msg">Here's a sanitized one from this week: <span class="var">[founder lead detail you give me — sector, size, the exact need, timeline]</span>. This is the standard, not the exception. If a steady flow of these would be useful, worth a quick call to see what a fit looks like?</div>
+        <div class="note">This is where your sample-lead material does the selling. My job is to land it in front of the right person with the right framing.</div>
+      </div>
+
+      <div class="touch reveal">
+        <div class="th"><span class="day">Day 7</span><span class="tt">The ask</span><span class="goal">book the call</span></div>
+        <div class="msg">No rush, <span class="var">[First name]</span>. If it's useful, I can set up 15 minutes with <span class="var">[your name / the team]</span> to walk through volume, categories, and how the handoff works. Here's the link: <span class="var">[Calendly]</span>. If now's not the time, I'll check back rather than keep nudging.</div>
+        <div class="note">Direct CTA with a scheduling link. The "I'll check back rather than nudge" line lowers resistance and earns the follow-up.</div>
+      </div>
+
+      <div class="touch reveal">
+        <div class="th"><span class="day">Day 14</span><span class="tt">Break-up / JV pivot</span><span class="goal">last value, or convert to partner</span></div>
+        <div class="msg">Last note from me, <span class="var">[First name]</span>. If buying leads isn't the model, some firms prefer a JV: you take our founders, we send each other warm intros, no upfront. If that's more your speed, happy to explore it. Either way, glad we connected.</div>
+        <div class="note">Break-up messages get strong reply rates, and the JV offer turns a "no" on buying into a possible long-term partner.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- safe sending -->
+<section id="safe" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Step 3 · don't get the account banned</div>
+      <h2>Volume that scales without tripping LinkedIn's limits</h2>
+      <p class="lead">The fastest way to kill this channel is to blast it. I run conservative, warmed limits so the account stays healthy for months, not weeks. This is the part most outreach VAs ignore until the profile is restricted.</p>
+    </div>
+    <div class="grid-3">
+      <div class="fcard reveal"><div class="n">CONNECTS</div><h3>20–25 / day</h3><p>Roughly 100 a week, the safe ceiling for a non-premium account. New or cold accounts start lower and ramp over 2–3 weeks.</p></div>
+      <div class="fcard reveal"><div class="n">MESSAGES</div><h3>30–50 / day</h3><p>Follow-ups to existing connections, spread across the day, never in one burst that looks automated.</p></div>
+      <div class="fcard reveal"><div class="n">WARM-UP</div><h3>Profile first</h3><p>Optimized profile, a few real posts, light engagement before outreach, so requests come from a credible human, not a ghost.</p></div>
+    </div>
+    <div class="kpis">
+      <span class="kpi"><b>No</b> mass-automation tools that risk a ban</span>
+      <span class="kpi"><b>Manual</b> personalization on every first touch</span>
+      <span class="kpi"><b>Withdraw</b> stale requests to keep accept-rate clean</span>
+      <span class="kpi"><b>One account</b> healthy beats three accounts burned</span>
+    </div>
+  </div>
+</section>
+
+<!-- pipeline -->
+<section id="pipeline" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Step 4 · the tracked pipeline</div>
+      <h2>Every conversation has a stage, a score, and a next step</h2>
+      <p class="lead">You'll never have to ask "what's happening with outreach." A live sheet moves each buyer through these stages, scores interest 1–5, and flags the next action and date. You see reply rate, calls booked, and interested buyers at a glance.</p>
+    </div>
+    <div class="pipe reveal">
+      <div class="stage"><div class="s">Sourced</div><div class="d">Matched to a buyer type, profile saved</div></div>
+      <div class="stage"><div class="s">Connected</div><div class="d">Request accepted</div></div>
+      <div class="stage"><div class="s">Engaged</div><div class="d">Replied to a message</div></div>
+      <div class="stage"><div class="s">Sample sent</div><div class="d">Saw a real lead</div></div>
+      <div class="stage"><div class="s">Interested</div><div class="d">Wants flow or a call</div></div>
+      <div class="stage"><div class="s">Call booked</div><div class="d">On your calendar</div></div>
+      <div class="stage"><div class="s">Partner</div><div class="d">Buying or JV live</div></div>
+    </div>
+    <div class="steps" style="margin-top:18px">
+      <div class="step reveal"><div class="n">A</div><h3>Daily log</h3><p>Who was contacted, who replied, what they said.</p></div>
+      <div class="step reveal"><div class="n">B</div><h3>Interest score</h3><p>1–5 so you focus on the warmest buyers first.</p></div>
+      <div class="step reveal"><div class="n">C</div><h3>Next step + date</h3><p>No thread ever dies in a tab. Every row has an action.</p></div>
+      <div class="step reveal"><div class="n">D</div><h3>Weekly snapshot</h3><p>Requests, accept rate, replies, calls, interested buyers.</p></div>
+    </div>
+    <div class="kpis">
+      <span class="kpi">Targets I'd hold myself to: <b>~100 connects/wk</b></span>
+      <span class="kpi"><b>25–35%</b> reply on personalized first touch</span>
+      <span class="kpi"><b>Weekly</b> booked-call goal, agreed with you</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>This is the system on day one, not month three</h2>
+      <p>I write every message myself, I keep the account safe, and I track everything to a next step. You bring the leads and the sample details; I build and run the buyer pipeline around them. Tell me which buyer category to start with and I'll have the first batch sourced this week.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=LINKEDIN%20B2B%20-%20Lead-Buyer%20Outreach%20System" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Role</div><div class="v">LinkedIn B2B Outreach</div></div>
+        <div><div class="k">Based</div><div class="v">Philippines · UTC+8</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by Judah as a working system for the LinkedIn B2B Lead-Buyer & JV Partner role. Real buyer mapping, real message copy, real safe-send limits. · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a> · <a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
