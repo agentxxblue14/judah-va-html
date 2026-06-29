@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Virtual Assistant & Lifestyle Manager</title>
+<meta name="description" content="The logistics engine behind your household. Vendor coordination across two homes, purchasing, travel, and a calm command center, already built. A working sample by Judah Rivera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2722; --olive:#3E4434; --clay:#B5663F; --sage:#8A9576; --brass:#B08A4F;
+    --paper:#F6F1E9; --card:#FCFAF5; --muted:#6E675C; --hair:#E6DECF;
+    --shadow:0 12px 34px rgba(42,39,34,.07); --shadow-lg:0 22px 56px rgba(42,39,34,.13);
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);line-height:1.12;font-weight:500;letter-spacing:-.01em}
+  h2{font-size:31px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:62ch}
+  .label{font-family:var(--sans);font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--clay)}
+  .tnum{font-variant-numeric:tabular-nums}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,241,233,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:21px}
+  .brand span{color:var(--clay)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-block;border-radius:11px;font-weight:600;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;font-family:var(--sans)}
+  .btn-primary{background:var(--clay);color:#fff;box-shadow:0 8px 20px rgba(181,102,63,.26)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(181,102,63,.32)}
+  .btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:78px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:52px;letter-spacing:-.02em;font-weight:500}
+  .hero h1 .hl{color:var(--clay)}
+  .hero p.sub{margin:22px 0 28px;font-size:19px;color:var(--muted);max-width:54ch}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+  .panel{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .panel .ph{background:var(--olive);color:#fff;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}
+  .panel .ph .t{font-weight:600;font-size:14.5px;font-family:var(--sans)}
+  .panel .ph .m{font-size:11.5px;color:#C9CDBF;text-transform:uppercase;letter-spacing:.1em}
+  .panel table{width:100%;border-collapse:collapse;font-size:14px}
+  .panel td{padding:12px 16px;border-bottom:1px solid var(--hair)}
+  .panel tr:last-child td{border-bottom:none}
+  .panel td .where{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;font-family:var(--sans)}
+  .pill.ok{background:#E2E8D7;color:#52603f}
+  .pill.hold{background:#F1E4CC;color:#876219}
+  .pill.due{background:#F2DDD0;color:#9c4f2a}
+  .pill.done{background:#DDE0D6;color:#444b39}
+
+  section{padding:86px 0}
+  .sec-head{max-width:64ch;margin-bottom:36px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:28px}
+  .card h3{font-size:20px;margin-bottom:9px}
+  .card p{color:var(--muted);font-size:15.5px}
+  .card .ic{width:44px;height:44px;border-radius:12px;background:rgba(181,102,63,.10);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .card .ic svg{width:22px;height:22px;stroke:var(--clay);fill:none;stroke-width:1.7}
+
+  .dark{background:var(--olive);color:#fff}
+  .dark h2{color:#fff}
+  .dark .lead{color:#C9CDBF}
+  .dark .label{color:var(--brass)}
+
+  .wb{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;margin-top:6px}
+  .wb .tabs{display:flex;gap:2px;background:#EFEAE0;padding:8px 8px 0;flex-wrap:wrap}
+  .wb .tab{font-size:12.5px;font-weight:600;padding:10px 14px;border-radius:8px 8px 0 0;color:var(--muted);background:transparent;border:none;cursor:pointer;font-family:var(--sans)}
+  .wb .tab.on{background:var(--card);color:var(--ink);box-shadow:0 -2px 0 var(--clay) inset}
+  .wb-body{display:none}
+  .wb-body.on{display:block}
+  .wb table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .wb thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:12px 15px;border-bottom:1px solid var(--hair);background:#F4EFE5;font-family:var(--sans)}
+  .wb tbody td{padding:11px 15px;border-bottom:1px solid var(--hair)}
+  .wb tbody tr:last-child td{border-bottom:none}
+
+  /* scorecard */
+  .score-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:6px;align-items:start}
+  .scorecard{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:10px 8px}
+  .crit{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-bottom:1px solid var(--hair);cursor:pointer;width:100%;background:transparent;border-left:none;border-right:none;border-top:none;text-align:left;font-family:var(--sans);color:var(--ink)}
+  .scorecard .crit:last-child{border-bottom:none}
+  .crit:hover{background:#F4EFE5}
+  .crit .ct{font-size:15px;font-weight:500}
+  .crit .cs{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .crit .pts{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .box{width:24px;height:24px;border-radius:7px;border:2px solid var(--hair);flex:0 0 auto;display:flex;align-items:center;justify-content:center;transition:.18s}
+  .box svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;opacity:0}
+  .crit[aria-pressed="true"] .box{background:var(--sage);border-color:var(--sage)}
+  .crit[aria-pressed="true"] .box svg{opacity:1}
+  .crit[aria-pressed="true"] .ct{color:var(--ink)}
+  .crit:focus-visible{outline:2px solid var(--clay);outline-offset:-2px;border-radius:8px}
+
+  .verdict{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:26px;position:sticky;top:88px}
+  .gauge{font-size:54px;font-weight:600;font-family:var(--serif);line-height:1;font-variant-numeric:tabular-nums}
+  .gauge small{font-size:20px;color:var(--muted)}
+  .vchip{display:inline-block;margin:14px 0 12px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px;border-radius:99px;transition:.25s;font-family:var(--sans)}
+  .v-go{background:#E2E8D7;color:#3f5230}
+  .v-hold{background:#F1E4CC;color:#876219}
+  .v-pass{background:#F2DDD0;color:#9c3b2a}
+  .vrec{font-size:14.5px;color:var(--muted)}
+  .track{height:9px;border-radius:99px;background:#EEE7DA;overflow:hidden;margin:6px 0 16px}
+  .track i{display:block;height:100%;background:var(--clay);border-radius:99px;transition:width .25s ease}
+
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  .step{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:24px}
+  .step .n{font-size:12px;font-weight:700;color:var(--clay);letter-spacing:.05em;text-transform:uppercase;font-family:var(--sans)}
+  .step h3{margin:9px 0 7px;font-size:19px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .brief{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .brief .bh{background:var(--ink);color:#fff;padding:16px 20px}
+  .brief .bh .t{font-family:var(--serif);font-size:18px}
+  .brief .bh .s{font-size:12px;color:#C9C3B6;margin-top:3px}
+  .brief table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .brief td{padding:11px 16px;border-bottom:1px solid var(--hair)}
+  .brief tr:last-child td{border-bottom:none}
+  .brief .day{padding:13px 20px;border-bottom:1px solid var(--hair);font-size:14px}
+  .brief .day:last-child{border-bottom:none}
+  .brief .day b{font-family:var(--sans)}
+
+  .listcard{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);padding:30px}
+  .listcard h3{font-size:20px;margin-bottom:16px}
+  .listcard ul{list-style:none}
+  .listcard li{padding:10px 0 10px 26px;position:relative;font-size:15.5px;color:var(--muted);border-bottom:1px solid var(--hair)}
+  .listcard li:last-child{border-bottom:none}
+  .listcard li:before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:2px;background:var(--clay)}
+  .listcard li b{color:var(--ink);font-weight:600}
+  .tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .chip{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:8px 15px;font-size:14px;font-weight:500;box-shadow:var(--shadow)}
+
+  .cta-card{background:var(--olive);color:#fff;border-radius:20px;padding:54px;text-align:center;box-shadow:var(--shadow-lg)}
+  .cta-card h2{font-size:36px;color:#fff;margin-bottom:12px}
+  .cta-card p{color:#C9CDBF;max-width:54ch;margin:0 auto 24px}
+  .cta-meta{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);font-weight:700;font-family:var(--sans)}
+  .cta-meta .v{font-size:16px;color:#fff;font-weight:500}
+  .cta-meta .v a{color:#fff}
+
+  footer{padding:40px 0 56px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid,.two,.steps,.score-wrap{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:1fr}
+    .hero h1{font-size:39px}
+    h2{font-size:26px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:36px 22px}
+    .wb,.panel{overflow-x:auto}
+    .verdict{position:static}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>Rivera</span></div>
+    <div class="nav-links">
+      <a href="#center">The command center</a>
+      <a href="#vet">Vendor scorecard</a>
+      <a href="#trips">Trips</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Work with Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="label">Virtual Assistant &middot; Lifestyle Manager</div>
+      <h1>The logistics engine behind <span class="hl">your household</span>, across both homes.</h1>
+      <p class="sub">You said you want the mental load taken off running your home, and that this is your first time hiring for it. So I didn't just write you a note. I built the framework: a two-home command center, a vendor vetting system, and a trip-brief flow you can use on day one.</p>
+      <div class="hero-cta">
+        <a href="#hire" class="btn btn-primary">Let's talk</a>
+        <a href="#center" class="btn btn-ghost">See the system I built</a>
+      </div>
+    </div>
+
+    <div class="panel reveal" aria-label="Sample household status across both homes">
+      <div class="ph"><div class="t">This week, both homes</div><div class="m">sample</div></div>
+      <table>
+        <tr><td>Landscaping, Home A<span class="where">GreenEdge, biweekly</span></td><td><span class="pill ok">On track</span></td></tr>
+        <tr><td>HVAC tune-up<span class="where">vetting 2 quotes</span></td><td><span class="pill hold">On hold</span></td></tr>
+        <tr><td>Coffee maker return<span class="where">refund in motion</span></td><td><span class="pill due">Action</span></td></tr>
+        <tr><td>Filters + paper goods<span class="where">recurring, auto</span></td><td><span class="pill done">Set</span></td></tr>
+      </table>
+    </div>
+  </div>
+</header>
+
+<!-- what this role needs -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">What this role really needs</div>
+      <h2>Three jobs, run without being asked twice</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Run vendors for both homes</h3>
+        <p>Research, vet, schedule, and be the liaison with contractors, landscapers, and maintenance. The right people, hired on a real standard, kept on a calendar.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></div>
+        <h3>Source, buy, and automate</h3>
+        <p>Tracking down specific items, managing orders and returns, and setting recurring deliveries and subscriptions so the routine stuff just runs.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h3>Plan travel, guard the calendar</h3>
+        <p>Itineraries, bookings, and trip logistics on one page, plus family calendars, appointments, and the to-do list, all in order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- command center -->
+<section id="center" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">The framework, already built</div>
+      <h2>A two-home command center I made for this role</h2>
+      <p class="lead">One source of truth for both homes: vendors and maintenance, purchasing and returns, recurring deliveries, and the family calendar. Click through the tabs. Sample data is illustrative, the structure is what I'd actually run.</p>
+    </div>
+    <div class="wb">
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-tab="t1" role="tab">Vendors, Home A</button>
+        <button class="tab" data-tab="t2" role="tab">Vendors, Home B</button>
+        <button class="tab" data-tab="t3" role="tab">Purchasing &amp; Returns</button>
+        <button class="tab" data-tab="t4" role="tab">Recurring</button>
+        <button class="tab" data-tab="t5" role="tab">Calendar</button>
+      </div>
+
+      <div class="wb-body on" id="t1">
+        <table>
+          <thead><tr><th>Service</th><th>Vendor</th><th>Status</th><th>Next due</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Landscaping</td><td>GreenEdge Lawn</td><td><span class="pill ok">Active</span></td><td class="tnum">Jun 28</td><td class="tnum">$120/visit</td></tr>
+            <tr><td>HVAC service</td><td>vetting 2 quotes</td><td><span class="pill hold">On hold</span></td><td>Fall tune-up</td><td>TBD</td></tr>
+            <tr><td>Pool cleaning</td><td>Blue Ridge Pools</td><td><span class="pill ok">Active</span></td><td class="tnum">Jun 29</td><td class="tnum">$90/wk</td></tr>
+            <tr><td>Pest control</td><td>Sentry Pest</td><td><span class="pill ok">Active</span></td><td class="tnum">Aug 30</td><td class="tnum">$145/qtr</td></tr>
+            <tr><td>Gutter cleaning</td><td>to source</td><td><span class="pill due">To source</span></td><td>Book Sept</td><td>TBD</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wb-body" id="t2">
+        <table>
+          <thead><tr><th>Service</th><th>Vendor</th><th>Status</th><th>Next due</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Landscaping</td><td>Hillcrest Grounds</td><td><span class="pill ok">Active</span></td><td class="tnum">Jul 02</td><td class="tnum">$140/visit</td></tr>
+            <tr><td>Housekeeping</td><td>Marta (referral)</td><td><span class="pill ok">Active</span></td><td class="tnum">Jun 27</td><td class="tnum">$160/visit</td></tr>
+            <tr><td>Generator service</td><td>PowerSafe</td><td><span class="pill hold">On hold</span></td><td>Annual, Jul</td><td>TBD</td></tr>
+            <tr><td>Driveway repair</td><td>vetting 2 quotes</td><td><span class="pill hold">On hold</span></td><td>see scorecard</td><td>TBD</td></tr>
+            <tr><td>Window cleaning</td><td>to source</td><td><span class="pill due">To source</span></td><td>Book July</td><td>TBD</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wb-body" id="t3">
+        <table>
+          <thead><tr><th>Item</th><th>For</th><th>Status</th><th>Return by</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Entry console table</td><td>Home A</td><td><span class="pill hold">Researching</span></td><td>&mdash;</td><td class="tnum">~$340</td></tr>
+            <tr><td>Replacement filters (4)</td><td>Both</td><td><span class="pill ok">Ordered</span></td><td class="tnum">Jul 24</td><td class="tnum">$52</td></tr>
+            <tr><td>Outdoor cushions</td><td>Home B patio</td><td><span class="pill done">Delivered</span></td><td class="tnum">Jul 12</td><td class="tnum">$210</td></tr>
+            <tr><td>Coffee maker</td><td>Home A</td><td><span class="pill due">Return</span></td><td class="tnum">Jun 30</td><td class="tnum">$180</td></tr>
+            <tr><td>Guest linens</td><td>Home B</td><td><span class="pill hold">Researching</span></td><td>&mdash;</td><td class="tnum">~$130</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wb-body" id="t4">
+        <table>
+          <thead><tr><th>What</th><th>Cadence</th><th>Home</th><th>Next</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>HVAC + water filters</td><td>Every 90 days</td><td>Both</td><td class="tnum">Sept 22</td><td class="tnum">$52</td></tr>
+            <tr><td>Paper goods + cleaning</td><td>Monthly</td><td>Both</td><td class="tnum">Jul 05</td><td class="tnum">$88</td></tr>
+            <tr><td>Dog food</td><td>Every 4 weeks</td><td>Home A</td><td class="tnum">Jul 11</td><td class="tnum">$64</td></tr>
+            <tr><td>Coffee beans</td><td>Monthly</td><td>Home A</td><td class="tnum">Jul 02</td><td class="tnum">$34</td></tr>
+            <tr><td>Streaming bundle</td><td>Monthly</td><td>Both</td><td class="tnum">Jul 01</td><td>review, 1 unused</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wb-body" id="t5">
+        <table>
+          <thead><tr><th>Day</th><th>Time</th><th>Item</th><th>Home</th><th>Prep</th></tr></thead>
+          <tbody>
+            <tr><td>Mon</td><td class="tnum">9:00</td><td>Landscaper</td><td>Home A</td><td>Gate left open</td></tr>
+            <tr><td>Tue</td><td class="tnum">14:00</td><td>HVAC quote walk-through</td><td>Home B</td><td>Confirm price</td></tr>
+            <tr><td>Wed</td><td class="tnum">11:00</td><td>Dentist</td><td>Family</td><td>Reminder + parking sent</td></tr>
+            <tr><td>Thu</td><td>&mdash;</td><td>Return pickup</td><td>Home A</td><td>Label printed</td></tr>
+            <tr><td>Fri</td><td class="tnum">16:00</td><td>Weekly digest sent</td><td>&mdash;</td><td>Recap + next week</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="margin-top:20px"><a href="assets/Two-Home_Command_Center.md" class="btn btn-primary" download>Download the full command center</a></div>
+  </div>
+</section>
+
+<!-- vendor scorecard (signature) -->
+<section id="vet">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">The signature: try it yourself</div>
+      <h2>Vendor vetting, not a gut feeling</h2>
+      <p class="lead">You asked for someone to vet contractors and maintenance services. Here is the exact scorecard I run before anyone gets hired for either home. Toggle what a vendor passes and watch the verdict update.</p>
+    </div>
+    <div class="score-wrap">
+      <div class="scorecard" id="scorecard">
+        <button class="crit" aria-pressed="false" data-pts="25">
+          <div><div class="ct">Licensed &amp; insured (verified)</div><div class="cs">Protects the home and you from liability</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">25 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+        <button class="crit" aria-pressed="false" data-pts="20">
+          <div><div class="ct">Strong recent reviews (4.5+)</div><div class="cs">A pattern of real, current quality</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">20 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+        <button class="crit" aria-pressed="false" data-pts="20">
+          <div><div class="ct">Written quote in budget range</div><div class="cs">No surprise invoices later</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">20 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+        <button class="crit" aria-pressed="false" data-pts="15">
+          <div><div class="ct">Responsive (replies within a day)</div><div class="cs">Predicts how they behave once hired</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">15 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+        <button class="crit" aria-pressed="false" data-pts="10">
+          <div><div class="ct">Two or more references</div><div class="cs">A track record you can verify</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">10 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+        <button class="crit" aria-pressed="false" data-pts="10">
+          <div><div class="ct">Clear on scope, timeline, cleanup</div><div class="cs">Professional, not improvising</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span class="pts">10 pts</span><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span></div>
+        </button>
+      </div>
+
+      <div class="verdict" aria-live="polite">
+        <div class="gauge"><span id="scoreNum">0</span><small> / 100</small></div>
+        <div class="track"><i id="scoreBar" style="width:0%"></i></div>
+        <span class="vchip v-pass" id="vchip">Pass</span>
+        <p class="vrec" id="vrec">Nothing checked yet. A vendor needs 80+ before I'd book them. Below 55 and I source two more options rather than risk it on the home.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px"><a href="assets/Vendor_Vetting_Scorecard.md" class="btn btn-ghost" download>Download the scorecard standard</a></div>
+  </div>
+</section>
+
+<!-- trips -->
+<section id="trips" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Travel &amp; logistics</div>
+      <h2>Every trip on one page</h2>
+      <p class="lead">Confirmed, pending, and a day-by-day plan. The version in your hand is always the current one. A sample brief for a long weekend.</p>
+    </div>
+    <div class="two">
+      <div class="brief reveal">
+        <div class="bh"><div class="t">Trip brief, Napa &middot; 4 nights</div><div class="s">Flights confirmed &middot; Lodging confirmed &middot; 1 dinner pending</div></div>
+        <table>
+          <tr><td><b>Flight out</b><br><span style="color:var(--muted);font-size:12.5px">Thu 8:40a, arrive 11:05a</span></td><td><span class="pill ok">Confirmed</span></td></tr>
+          <tr><td><b>Lodging</b><br><span style="color:var(--muted);font-size:12.5px">Vineyard cottage, late check-in</span></td><td><span class="pill ok">Confirmed</span></td></tr>
+          <tr><td><b>Rental car</b><br><span style="color:var(--muted);font-size:12.5px">SUV, airport pickup, prepaid</span></td><td><span class="pill ok">Confirmed</span></td></tr>
+          <tr><td><b>Fri dinner</b><br><span style="color:var(--muted);font-size:12.5px">3 shortlisted, I recommend the 7:30 patio</span></td><td><span class="pill hold">Your call</span></td></tr>
+        </table>
+      </div>
+      <div class="brief reveal">
+        <div class="bh"><div class="t">Day plan</div><div class="s">Booked-and-cancellable where it counts</div></div>
+        <div class="day"><b>Thu</b> &nbsp; Land 11a, car, lunch, settle in, easy evening.</div>
+        <div class="day"><b>Fri</b> &nbsp; Late start, town walk, dinner (pending).</div>
+        <div class="day"><b>Sat</b> &nbsp; Winery tour, open afternoon, table held for two.</div>
+        <div class="day"><b>Sun</b> &nbsp; Slow day, spa option held, sunset point 7:40p.</div>
+        <div class="day"><b>Mon</b> &nbsp; Check out 11a, lunch, car back by 4p, 6:15p flight.</div>
+      </div>
+    </div>
+    <div style="margin-top:18px"><a href="assets/Sample_Trip_Brief.md" class="btn btn-primary" download>Download the trip brief</a></div>
+  </div>
+</section>
+
+<!-- first two weeks -->
+<section id="first">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Since this is your first VA hire</div>
+      <h2>What I'd build in the first two weeks</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">Week 1</div><h3>Intake and command center live</h3><p>A short call to learn both homes, your vendors, and your preferences. Then the command center goes live with everything you already have loaded in, so nothing lives in your head anymore.</p></div>
+      <div class="step reveal"><div class="n">Week 1</div><h3>Vendor list vetted</h3><p>Your current providers run through the scorecard, gaps flagged, and the "to source" list started for anything missing. You see exactly who's solid and who needs a backup.</p></div>
+      <div class="step reveal"><div class="n">Week 2</div><h3>Recurring stuff on autopilot</h3><p>Deliveries, filters, and subscriptions mapped and set to recur. Returns and open orders cleaned up. The routine work stops needing a human.</p></div>
+      <div class="step reveal"><div class="n">Week 2</div><h3>The Friday digest starts</h3><p>You get one two-minute screen each week: what got done, what's pending, and the few decisions only you can make. That's the load, lifted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- own + about -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="two">
+      <div class="listcard reveal">
+        <h3>What I'd own</h3>
+        <ul>
+          <li><b>Vendors &amp; maintenance:</b> research, vet, schedule, and liaise for both homes, on a real standard.</li>
+          <li><b>Research &amp; purchasing:</b> sourcing items, placing and tracking orders, handling returns and subscriptions.</li>
+          <li><b>Travel &amp; logistics:</b> itineraries, bookings, ground transport, one always-current trip brief.</li>
+          <li><b>Calendar &amp; admin:</b> family calendars, appointments, to-do tracking, digital organization.</li>
+          <li><b>Coordination:</b> happy to work alongside your locally based assistant as the remote half of the team.</li>
+        </ul>
+      </div>
+      <div class="listcard reveal">
+        <h3>About Judah</h3>
+        <p style="color:var(--muted);font-size:15.5px;margin-bottom:14px">Four-plus years as the logistics engine behind founders and busy people, fully remote. I run task boards, calendars, purchasing, and outside-vendor coordination every day. My whole value with one client is being the organizing layer so he doesn't have to hold it all in his head. That is this job. My background is in accountancy, so orders, returns, receipts, and budgets stay clean and correct. I'm proactive by default: I look ahead, bring the solution, and flag the thing before it's a problem.</p>
+        <div class="tools">
+          <span class="chip">Google Workspace</span><span class="chip">Microsoft 365</span><span class="chip">Notion</span>
+          <span class="chip">ClickUp</span><span class="chip">Asana</span><span class="chip">Trello</span>
+          <span class="chip">Calendly</span><span class="chip">Canva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Hand me the household</h2>
+      <p>Give me access and your preferences, and the command center, the vetted vendor list, and the Friday digest are running in your first two weeks. I'd love to be the calm behind your home.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Lifestyle%20Manager%20application%20-%20Judah" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Availability</div><div class="v">Part-time, flexible, US time zones</div></div>
+        <div><div class="k">Setup</div><div class="v">Fully remote, reliable fiber</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / Ops portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by Judah Rivera for this Lifestyle Manager role. A working sample, not a template. &middot; <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // command center tabs
+  document.querySelectorAll('.wb .tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.wb .tab').forEach(function(t){ t.classList.remove('on'); });
+      document.querySelectorAll('.wb-body').forEach(function(b){ b.classList.remove('on'); });
+      tab.classList.add('on');
+      document.getElementById(tab.dataset.tab).classList.add('on');
+    });
+  });
+
+  // vendor scorecard
+  var crits = document.querySelectorAll('#scorecard .crit');
+  var scoreNum = document.getElementById('scoreNum');
+  var scoreBar = document.getElementById('scoreBar');
+  var vchip = document.getElementById('vchip');
+  var vrec = document.getElementById('vrec');
+  function recompute(){
+    var total = 0;
+    crits.forEach(function(c){ if(c.getAttribute('aria-pressed') === 'true'){ total += parseInt(c.dataset.pts,10); } });
+    scoreNum.textContent = total;
+    scoreBar.style.width = total + '%';
+    var cls, label, rec;
+    if(total >= 80){
+      cls='v-go'; label='Go, book it';
+      rec='Strong. I would confirm date, scope, and price in writing, add them to the command center, and set the reminder. Done same day.';
+    } else if(total >= 55){
+      cls='v-hold'; label='Hold, close the gap';
+      rec='Close. One or two gaps to fill (proof of insurance, a reference, a firm quote) before committing. I keep a backup quote warm in the meantime.';
+    } else {
+      cls='v-pass'; label='Pass, source more';
+      rec='Too many unknowns to put on the home. I would source two more options. A cheap quote with no insurance is not a deal.';
+    }
+    vchip.className = 'vchip ' + cls;
+    vchip.textContent = label;
+    vrec.textContent = rec;
+  }
+  crits.forEach(function(c){
+    c.addEventListener('click', function(){
+      c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      recompute();
+    });
+  });
+  recompute();
+</script>
+</body>
+</html>
