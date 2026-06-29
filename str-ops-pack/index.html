@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah · Sample STR Ops Pack for a Property Operations Coordinator role</title>
+<meta name="description" content="A working sample of how I'd run short-term rental operations: guest-issue triage SOP, double-booking protocol, daily ops board, owner weekly report, same-day turnover checklist and an automation. Built before being hired, by Judah.">
+<style>
+  :root{
+    --bg:#0D1318; --card:#161F26; --teal:#19C3A6; --amber:#FFB020;
+    --text:#EEF3F4; --muted:#92A1A6; --hair:#243139;
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.13;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:31px;margin-bottom:8px}
+  .lead{color:var(--muted);font-size:17.5px;max-width:68ch}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--teal)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(13,19,24,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:800;font-size:18px}
+  .brand span{color:var(--teal)}
+  .nav-links{display:flex;gap:20px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15px;padding:12px 21px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease}
+  .btn-primary{background:var(--teal);color:#06120F;box-shadow:0 8px 22px rgba(25,195,166,.3)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--teal)}
+  .nav-cta{padding:9px 17px;font-size:13.5px}
+
+  .hero{padding:78px 0 48px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(25,195,166,.2),transparent 62%);pointer-events:none}
+  .hero h1{font-size:50px;letter-spacing:-.03em;max-width:19ch}
+  .hero h1 .hl{color:var(--teal)}
+  .hero p.sub{margin:18px 0 24px;font-size:18.5px;color:var(--muted);max-width:62ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .note-strip{margin-top:20px;font-size:13.5px;color:var(--muted);max-width:66ch;background:rgba(255,176,32,.07);border:1px solid rgba(255,176,32,.25);border-radius:10px;padding:12px 15px}
+  .note-strip b{color:var(--amber)}
+
+  section{padding:54px 0}
+  .sec-head{max-width:70ch;margin-bottom:26px}
+
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:26px 28px;box-shadow:var(--shadow)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* triage tiers */
+  .tier{display:grid;grid-template-columns:92px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--hair)}
+  .tier:last-child{border-bottom:none}
+  .tier .pri{font-weight:800;font-size:15px;border-radius:9px;padding:8px 10px;text-align:center;height:fit-content}
+  .p1{background:rgba(255,90,80,.14);color:#FF7A6E;border:1px solid rgba(255,90,80,.4)}
+  .p2{background:rgba(255,176,32,.14);color:var(--amber);border:1px solid rgba(255,176,32,.4)}
+  .p3{background:rgba(25,195,166,.14);color:var(--teal);border:1px solid rgba(25,195,166,.4)}
+  .tier .ex{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .tier h4{font-size:16px;margin-bottom:2px}
+  .tier .sla{font-size:12.5px;color:var(--teal);font-weight:700;margin-top:6px}
+
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .flow .s{background:#0D1318;border:1px solid var(--hair);border-radius:99px;padding:8px 14px;font-size:13px;color:var(--text)}
+  .flow .s b{color:var(--teal)}
+  .flow .arr{color:var(--muted);align-self:center;font-size:13px}
+
+  /* board */
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+  .col{background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:15px}
+  .col .t{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);font-weight:800;margin-bottom:10px}
+  .chip{background:#0D1318;border:1px solid var(--hair);border-radius:8px;padding:8px 10px;font-size:12.5px;color:var(--text);margin-bottom:7px}
+  .chip .m{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+  .chip.done{border-left:3px solid var(--teal)}
+  .chip.warn{border-left:3px solid var(--amber)}
+  .chip.hot{border-left:3px solid #FF7A6E}
+
+  /* report */
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--hair)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--amber)}
+  td b{color:var(--text)}
+  td .m{color:var(--muted)}
+
+  .check{list-style:none;display:grid;gap:8px}
+  .check li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#D5DDDF;background:#0D1318;border:1px solid var(--hair);border-radius:9px;padding:10px 12px}
+  .check li .b{color:var(--teal);font-weight:800;flex:0 0 auto}
+  .check li b{color:var(--text)}
+
+  .auto{background:linear-gradient(135deg,#10211d,#161F26);border:1px solid rgba(25,195,166,.28);border-radius:16px;padding:24px 26px}
+  .auto .trigger{font-size:13px;color:var(--muted);margin-top:12px}
+  .auto .trigger b{color:var(--teal)}
+
+  .cta-card{background:linear-gradient(135deg,#11201d,#161F26);border:1px solid var(--hair);border-radius:20px;padding:48px;text-align:center;box-shadow:var(--shadow)}
+  .cta-card h2{font-size:32px;margin-bottom:10px}
+  .cta-card p{color:var(--muted);max-width:56ch;margin:0 auto 22px}
+  .cta-meta{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid var(--hair)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700}
+  .cta-meta .v{font-size:15px;font-weight:500}
+  .cta-meta .v a{color:var(--text)}
+
+  footer{padding:34px 0 50px;text-align:center;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-2{grid-template-columns:1fr}
+    .board{grid-template-columns:1fr 1fr}
+    .tier{grid-template-columns:78px 1fr;gap:12px}
+    .hero h1{font-size:36px}
+    h2{font-size:24px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:30px 20px}
+    .card{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>· STR Ops</span></div>
+    <div class="nav-links">
+      <a href="#triage">Triage SOP</a>
+      <a href="#board">Ops board</a>
+      <a href="#report">Owner report</a>
+      <a href="#flip">Turnover</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Hire Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">Property Operations Coordinator · a working sample</div>
+    <h1>800 properties, and not one owner left to <span class="hl">chase</span>.</h1>
+    <p class="sub">You asked for someone who takes ownership and spots better processes. Easier to show you. Below is a sample of how I'd run the day: how guest issues get triaged, how cleans and maintenance stay visible, what owners get each week, and one automation that removes a recurring manual job. Built before you hired me.</p>
+    <div class="hero-cta">
+      <a href="#triage" class="btn btn-primary">See the system</a>
+      <a href="#hire" class="btn btn-ghost">Work with me</a>
+    </div>
+    <div class="note-strip">Honest note: this is a sample built for this role, not real operator data. It's written to plug into your stack (Aircall, Homhero, RMS, Breezeway). Where a real number, cutoff time or contact belongs, I've left a <b>[bracket]</b> to set with your team on day one.</div>
+  </div>
+</header>
+
+<!-- TRIAGE -->
+<section id="triage" style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 1 · guest-issue triage SOP</div>
+      <h2>Every issue sorted by how much it hurts the stay</h2>
+      <p class="lead">The mistake is treating a lockout and a flickering bulb the same way. I sort by guest impact first, so the urgent things move now and the rest get batched. Tiers and targets below are a starting point to agree with the team.</p>
+    </div>
+    <div class="card reveal">
+      <div class="tier">
+        <div class="pri p1">P1<br>Urgent</div>
+        <div>
+          <h4>Guest blocked or unsafe</h4>
+          <div class="ex">Can't access the property, no power, water or heat, gas smell, security concern, a booking that won't let them check in.</div>
+          <div class="sla">Acknowledge by phone within [X] min · fix or escalate to on-call trades / manager immediately · do not let it sit overnight</div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="pri p2">P2<br>Comfort</div>
+        <div>
+          <h4>Stay degraded but liveable</h4>
+          <div class="ex">Aircon or heating down, intermittent hot water, key appliance out, no wifi, cleanliness issue found on arrival.</div>
+          <div class="sla">Acknowledge within [X] min · dispatch same day · offer an interim fix and set a clear expectation with the guest</div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="pri p3">P3<br>Routine</div>
+        <div>
+          <h4>Minor or owner admin</h4>
+          <div class="ex">Small defects, a bulb, a chip in paint, restock requests, non-urgent owner questions, compliance paperwork.</div>
+          <div class="sla">Log it · batch into the next scheduled visit or weekly admin block · never lose it</div>
+        </div>
+      </div>
+      <div class="flow">
+        <span class="s"><b>1</b> Acknowledge</span><span class="arr">→</span>
+        <span class="s"><b>2</b> Diagnose</span><span class="arr">→</span>
+        <span class="s"><b>3</b> Act or dispatch</span><span class="arr">→</span>
+        <span class="s"><b>4</b> Follow through</span><span class="arr">→</span>
+        <span class="s"><b>5</b> Close loop with guest</span><span class="arr">→</span>
+        <span class="s"><b>6</b> Log + note for owner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOUBLE BOOKING + BOARD -->
+<section id="board" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 2 · the daily ops board</div>
+      <h2>One screen that answers "what needs me right now?"</h2>
+      <p class="lead">Across hundreds of properties, the job is visibility. This is the board I'd keep live so nothing falls through: arrivals and departures, cleans by status, maintenance, and any open guest issue. A quick scan tells you what's on track and what's hot.</p>
+    </div>
+    <div class="board reveal">
+      <div class="col">
+        <div class="t">Today · cleans</div>
+        <div class="chip done">[Property A] · departed<span class="m">Cleaner assigned · QC photos in</span></div>
+        <div class="chip warn">[Property B] · same-day flip<span class="m">Clean due by [cutoff], next guest 3pm</span></div>
+        <div class="chip">[Property C]<span class="m">Scheduled, not started</span></div>
+      </div>
+      <div class="col">
+        <div class="t">Maintenance</div>
+        <div class="chip hot">[Property D] · hot water<span class="m">P2 · trade dispatched, ETA [time]</span></div>
+        <div class="chip">[Property E] · bulb<span class="m">P3 · batched to weekly visit</span></div>
+        <div class="chip done">[Property F] · lock<span class="m">Resolved, owner noted</span></div>
+      </div>
+      <div class="col">
+        <div class="t">Guest issues</div>
+        <div class="chip hot">[Booking #] · check-in<span class="m">P1 · on call now</span></div>
+        <div class="chip done">[Booking #] · wifi<span class="m">Resolved, guest happy</span></div>
+      </div>
+      <div class="col">
+        <div class="t">OTA / calendar</div>
+        <div class="chip warn">Sync check · [time]<span class="m">Airbnb + Booking.com + direct aligned</span></div>
+        <div class="chip">Blackout dates<span class="m">[Property G] owner stay loaded</span></div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:18px">
+      <div class="label" style="color:var(--amber)">Built-in protocol · double bookings</div>
+      <h3 style="font-size:19px;margin:6px 0 10px">The one that costs you a guest and a review</h3>
+      <div class="flow">
+        <span class="s"><b>Detect</b> twice-daily channel sync check</span><span class="arr">→</span>
+        <span class="s"><b>Confirm</b> which booking holds</span><span class="arr">→</span>
+        <span class="s"><b>Act</b> rebook to a comparable property fast</span><span class="arr">→</span>
+        <span class="s"><b>Comms</b> own it with the guest, calm and quick</span><span class="arr">→</span>
+        <span class="s"><b>Prevent</b> flag the sync gap so it can't repeat</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER REPORT + TURNOVER -->
+<section id="report" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="label">Sample 3 · owner weekly report</div>
+        <h3 style="font-size:19px;margin:6px 0 4px">What each owner gets, without asking</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-bottom:14px">Short, same format every week. Owners stop chasing when they can see it.</p>
+        <table>
+          <tr><th>Line</th><th>This week</th></tr>
+          <tr><td><b>Nights booked</b> / occupancy</td><td class="m">[x nights] · [xx]%</td></tr>
+          <tr><td><b>Revenue</b> + avg nightly</td><td class="m">[$] · [$/night]</td></tr>
+          <tr><td><b>Upcoming</b> bookings</td><td class="m">next [x] arrivals</td></tr>
+          <tr><td><b>Issues handled</b></td><td class="m">[x], all closed</td></tr>
+          <tr><td><b>Maintenance</b> + spend</td><td class="m">[item] · [$]</td></tr>
+          <tr><td><b>Needs you</b></td><td class="m">[approval / nothing]</td></tr>
+        </table>
+      </div>
+      <div id="flip" class="card reveal">
+        <div class="label" style="color:var(--amber)">Sample 4 · same-day turnover checklist</div>
+        <h3 style="font-size:19px;margin:6px 0 4px">The flip that has to be guest-ready by 3pm</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-bottom:14px">The highest-risk moment in STR ops. This runs every time.</p>
+        <ul class="check">
+          <li><span class="b">1</span><div>Departure confirmed, late check-out ruled out</div></li>
+          <li><span class="b">2</span><div>Cleaner assigned + <b>clean due by [cutoff]</b></div></li>
+          <li><span class="b">3</span><div>QC photos in, linen and restock checked</div></li>
+          <li><span class="b">4</span><div>Damage / left items logged, owner noted if needed</div></li>
+          <li><span class="b">5</span><div><b>Ready</b> flag set, access codes live</div></li>
+          <li><span class="b">6</span><div>Next guest sent check-in details</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOMATION -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 5 · the workflow gap I'd close first</div>
+      <h2>One automation that removes a daily manual job</h2>
+      <p class="lead">Your post asks for someone who spots smarter processes. Here's a concrete one, built from tools you already use.</p>
+    </div>
+    <div class="auto reveal">
+      <h3 style="font-size:20px">Booking change → clean reschedules itself</h3>
+      <p style="color:var(--muted);font-size:14.5px;margin-top:8px">Right now a cancellation or date change usually means someone remembers to move the clean, ping the cleaner, and update the calendar. Miss it and you pay for a clean on an empty night, or a guest walks into a dirty property.</p>
+      <div class="trigger"><b>Zapier:</b> booking modified or cancelled in [PMS / Homhero] &nbsp;→&nbsp; cleaning task auto-reschedules in Breezeway &nbsp;→&nbsp; cleaner gets a Slack / WhatsApp alert &nbsp;→&nbsp; calendar and ops board update &nbsp;→&nbsp; flag to me only if it can't auto-resolve.</div>
+      <p style="color:var(--muted);font-size:13.5px;margin-top:12px">Net effect: fewer wasted cleans, no guest walking into a missed turnover, and one less thing a coordinator has to hold in their head.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:8px">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>This is how I'd run day one</h2>
+      <p>I take ownership, I close loops, and I build the small systems that keep a big portfolio calm. Give me the real cutoffs, contacts and tools and these go from sample to live. I learn new platforms fast, and I'd rather prevent the 6am problem than explain it after.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Property%20Operations%20Coordinator%20-%20application" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Role</div><div class="v">Property Operations Coordinator</div></div>
+        <div><div class="k">Hours</div><div class="v">Full time · AEST-aligned</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / ops portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Sample STR operations pack built by Judah for the Property Operations Coordinator role. No real operator data, brackets mark what gets set with the team. · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / ops portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
