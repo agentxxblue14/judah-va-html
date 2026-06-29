@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah · Sample Growth Pack for Just Cause Self-Care</title>
+<meta name="description" content="A working sample for Just Cause Self-Care: a LinkedIn outreach system to book corporate wellness discovery calls, a Klaviyo welcome flow, and Canva post concepts. Built before being hired, by Judah.">
+<style>
+  :root{
+    --bg:#13201B; --card:#1B2A23; --sage:#7FC8A9; --peach:#F2B68C;
+    --text:#EEF4EF; --muted:#9DB0A6; --hair:#2A3B33;
+    --shadow:0 18px 50px rgba(0,0,0,.42);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.14;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:31px;margin-bottom:8px}
+  .lead{color:var(--muted);font-size:17.5px;max-width:68ch}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--sage)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(19,32,27,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:800;font-size:18px}
+  .brand span{color:var(--sage)}
+  .nav-links{display:flex;gap:20px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15px;padding:12px 21px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease}
+  .btn-primary{background:var(--sage);color:#0B1611;box-shadow:0 8px 22px rgba(127,200,169,.28)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--sage)}
+  .nav-cta{padding:9px 17px;font-size:13.5px}
+
+  .hero{padding:78px 0 48px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(127,200,169,.2),transparent 62%);pointer-events:none}
+  .hero h1{font-size:50px;letter-spacing:-.03em;max-width:19ch}
+  .hero h1 .hl{color:var(--sage)}
+  .hero p.sub{margin:18px 0 24px;font-size:18.5px;color:var(--muted);max-width:62ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .note-strip{margin-top:20px;font-size:13.5px;color:var(--muted);max-width:66ch;background:rgba(242,182,140,.08);border:1px solid rgba(242,182,140,.25);border-radius:10px;padding:12px 15px}
+  .note-strip b{color:var(--peach)}
+
+  section{padding:54px 0}
+  .sec-head{max-width:70ch;margin-bottom:26px}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow)}
+
+  /* buyer map */
+  .buyer{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--hair)}
+  .buyer:last-child{border-bottom:none}
+  .buyer .lt{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--peach);font-weight:800}
+  .buyer .ld{font-size:18px;font-weight:800;margin-top:3px}
+  .buyer .who{color:var(--muted);font-size:14px}
+  .buyer .who b{color:var(--text)}
+
+  /* sequence */
+  .touch{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:20px 22px;margin-bottom:12px}
+  .touch .th{display:flex;align-items:center;gap:13px;margin-bottom:9px;flex-wrap:wrap}
+  .touch .day{background:var(--sage);color:#0B1611;font-size:12px;font-weight:800;padding:4px 11px;border-radius:99px}
+  .touch .tt{font-size:17px;font-weight:800}
+  .touch .goal{color:var(--muted);font-size:13px}
+  .msg{background:#0E1813;border:1px solid var(--hair);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--text);line-height:1.58}
+  .msg .var{color:var(--sage);font-weight:700}
+  .touch .note{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  /* klaviyo flow */
+  .flow{display:grid;gap:11px}
+  .mail{display:grid;grid-template-columns:74px 1fr;gap:16px;background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:15px 17px}
+  .mail .when{font-size:12px;font-weight:800;color:var(--peach);text-align:center;align-self:start;background:rgba(242,182,140,.1);border-radius:8px;padding:7px 4px}
+  .mail h4{font-size:15px;margin-bottom:3px}
+  .mail .subj{font-size:13px;color:var(--sage);font-weight:600;margin-bottom:4px}
+  .mail p{font-size:13px;color:var(--muted)}
+
+  /* canva posts */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .post{background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .post .vis{height:120px;display:flex;align-items:flex-end;padding:13px;font-weight:800;font-size:14px;color:#0B1611;position:relative}
+  .vis1{background:linear-gradient(135deg,#7FC8A9,#B7E3CE)} .vis2{background:linear-gradient(135deg,#F2B68C,#F8D4B6)} .vis3{background:linear-gradient(135deg,#9DB0A6,#C8D6CE)}
+  .post .body{padding:15px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .post .ptype{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--peach);font-weight:800}
+  .post .cap{font-size:13px;color:var(--text)}
+  .post .dir{font-size:12px;color:var(--muted);margin-top:auto;border-top:1px solid var(--hair);padding-top:9px}
+
+  .cta-card{background:linear-gradient(135deg,#16241d,#1B2A23);border:1px solid var(--hair);border-radius:20px;padding:48px;text-align:center;box-shadow:var(--shadow)}
+  .cta-card h2{font-size:32px;margin-bottom:10px}
+  .cta-card p{color:var(--muted);max-width:56ch;margin:0 auto 22px}
+  .cta-meta{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid var(--hair)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--sage);font-weight:700}
+  .cta-meta .v{font-size:15px;font-weight:500}
+  .cta-meta .v a{color:var(--text)}
+
+  footer{padding:34px 0 50px;text-align:center;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-3{grid-template-columns:1fr}
+    .buyer{grid-template-columns:1fr;gap:8px}
+    .hero h1{font-size:36px}
+    h2{font-size:24px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:30px 20px}
+    .card{padding:20px 18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>· for Just Cause</span></div>
+    <div class="nav-links">
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#email">Klaviyo flow</a>
+      <a href="#social">Social</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Hire Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">Shopify · LinkedIn · Social VA · a working sample</div>
+    <h1>Your corporate wellness clients are on LinkedIn. Let's <span class="hl">book</span> them.</h1>
+    <p class="sub">You asked for someone organized and proactive. Easier to show you. Below is a sample of how I'd run the growth side of Just Cause Self-Care: a LinkedIn system to book discovery calls, a Klaviyo welcome flow that turns first-time buyers into repeat ones, and a few Canva posts in a calm, on-brand voice. Built before you hired me.</p>
+    <div class="hero-cta">
+      <a href="#linkedin" class="btn btn-primary">See the system</a>
+      <a href="#hire" class="btn btn-ghost">Work with me</a>
+    </div>
+    <div class="note-strip">Honest note: this is a sample built for this role, not real client data. Anywhere a real product, offer or name belongs I've left a <b>[bracket]</b> to set with you on day one. Nothing here invents results.</div>
+  </div>
+</header>
+
+<!-- LINKEDIN -->
+<section id="linkedin" style="padding-top:14px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 1 · LinkedIn, the booked-call engine</div>
+      <h2>Who to reach, and the messages that get a call</h2>
+      <p class="lead">"Follow corporate wellness leads and book discovery calls" is the line in your post that grows the business. So I start with who actually says yes to a workplace wellness chat, then warm them with messages that sound like a person, not a pitch deck.</p>
+    </div>
+
+    <div class="card reveal" style="margin-bottom:20px">
+      <div class="label" style="color:var(--peach)">Who I'd target</div>
+      <div class="buyer" style="margin-top:8px">
+        <div><div class="lt">Decision maker</div><div class="ld">People &amp; Culture</div></div>
+        <div class="who"><b>HR Directors, People &amp; Culture leads, Heads of People.</b> They own staff wellbeing, retention and the perks budget. A self-care program is a direct answer to burnout and turnover, which is what keeps them up at night.</div>
+      </div>
+      <div class="buyer">
+        <div><div class="lt">Day-to-day buyer</div><div class="ld">Office &amp; workplace</div></div>
+        <div class="who"><b>Office Managers, Workplace Experience leads, EAs to founders.</b> They plan the team days, the care packages, the "treat the team" moments. Lower friction, faster yes, often the warmest first contact.</div>
+      </div>
+      <div class="buyer">
+        <div><div class="lt">Owner / budget</div><div class="ld">Founders &amp; COOs</div></div>
+        <div class="who"><b>Founders and COOs of 50 to 300 person companies.</b> Small enough to decide quickly, big enough to have a wellbeing line item. Good when they post about culture or hiring fast.</div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;margin-top:14px">Signals I'd watch for: posts about burnout or return-to-office, "great place to work" awards, fast hiring, new HR hires. Each is a natural reason to reach out.</p>
+    </div>
+
+    <div class="touch reveal">
+      <div class="th"><span class="day">Day 0</span><span class="tt">Connection request</span><span class="goal">get accepted, no pitch</span></div>
+      <div class="msg">Hi <span class="var">[First name]</span>, your post on <span class="var">[their topic, e.g. supporting the team through a busy quarter]</span> stood out. I work in the corporate wellbeing space and like how you talk about your people. Happy to connect.</div>
+      <div class="note">References something real they posted. Short. Reads like a person who actually read their profile.</div>
+    </div>
+    <div class="touch reveal">
+      <div class="th"><span class="day">On accept</span><span class="tt">Light context</span><span class="goal">no hard sell yet</span></div>
+      <div class="msg">Thanks <span class="var">[First name]</span>. Quick bit of context: I help run Just Cause Self-Care, we put together simple self-care programs and gifting for teams, the kind of thing that makes people feel looked after without adding work for HR. Is team wellbeing something you're actively thinking about this year?</div>
+      <div class="note">Ends on an easy question. Frames us as removing work from HR, not adding a project.</div>
+    </div>
+    <div class="touch reveal">
+      <div class="th"><span class="day">Day 3</span><span class="tt">Give something first</span><span class="goal">value before the ask</span></div>
+      <div class="msg">No pressure either way. We put together a short <span class="var">[free team self-care checklist / 5-minute reset guide]</span> that a few people teams have found handy, want me to send it over? Even if we never work together it's yours.</div>
+      <div class="note">A genuine free resource earns the reply and positions us as helpful, not hungry.</div>
+    </div>
+    <div class="touch reveal">
+      <div class="th"><span class="day">Day 7</span><span class="tt">The ask</span><span class="goal">book the discovery call</span></div>
+      <div class="msg">If looking after the team is on your list this quarter, I'd love 15 minutes to hear what you're after and show what we've done for similar teams. Here's my link: <span class="var">[Calendly]</span>. If the timing's off, just say and I'll check back later instead of nudging.</div>
+      <div class="note">Direct CTA with a booking link. The "I'll check back, not nudge" line lowers resistance.</div>
+    </div>
+    <div class="touch reveal">
+      <div class="th"><span class="day">Day 14</span><span class="tt">Soft close</span><span class="goal">leave the door open</span></div>
+      <div class="msg">Last note from me, <span class="var">[First name]</span>. I'll leave the checklist with you and stay connected. If wellbeing moves up the list later, you know where I am. Either way, glad we connected.</div>
+      <div class="note">Graceful exit. Keeps the relationship warm for when budget or timing changes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- KLAVIYO -->
+<section id="email" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 2 · Klaviyo welcome flow</div>
+      <h2>Turn a first order into a second one</h2>
+      <p class="lead">Wellness brands live on repeat buyers, not one-time sales. This is the welcome flow I'd set live first, five emails that introduce the brand, earn trust, and bring people back. Subjects written to get opened, not to shout.</p>
+    </div>
+    <div class="flow">
+      <div class="mail reveal"><div class="when">Now</div><div><h4>Welcome + your code</h4><div class="subj">Subj: Welcome in, here's a little something</div><p>Deliver the signup offer, set the tone (calm, kind), one clear button to shop. No clutter.</p></div></div>
+      <div class="mail reveal"><div class="when">+1 day</div><div><h4>Why we exist</h4><div class="subj">Subj: Self-care isn't selfish, here's what we mean</div><p>The brand story and what [Just Cause Self-Care] stands for. People buy wellness from brands they believe in.</p></div></div>
+      <div class="mail reveal"><div class="when">+3 days</div><div><h4>How to use it / bestseller</h4><div class="subj">Subj: The one most people start with</div><p>Spotlight the hero product [bestseller] and how to fold it into a real day. Education, not a hard sell.</p></div></div>
+      <div class="mail reveal"><div class="when">+5 days</div><div><h4>Social proof</h4><div class="subj">Subj: What [x] people told us after a week</div><p>Real reviews and before/after feelings. Trust does the selling here.</p></div></div>
+      <div class="mail reveal"><div class="when">+7 days</div><div><h4>Gentle nudge</h4><div class="subj">Subj: Your code's about to clock off</div><p>Warm reminder the welcome offer is ending. One last easy path to a first or second order.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Sample 3 · Canva post concepts</div>
+      <h2>On-brand social that's worth a save and a share</h2>
+      <p class="lead">Three posts in a calm, warm voice that fits a self-care brand. Captions ready, with a simple design direction a designer or Canva can run.</p>
+    </div>
+    <div class="grid-3">
+      <div class="post reveal">
+        <div class="vis vis1">5-minute desk reset</div>
+        <div class="body">
+          <div class="ptype">Educational carousel</div>
+          <div class="cap">Five small resets you can do between meetings without leaving your chair. Save this for your next overwhelming Tuesday. Which one are you trying first?</div>
+          <div class="dir">Soft sage bg, one tip per slide, big calm type, rounded corners. Save-worthy + identity ("I look after myself").</div>
+        </div>
+      </div>
+      <div class="post reveal">
+        <div class="vis vis2">Care, delivered</div>
+        <div class="body">
+          <div class="ptype">Product in real life</div>
+          <div class="cap">Some weeks you just need someone to say "go easy on yourself." This is that, in a box. [Product] is back in stock.</div>
+          <div class="dir">Warm peach tone, product styled in a lived-in calm setting (mug, soft light), minimal text, gentle CTA.</div>
+        </div>
+      </div>
+      <div class="post reveal">
+        <div class="vis vis3">From the team that got it</div>
+        <div class="body">
+          <div class="ptype">Social proof / testimonial</div>
+          <div class="cap">"Our whole team felt looked after, and it took me ten minutes to set up." [Name, role]. Looking after your people shouldn't be another job. That's the point.</div>
+          <div class="dir">Muted neutral bg, real quote in large type, small logo, corporate-wellbeing angle for the LinkedIn crowd.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:8px">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Ten focused hours a week, run like this</h2>
+      <p>I'd protect the booked-call engine first, keep the Klaviyo and social running so nothing goes quiet, and handle the Shopify and admin in the background. Give me your real products, offer and tone and these go from sample to live. I ask early and update daily, so you always know what's moving.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Shopify%20LinkedIn%20Social%20VA%20-%20Just%20Cause%20Self-Care" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Role</div><div class="v">Shopify / LinkedIn / Social VA</div></div>
+        <div><div class="k">Hours</div><div class="v">10 / week · webcam, Google Meet fine</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Sample growth pack built by Judah for the Just Cause Self-Care VA role. No real client data, brackets mark what gets set with the team. · <a href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA portfolio</a> · <a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
