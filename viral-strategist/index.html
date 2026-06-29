@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Viral Psychology Strategist, Trial Task</title>
+<meta name="description" content="The trial task done with depth: 3 viral videos reverse-engineered to their psychological engines and rebuilt around your three tracks. By Judah Rivera.">
+<style>
+  :root{
+    --bg:#0E0F1A; --card:#181A2B; --violet:#8B5CFF; --lime:#C8F45D;
+    --text:#F2F3FA; --muted:#9AA0BD; --hair:#262A40;
+    --shadow:0 18px 50px rgba(0,0,0,.4);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.12;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:33px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:64ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--lime)}
+  a{color:inherit}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,15,26,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:19px}
+  .brand span{color:var(--violet)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+  .btn-primary{background:var(--violet);color:#0E0F1A;box-shadow:0 8px 22px rgba(139,92,255,.34)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--violet)}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:84px 0 56px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,255,.28),transparent 62%);pointer-events:none}
+  .hero h1{font-size:56px;letter-spacing:-.03em;max-width:16ch}
+  .hero h1 .hl{color:var(--violet)}
+  .hero p.sub{margin:20px 0 26px;font-size:19.5px;color:var(--muted);max-width:58ch}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .seen{margin-top:22px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:9px}
+  .seen b{color:var(--lime)}
+
+  section{padding:80px 0}
+  .sec-head{max-width:66ch;margin-bottom:34px}
+
+  /* framework */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fcard{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:24px}
+  .fcard .n{font-size:13px;font-weight:800;color:var(--violet)}
+  .fcard h3{font-size:18px;margin:8px 0 6px}
+  .fcard p{color:var(--muted);font-size:14.5px}
+  .principles{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+  .pill{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:8px 15px;font-size:13.5px;color:var(--muted)}
+  .pill b{color:var(--text)}
+
+  /* teardown cards */
+  .teardown{background:var(--card);border:1px solid var(--hair);border-radius:18px;box-shadow:var(--shadow);padding:30px;margin-bottom:24px}
+  .td-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:20px}
+  .td-top h3{font-size:23px}
+  .td-meta{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .td-meta a{color:var(--violet);text-decoration:none}
+  .views{text-align:right;flex:0 0 auto}
+  .views .v{font-size:30px;font-weight:800;color:var(--lime);line-height:1}
+  .views .k{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .td-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px}
+  .row{padding:9px 0;border-bottom:1px solid var(--hair)}
+  .row:last-child{border-bottom:none}
+  .row .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--lime);font-weight:700;margin-bottom:3px}
+  .row .t{font-size:14.5px;color:var(--text)}
+  .repurpose{margin-top:18px;background:rgba(139,92,255,.10);border:1px solid rgba(139,92,255,.3);border-radius:12px;padding:16px 18px}
+  .repurpose .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--violet);font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+  .repurpose .track{background:var(--lime);color:#0E0F1A;font-size:11px;font-weight:800;padding:2px 9px;border-radius:99px}
+  .repurpose p{font-size:14.5px;color:var(--text)}
+
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+  .step{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:18px}
+  .step .n{font-size:22px;font-weight:800;color:var(--violet)}
+  .step p{color:var(--muted);font-size:13.5px;margin-top:6px}
+
+  .cta-card{background:linear-gradient(135deg,#1a1530,#181A2B);border:1px solid var(--hair);border-radius:20px;padding:52px;text-align:center;box-shadow:var(--shadow)}
+  .cta-card h2{font-size:34px;margin-bottom:12px}
+  .cta-card p{color:var(--muted);max-width:54ch;margin:0 auto 24px}
+  .cta-meta{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid var(--hair)}
+  .cta-meta div{text-align:left}
+  .cta-meta .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);font-weight:700}
+  .cta-meta .v{font-size:16px;font-weight:500}
+  .cta-meta .v a{color:var(--text)}
+
+  footer{padding:38px 0 54px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .grid-3,.td-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:39px}
+    h2{font-size:27px}
+    .nav-links a:not(.nav-cta){display:none}
+    .cta-card{padding:34px 22px}
+    .views{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <span>Rivera</span></div>
+    <div class="nav-links">
+      <a href="#framework">Framework</a>
+      <a href="#teardowns">Teardowns</a>
+      <a href="#system">System</a>
+      <a href="#hire" class="btn btn-primary nav-cta">Hire Judah</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">Trial task, done</div>
+    <h1>Three viral videos, broken to the <span class="hl">engine</span>, rebuilt with your music.</h1>
+    <p class="sub">You asked for deep thinking, not cool videos. So I reverse-engineered the psychological structure of three real viral hits and rebuilt each one around your three tracks, in your exact breakdown template.</p>
+    <div class="hero-cta">
+      <a href="#teardowns" class="btn btn-primary">See the teardowns</a>
+      <a href="#hire" class="btn btn-ghost">Work with me</a>
+    </div>
+    <div class="seen">Watched <b>Tuan Le's "3 billion views"</b> talk first. The thread running through all of this is his idea of the <b>format steal</b>.</div>
+  </div>
+</header>
+
+<!-- framework -->
+<section id="framework">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">The lens</div>
+      <h2>The brain decides in under a second. I build for that.</h2>
+      <p class="lead">Before anyone consciously chooses, the brain runs three checks. A scroll-stopper answers all three at once. Everything below is built to pass them.</p>
+    </div>
+    <div class="grid-3">
+      <div class="fcard reveal"><div class="n">CHECK 1</div><h3>Have I seen this and liked it?</h3><p>Familiarity beats originality. I start from a format the brain already trusts, then put a fresh concept inside it.</p></div>
+      <div class="fcard reveal"><div class="n">CHECK 2</div><h3>Is something unexpected?</h3><p>A pattern interrupt in the first half second. The curiosity gap is the reason the thumb stops.</p></div>
+      <div class="fcard reveal"><div class="n">CHECK 3</div><h3>Does this involve me?</h3><p>Identity and emotion. People share what makes them look good, so the share is designed in, not hoped for.</p></div>
+    </div>
+    <div class="principles">
+      <span class="pill"><b>Engine A</b> mechanical curiosity</span>
+      <span class="pill"><b>Engine B</b> recognition into relief</span>
+      <span class="pill"><b>Engine C</b> wholesome identity</span>
+      <span class="pill"><b>Story</b> Hook, Problem, Story, Payoff</span>
+      <span class="pill"><b>Always</b> a rewatch trigger</span>
+    </div>
+  </div>
+</section>
+
+<!-- teardowns -->
+<section id="teardowns" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">The trial task</div>
+      <h2>Three teardowns, three engines, three tracks</h2>
+    </div>
+
+    <!-- 1 -->
+    <div class="teardown reveal">
+      <div class="td-top">
+        <div>
+          <h3>Zach King, "Magic Broomstick"</h3>
+          <div class="td-meta">TikTok · <a href="https://www.tiktok.com/@zachking" target="_blank" rel="noopener">@zachking</a> · engine: mechanical curiosity</div>
+        </div>
+        <div class="views"><div class="v">~2.2B</div><div class="k">views (most-viewed TikTok)</div></div>
+      </div>
+      <div class="td-grid">
+        <div class="row"><div class="k">Hook</div><div class="t">First frame is mid-action on a broom. Instant Harry Potter recognition plus "is he actually going to fly?"</div></div>
+        <div class="row"><div class="k">Curiosity gap</div><div class="t">Mechanical, not narrative: you know the payoff, you cannot predict how it's done in one shot. It survives rewatching.</div></div>
+        <div class="row"><div class="k">Emotional arc</div><div class="t">Anticipation, delight, disbelief. Ends on a surprise spike, the emotion most tied to sharing.</div></div>
+        <div class="row"><div class="k">Pacing</div><div class="t">~7 seconds, one invisible cut at the peak, zero filler. The whole video protects one reveal.</div></div>
+        <div class="row"><div class="k">Identity appeal</div><div class="t">Sharing says "I have taste in clever craft." It makes you look delighted, not fooled.</div></div>
+        <div class="row"><div class="k">Why shared</div><div class="t">"How did he do that" forces a rewatch and a tag. Looking good plus a puzzle.</div></div>
+        <div class="row"><div class="k">Story structure</div><div class="t">Hook (on a broom), Problem (can a real person fly?), Story (the run-up), Payoff (seamless lift-off).</div></div>
+        <div class="row"><div class="k">The skeleton</div><div class="t">Ordinary setup, then one impossible seamless reveal.</div></div>
+      </div>
+      <div class="repurpose">
+        <div class="k">Rebuilt with <span class="track">confidence energy</span></div>
+        <p>Plain clothes in front of a closet, one jump, land mid-stride in a full transformed outfit on a city street. One invisible cut on the beat drop. Same mechanical "how" gap, same surprise spike, brand new topic, and the track's momentum carries the run-up into the reveal.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="teardown reveal">
+      <div class="td-top">
+        <div>
+          <h3>Hilton, "It Matters Where You Stay"</h3>
+          <div class="td-meta">Instagram Reels · <a href="https://www.instagram.com/hilton/" target="_blank" rel="noopener">@hilton</a> (Deepika Padukone) · engine: recognition into relief</div>
+        </div>
+        <div class="views"><div class="v">~5B</div><div class="k">views (most-viewed reel, a branded ad)</div></div>
+      </div>
+      <div class="td-grid">
+        <div class="row"><div class="k">Hook</div><div class="t">Opens like every influencer travel reel, then immediately mocks that format. Familiar, but subverted.</div></div>
+        <div class="row"><div class="k">Curiosity gap</div><div class="t">By breaking the polished-travel cliche early, it makes you watch to see how far the self-aware joke goes.</div></div>
+        <div class="row"><div class="k">Emotional arc</div><div class="t">Recognition, amusement, relief. It validates a shared frustration with fake travel perfection.</div></div>
+        <div class="row"><div class="k">Pacing</div><div class="t">Quick setup-punchline beats. Long enough to land the bit, tight enough to rewatch.</div></div>
+        <div class="row"><div class="k">Identity appeal</div><div class="t">Sharing says "I'm in on the joke, not fooled by fake perfection." An in-group signal.</div></div>
+        <div class="row"><div class="k">Why shared</div><div class="t">Shared identity (smart traveler) plus it makes the sharer look self-aware, not sold-to.</div></div>
+        <div class="row"><div class="k">Story structure</div><div class="t">Hook (familiar reel), Problem (travel content is fake), Story (the takedown), Payoff (brand as the honest answer).</div></div>
+        <div class="row"><div class="k">The skeleton</div><div class="t">Set up a familiar aspirational format, subvert it, deliver the real payoff. A boring brand going viral via a stolen format, exactly Tuan Le's thesis.</div></div>
+      </div>
+      <div class="repurpose">
+        <div class="k">Rebuilt with <span class="track">galasalah rendez vous</span></div>
+        <p>A dreamy "perfect morning routine" reel scored by the track that keeps getting interrupted by real life (alarm fails, coffee spills), then resolves into one genuinely calm moment. The aspirational music makes the fantasy land harder, the subversion makes it relatable and shareable.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="teardown reveal">
+      <div class="td-top">
+        <div>
+          <h3>Tariq, "It's Corn" (Corn Kid)</h3>
+          <div class="td-meta">TikTok and YouTube · <a href="https://www.youtube.com/watch?v=AzEjkrW7p_4" target="_blank" rel="noopener">song version</a> · engine: wholesome identity</div>
+        </div>
+        <div class="views"><div class="v">10s of M</div><div class="k">views (approx, plus duets and stitches)</div></div>
+      </div>
+      <div class="td-grid">
+        <div class="row"><div class="k">Hook</div><div class="t">A kid's unfiltered, total joy in the first second. Pure emotion is rare on the feed, so the brain flags it as novel and safe.</div></div>
+        <div class="row"><div class="k">Curiosity gap</div><div class="t">Softer and emotional: "who is this kid and why is he this happy about corn?"</div></div>
+        <div class="row"><div class="k">Emotional arc</div><div class="t">Surprise, warmth, delight. A clean hit of wholesome serotonin with zero cynicism.</div></div>
+        <div class="row"><div class="k">Pacing</div><div class="t">The autotuned song turns a talking clip into a loop. The musical hook is the rewatch engine.</div></div>
+        <div class="row"><div class="k">Identity appeal</div><div class="t">Sharing says "I'm wholesome, I appreciate genuine joy." It makes the sharer look kind and fun.</div></div>
+        <div class="row"><div class="k">Why shared</div><div class="t">Identity and emotion, plus it became participatory: everyone made their own "it's ___" version.</div></div>
+        <div class="row"><div class="k">Story structure</div><div class="t">Hook (a beaming kid), Problem (will it stay this pure?), Story (his sincere love), Payoff (a line you cannot unhear).</div></div>
+        <div class="row"><div class="k">The skeleton</div><div class="t">One person's sincere, specific, un-self-conscious joy, turned into a singable, remixable loop.</div></div>
+      </div>
+      <div class="repurpose">
+        <div class="k">Rebuilt with <span class="track">kumglatchko give</span></div>
+        <p>A montage of regular people naming the small ordinary thing they're irrationally happy about (a perfectly toasted bagel, a clean desk), cut to the playful bounce of the track, ending on a repeatable tagline that invites duets. Same wholesome-identity engine, same make-your-own shareability, new subject.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- system -->
+<section id="system" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">The repeatable system</div>
+      <h2>Every breakdown I send would run this exact loop</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><p>Identify the format skeleton, not the topic.</p></div>
+      <div class="step reveal"><div class="n">2</div><p>Name the psychological engine driving it.</p></div>
+      <div class="step reveal"><div class="n">3</div><p>Find the rewatch trigger.</p></div>
+      <div class="step reveal"><div class="n">4</div><p>Rebuild around the right track and a fresh concept.</p></div>
+      <div class="step reveal"><div class="n">5</div><p>Make it remixable. Participation outscales viewing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="hire" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>This is the depth I'd bring every week</h2>
+      <p>I produce short-form content myself, so these breakdowns are buildable, not just clever. Every one would land in this format, tracked in a sheet so we can see which engines keep working and double down.</p>
+      <a href="mailto:katrinajudah14@gmail.com?subject=Viral%20Psychology%20Strategist%20application" class="btn btn-primary">Email Judah</a>
+      <div class="cta-meta">
+        <div><div class="k">Availability</div><div class="v">15 hrs/week</div></div>
+        <div><div class="k">Did the work</div><div class="v">Watched the video, used your 3 tracks</div></div>
+        <div><div class="k">Email</div><div class="v"><a href="mailto:katrinajudah14@gmail.com">katrinajudah14@gmail.com</a></div></div>
+        <div><div class="k">Portfolio</div><div class="v"><a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by Judah Rivera as the trial task for the Viral Psychology Strategist role. Real videos, verified or approximate view counts, original analysis. · <a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Content portfolio</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
