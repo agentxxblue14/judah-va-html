@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · EA + Operations Manager for Jamie LeClaire</title>
+<meta name="description" content="Tasks move forward without repeated reminders. A live ops command center, a CEO weekly digest, and SOPs already built for Jamie LeClaire's EA / Operations Manager role. By Judah Rivera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16202E; --slate:#5A6678; --blue:#2D6CDF;
+    --mint:#1FA98A; --amber:#D98A1F; --coral:#D9534F;
+    --paper:#F6F8FB; --card:#FFFFFF; --hair:#E4E9F1;
+    --okbg:#DCF1EC; --okfg:#157a63;
+    --riskbg:#F7E8CF; --riskfg:#8a5712;
+    --latebg:#F6D9D8; --latefg:#a23733;
+    --donebg:#DCE6FA; --donefg:#23509e;
+    --shadow:0 12px 32px rgba(22,32,46,.07); --shadow-lg:0 24px 56px rgba(22,32,46,.14);
+    --sans:"Inter",-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.13;font-weight:700;letter-spacing:-.02em}
+  h2{font-size:31px;margin-bottom:8px}
+  h3{font-size:19px}
+  .lead{color:var(--slate);font-size:18.5px;max-width:62ch}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--blue)}
+  .tnum{font-variant-numeric:tabular-nums}
+  a{color:var(--blue)}
+  section{padding:84px 0;border-top:1px solid var(--hair)}
+  section:first-of-type{border-top:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,248,251,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .brand b{color:var(--blue)}
+  .nav-links{display:flex;gap:22px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--slate);font-size:14.5px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-block;border-radius:10px;font-weight:600;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;font-family:inherit}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(45,108,223,.26)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(45,108,223,.32)}
+  .btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .nav-cta{padding:9px 17px;font-size:14px}
+  @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* hero */
+  .hero{padding:74px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:center}
+  .kicker{display:inline-block;background:#fff;border:1px solid var(--hair);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--slate);margin-bottom:20px}
+  .kicker b{color:var(--ink)}
+  .hero h1{font-size:49px;letter-spacing:-.03em;font-weight:800}
+  .hero h1 .hl{color:var(--blue)}
+  .hero p.sub{margin:20px 0 26px;font-size:19px;color:var(--slate);max-width:52ch}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+  /* command panel card in hero */
+  .panel{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .panel .ph{background:var(--ink);color:#fff;padding:13px 17px;display:flex;justify-content:space-between;align-items:center}
+  .panel .ph .t{font-weight:600;font-size:14.5px;display:flex;align-items:center;gap:9px}
+  .dot{width:9px;height:9px;border-radius:99px;background:var(--mint);box-shadow:0 0 0 4px rgba(31,169,138,.18)}
+  .panel .ph .m{font-size:11.5px;color:#9CA8BD;letter-spacing:.02em}
+  .summ{display:grid;grid-template-columns:repeat(3,1fr)}
+  .summ .cell{padding:18px 16px;text-align:center;border-right:1px solid var(--hair)}
+  .summ .cell:last-child{border-right:none}
+  .summ .n{font-size:34px;font-weight:800;letter-spacing:-.03em}
+  .summ .k{font-size:12px;color:var(--slate);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:2px}
+  .summ .n.ok{color:var(--mint)} .summ .n.risk{color:var(--amber)} .summ .n.late{color:var(--coral)}
+  .panel .pf{padding:12px 16px;border-top:1px solid var(--hair);font-size:13px;color:var(--slate);display:flex;justify-content:space-between;align-items:center}
+
+  /* generic */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:22px;box-shadow:var(--shadow)}
+  .card h3{margin-bottom:6px}
+  .card p{font-size:15px;color:var(--slate)}
+  .muted{color:var(--slate)}
+  .mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt40{margin-top:40px}
+  .sec-head{margin-bottom:30px}
+  .sec-head .lead{margin-top:8px}
+
+  /* read-your-post strip */
+  .map-card{background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:20px;box-shadow:var(--shadow)}
+  .map-card .said{font-size:13px;color:var(--slate);font-style:italic;border-left:3px solid var(--blue);padding-left:11px;margin-bottom:12px}
+  .map-card .do{font-size:15.5px;font-weight:500}
+
+  /* tracker */
+  .tracker{background:var(--card);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .tracker .th{background:var(--ink);color:#fff;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .tracker .th .t{font-weight:600;font-size:15px;display:flex;align-items:center;gap:9px}
+  .filters{display:flex;gap:7px;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--hair);background:#fbfcfe}
+  .fbtn{font-family:inherit;font-size:13px;font-weight:600;padding:7px 13px;border-radius:99px;border:1px solid var(--hair);background:#fff;color:var(--slate);cursor:pointer;transition:all .15s ease}
+  .fbtn:hover{border-color:var(--blue);color:var(--ink)}
+  .fbtn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fbtn .c{opacity:.6;margin-left:5px;font-variant-numeric:tabular-nums}
+  table.trk{width:100%;border-collapse:collapse;font-size:13.5px}
+  table.trk th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);font-weight:700;padding:11px 14px;border-bottom:1px solid var(--hair);background:#fbfcfe}
+  table.trk td{padding:12px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  table.trk tr:last-child td{border-bottom:none}
+  table.trk tr.row{transition:opacity .15s ease,transform .15s ease}
+  .task-t{font-weight:600;color:var(--ink)}
+  .task-n{font-size:12px;color:var(--slate);margin-top:2px}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
+  .pill.ok{background:var(--okbg);color:var(--okfg)}
+  .pill.risk{background:var(--riskbg);color:var(--riskfg)}
+  .pill.late{background:var(--latebg);color:var(--latefg)}
+  .pill.done{background:var(--donebg);color:var(--donefg)}
+  .ceoflag{display:inline-block;font-size:10px;font-weight:800;color:var(--coral);letter-spacing:.04em}
+  .trk-foot{padding:14px 16px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#fbfcfe}
+  .note-sm{font-size:12.5px;color:var(--slate)}
+
+  /* digest output */
+  .digest{margin-top:18px;background:var(--ink);color:#E7ECF4;border-radius:14px;padding:0;overflow:hidden;box-shadow:var(--shadow-lg);display:none}
+  .digest.show{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .digest .dh{padding:16px 20px;border-bottom:1px solid #2a3647;display:flex;justify-content:space-between;align-items:center}
+  .digest .dh b{color:#fff;font-size:15px}
+  .digest .db{padding:18px 22px;font-size:14.5px;line-height:1.7}
+  .digest h4{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:16px 0 7px;font-weight:700}
+  .digest h4:first-child{margin-top:0}
+  .digest ul{list-style:none}
+  .digest li{padding:5px 0 5px 18px;position:relative;color:#C8D2E0}
+  .digest li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:99px;background:var(--blue)}
+  .digest li.l-late:before{background:var(--coral)} .digest li.l-risk:before{background:var(--amber)} .digest li.l-ok:before{background:var(--mint)}
+  .digest .dnum{display:flex;gap:26px;flex-wrap:wrap;margin-top:6px}
+  .digest .dnum div{font-size:13px;color:#9CA8BD}
+  .digest .dnum b{color:#fff;font-size:22px;display:block;font-variant-numeric:tabular-nums}
+
+  /* timeline 30/60/90 */
+  .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tl .step{background:var(--card);border:1px solid var(--hair);border-radius:13px;padding:22px;box-shadow:var(--shadow);position:relative}
+  .tl .step .d{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.04em}
+  .tl .step h3{margin:6px 0 10px}
+  .tl .step ul{list-style:none}
+  .tl .step li{font-size:14.5px;color:var(--slate);padding:5px 0 5px 20px;position:relative}
+  .tl .step li:before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:2px;background:var(--mint)}
+
+  /* proof samples */
+  .sample{display:flex;gap:14px;align-items:flex-start}
+  .sample .ico{flex:none;width:42px;height:42px;border-radius:10px;background:var(--donebg);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+  .sample .ico svg{width:22px;height:22px}
+  .sample h3{font-size:16.5px}
+  .sample p{font-size:14px;margin-top:3px}
+  .sample .lk{font-size:13.5px;font-weight:600;margin-top:8px;display:inline-block}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;color:var(--slate);background:var(--paper);border:1px solid var(--hair);border-radius:99px;padding:3px 10px}
+
+  /* track record */
+  .track-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .track-item{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:18px}
+  .track-item .who{font-weight:700;font-size:15px}
+  .track-item .what{font-size:14px;color:var(--slate);margin-top:4px}
+
+  /* tools chips */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+  .chip{background:var(--card);border:1px solid var(--hair);border-radius:99px;padding:8px 15px;font-size:14px;font-weight:500}
+
+  /* cta */
+  .cta{background:var(--ink);border-radius:18px;padding:54px 44px;color:#fff;text-align:center;box-shadow:var(--shadow-lg)}
+  .cta h2{color:#fff;font-size:34px}
+  .cta p{color:#AEB9CB;max-width:54ch;margin:12px auto 26px;font-size:17px}
+  .cta .btn-primary{background:var(--blue)}
+  .cta .ghost-light{background:transparent;border:1px solid #44516a;color:#fff}
+  .cta .ghost-light:hover{background:#fff;color:var(--ink)}
+  .cta-links{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .cta .small{font-size:13.5px;color:#8C99AE;margin-top:22px}
+  .cta a.inline{color:#9fc0ff}
+
+  footer{padding:34px 0;border-top:1px solid var(--hair);color:var(--slate);font-size:13.5px}
+  .foot-in{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  @media(max-width:860px){
+    .hero-grid,.grid2,.track-list{grid-template-columns:1fr}
+    .grid4,.grid3,.tl{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:38px}
+    h2{font-size:26px}
+    .col-hide{display:none}
+  }
+  @media(max-width:560px){
+    .grid4,.grid3,.tl{grid-template-columns:1fr}
+    .summ .n{font-size:28px}
+    .cta{padding:38px 22px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Judah <b>Rivera</b></div>
+    <div class="nav-links">
+      <a href="#post">The job</a>
+      <a href="#tracker">Live tracker</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">First 90 days</a>
+      <a href="#about">About</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Reply to me</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Built for <b>Jamie LeClaire</b> · Executive Assistant / Operations Manager</span>
+      <h1>Tasks move forward <span class="hl">without repeated reminders.</span> That is the whole job.</h1>
+      <p class="sub">You wrote that line in the post. It's the one I'd be measured on, so I built you a working version of how I'd hit it: a live cross-team tracker and the 2-minute weekly read you'd get from me.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Reply to me</a>
+        <a class="btn btn-ghost" href="#tracker">See the live tracker</a>
+      </div>
+    </div>
+    <div class="panel" aria-label="Live operations summary">
+      <div class="ph">
+        <span class="t"><span class="dot"></span> Ops command center</span>
+        <span class="m">this week · sample</span>
+      </div>
+      <div class="summ">
+        <div class="cell"><div class="n ok tnum" id="sumOk">0</div><div class="k">On track</div></div>
+        <div class="cell"><div class="n risk tnum" id="sumRisk">0</div><div class="k">Stalled</div></div>
+        <div class="cell"><div class="n late tnum" id="sumLate">0</div><div class="k">Blocked</div></div>
+      </div>
+      <div class="pf"><span><b id="sumCeo">0</b> need a decision from you</span><span>auto-rolled from the board below</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- READ YOUR POST -->
+<section id="post">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">I read the whole post, not the title</span>
+      <h2>Your four "what success looks like" lines, answered</h2>
+      <p class="lead">You listed exactly what good looks like. Here is the concrete thing I'd do for each, in week one.</p>
+    </div>
+    <div class="grid4">
+      <div class="map-card">
+        <div class="said">"Tasks move forward without repeated reminders."</div>
+        <div class="do">Every item gets an owner and a due date. I follow up before it goes stale, so you stop being the reminder.</div>
+      </div>
+      <div class="map-card">
+        <div class="said">"Systems remain organized and usable."</div>
+        <div class="do">One naming convention, one source of truth in Asana, and the access/offboarding SOP so nothing rots.</div>
+      </div>
+      <div class="map-card">
+        <div class="said">"The CEO has visibility into priorities and progress."</div>
+        <div class="do">A 2-minute weekly digest, decisions first. You see what's stuck without opening a single board.</div>
+      </div>
+      <div class="map-card">
+        <div class="said">"Teams know what is expected and by when."</div>
+        <div class="do">Clear owners and dates on the shared board, plus the nudge cadence that keeps vendors and partners moving.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE TRACKER -->
+<section id="tracker" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">The signature piece · interactive</span>
+      <h2>A working cross-department tracker, seeded with your kind of work</h2>
+      <p class="lead">This is the board I'd run your operation on. Filter it the way I'd triage. Then hit "Generate CEO digest" and watch it collapse into the exact weekly read I'd send you. Sample data, real method.</p>
+    </div>
+
+    <div class="tracker">
+      <div class="th">
+        <span class="t"><span class="dot"></span> Cross-department tracker</span>
+        <span class="note-sm" style="color:#9CA8BD">5 areas · illustrative data</span>
+      </div>
+      <div class="filters" id="filters" role="tablist" aria-label="Filter tasks by status"></div>
+      <div style="overflow-x:auto">
+        <table class="trk">
+          <thead>
+            <tr>
+              <th>Task</th><th>Owner</th><th class="col-hide">Dept</th><th>Due</th><th class="col-hide">Last nudge</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="trkBody"></tbody>
+        </table>
+      </div>
+      <div class="trk-foot">
+        <span class="note-sm" id="trkCount"></span>
+        <button class="btn btn-primary" id="genBtn" style="padding:11px 20px;font-size:14.5px">Generate CEO digest</button>
+      </div>
+    </div>
+
+    <!-- digest output -->
+    <div class="digest" id="digest" aria-live="polite">
+      <div class="dh"><b>CEO Weekly Ops Digest</b><span class="note-sm" style="color:#9CA8BD">prepared for Jamie · 2-min read</span></div>
+      <div class="db" id="digestBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Show, don't claim</span>
+      <h2>Four samples I built for this role, plus what I've actually run</h2>
+      <p class="lead">The tracker above isn't a one-off. Here are the documents behind it, made for your use case. They're samples built to show how I'd work, not past-client files.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card sample">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div>
+        <div>
+          <h3>CEO Weekly Ops Digest <span class="badge">sample</span></h3>
+          <p>The 2-minute read you'd get every week. Decisions first, then what I'm handling, then what shipped.</p>
+          <a class="lk" href="../samples/CEO_Weekly_Ops_Digest_SAMPLE.md" target="_blank" rel="noopener">View the digest →</a>
+        </div>
+      </div>
+      <div class="card sample">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <div>
+          <h3>Cross-Department Task Tracker <span class="badge">sample .xlsx</span></h3>
+          <p>The full workbook behind the live board above, color-coded by status with a "needs CEO" column.</p>
+          <a class="lk" href="../samples/Cross_Department_Task_Tracker_SAMPLE.xlsx">Download the workbook →</a>
+        </div>
+      </div>
+      <div class="card sample">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+        <div>
+          <h3>Access &amp; Offboarding SOP <span class="badge">sample</span></h3>
+          <p>System access, permissions, and offboarding as a timestamped checklist. No orphaned logins, no empty paid seats.</p>
+          <a class="lk" href="../samples/Access_Provisioning_and_Offboarding_SOP_SAMPLE.md" target="_blank" rel="noopener">View the SOP →</a>
+        </div>
+      </div>
+      <div class="card sample">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></div>
+        <div>
+          <h3>Lead Tracker + Outreach Cadence <span class="badge">sample</span></h3>
+          <p>Give me the criteria, get a clean pipeline, a 3-touch cadence, and an honest weekly report on who moved.</p>
+          <a class="lk" href="../samples/Lead_Tracker_and_Outreach_SAMPLE.md" target="_blank" rel="noopener">View the lead system →</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt40" style="margin-bottom:4px">What I've actually run (real track record)</h3>
+    <p class="muted" style="font-size:15px">Real clients, described honestly. No invented metrics.</p>
+    <div class="track-list">
+      <div class="track-item"><div class="who">Agency PM across 40+ e-commerce brands</div><div class="what">Own Asana intake and routing: incoming client messages become tasks with the right custom fields, assigned to the right strategist same day. Calendars, replies, and weekly client handoffs too.</div></div>
+      <div class="track-item"><div class="who">US client team · Monday.com board owner</div><div class="what">Rewrote vague items into action-step subtasks with owners and dates, chased deliverables so nothing died in a tab, and built a recurring daily digest so the founder sees status without asking.</div></div>
+      <div class="track-item"><div class="who">WordPress + FluentCart store ops</div><div class="what">Product setup, catalog hygiene, and REST-API workflows for a US store owner. Kept the system clean enough for the rest of the team to use.</div></div>
+      <div class="track-item"><div class="who">SOPs, onboarding docs, and access</div><div class="what">Built SOP libraries so repeatable work stops living in one head, and consolidated a full team's logins into a shared password vault with offboarding in mind.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 30/60/90 -->
+<section id="plan" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Concrete, not vibes</span>
+      <h2>What I'd actually do in your first 30, 60, 90 days</h2>
+    </div>
+    <div class="tl">
+      <div class="step">
+        <div class="d">DAYS 1–30</div>
+        <h3>Find the leaks, build one source of truth</h3>
+        <ul>
+          <li>Audit every open item and where it lives now</li>
+          <li>One naming convention across the Asana workspace</li>
+          <li>Stand up the cross-team tracker (the board above)</li>
+          <li>Shadow your calendar and inbox rhythm</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="d">DAYS 31–60</div>
+        <h3>Turn it into a rhythm you can feel</h3>
+        <ul>
+          <li>Weekly CEO digest goes live, decisions first</li>
+          <li>Stalled-item escalation runs on a set cadence</li>
+          <li>SOP library started: access, offboarding, onboarding</li>
+          <li>Vendor and partner follow-ups closing on time</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="d">DAYS 61–90</div>
+        <h3>You only touch the decisions</h3>
+        <ul>
+          <li>Lead pipeline tracked and reported weekly</li>
+          <li>Days-to-close on follow-ups trending down</li>
+          <li>Systems tidy enough that anyone can find anything</li>
+          <li>Your digest gets shorter because less needs you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS / ABOUT -->
+<section id="about">
+  <div class="wrap grid2" style="align-items:start;gap:46px">
+    <div>
+      <span class="label">How I work</span>
+      <h2 style="margin-top:8px">Tools I'm fluent in</h2>
+      <p class="muted" style="font-size:15.5px">The stack in your post is the stack I run every day.</p>
+      <div class="chips">
+        <span class="chip">Asana</span><span class="chip">ClickUp</span><span class="chip">Monday.com</span>
+        <span class="chip">Slack</span><span class="chip">Microsoft 365</span><span class="chip">Google Workspace</span>
+        <span class="chip">HubSpot</span><span class="chip">Go High Level</span><span class="chip">Notion</span>
+        <span class="chip">Calendly</span><span class="chip">QuickBooks</span>
+      </div>
+      <p class="mt16" style="font-size:14.5px;color:var(--slate)">On the AI side I run Claude as my daily driver for drafting, summarizing, and research, plus Copilot inside M365 and Zapier for automation. Every draft gets a human read for tone and accuracy before it leaves. AI is a thinking partner, not an excuse to skip judgment.</p>
+    </div>
+    <div>
+      <span class="label">About</span>
+      <h2 style="margin-top:8px">Judah Rivera</h2>
+      <p class="muted">4+ years as an executive assistant and operations coordinator for founders and small remote teams. BS Accountancy, so invoices, numbers, and detail don't slip. I'm based in the Philippines and cover US hours, ET through PT.</p>
+      <p class="mt16 muted">What clients notice: I'm on time, I flag problems before they grow, and I treat a follow-up as something to finish, not something to remember later. That last part is most of this job.</p>
+      <div class="mt16">
+        <span class="badge">Remote · PH</span> <span class="badge">US ET–PT hours</span> <span class="badge">30 hrs/wk</span> <span class="badge">Fits your $6–8 band</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Jamie, I already started.</h2>
+      <p>The tracker, the digest, the SOPs above are yours to keep whether or not we talk. If they're close to what you pictured, the fastest next step is a 15-minute call so you can hand me a real board and watch it get quiet.</p>
+      <div class="cta-links">
+        <a class="btn btn-primary" href="mailto:katrinajudah14@gmail.com?subject=EA%20%2F%20Operations%20Manager%20%E2%80%94%20Judah%20Rivera">Email me</a>
+        <a class="btn ghost-light" href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">See my EA portfolio</a>
+      </div>
+      <p class="small">Or reply on OnlineJobs.ph. Resume and portfolio: <a class="inline" href="https://agentxxblue14.github.io/judah-portfolio-ea/" target="_blank" rel="noopener">EA / Ops portfolio</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>Built for Jamie LeClaire's Executive Assistant / Operations Manager role by Judah Rivera, June 2026.</span>
+    <span>Tracker and digest use illustrative sample data, not real company information.</span>
+  </div>
+</footer>
+
+<script>
+// Sample board: same rows as the xlsx workbook in /samples
+const TASKS = [
+  {task:"Countersign Henderson vendor renewal", note:"Auto-renews at old rate if unsigned", owner:"Jamie (you)", dept:"Vendors", due:"Jul 02", nudge:"Jul 01", status:"blocked", ceo:true},
+  {task:"Approve Q3 contractor budget", note:"Needed to plan 2nd VA hire", owner:"Jamie (you)", dept:"Ops", due:"Jul 03", nudge:"Jun 30", status:"stalled", ceo:true},
+  {task:"Canva Brand seat for designer", note:"Paid seat, your call", owner:"Jamie (you)", dept:"Ops", due:"Jul 02", nudge:"Jun 30", status:"blocked", ceo:true},
+  {task:"Stripe reconciliation (June)", note:"2nd nudge sent, escalate Fri", owner:"Finance contact", dept:"Finance", due:"Jun 28", nudge:"Jun 26", status:"stalled", ceo:false},
+  {task:"Acme partner intro follow-up", note:"Went quiet after first call", owner:"Me", dept:"Sales", due:"Jul 01", nudge:"Jun 29", status:"stalled", ceo:false},
+  {task:"Help-center copy cleanup", note:"Waiting on final copy", owner:"Me", dept:"Product", due:"Jul 08", nudge:"Jun 27", status:"stalled", ceo:false},
+  {task:"Weekly criteria-matched lead list", note:"42 added to CRM", owner:"Me", dept:"Sales", due:"Jul 01", nudge:"-", status:"ok", ceo:false},
+  {task:"Analyst laptop replacement", note:"Backordered, loaner in place", owner:"Vendor", dept:"Ops", due:"Jul 07", nudge:"Jun 29", status:"ok", ceo:false},
+  {task:"Onboarding SOP library", note:"Live, new hires self-serve", owner:"Me", dept:"Ops", due:"Jun 30", nudge:"-", status:"done", ceo:false},
+  {task:"October calendar + travel", note:"Confirmed", owner:"Me", dept:"Exec", due:"Jun 30", nudge:"-", status:"done", ceo:false},
+  {task:"Asana naming convention rollout", note:"Applied across workspace", owner:"Me", dept:"Ops", due:"Jun 30", nudge:"-", status:"done", ceo:false},
+  {task:"Pay + file 2 vendor invoices", note:"Paid and filed", owner:"Me", dept:"Finance", due:"Jun 30", nudge:"-", status:"done", ceo:false}
+];
+const LABELS = {ok:"On track", risk:"At risk", stalled:"Stalled", blocked:"Blocked", done:"Done"};
+const PILLCLASS = {ok:"ok", risk:"risk", stalled:"risk", blocked:"late", done:"done"};
+
+const FILTERS = [
+  {key:"all", label:"All"},
+  {key:"attention", label:"Needs attention"},
+  {key:"ceo", label:"Needs CEO"},
+  {key:"ok", label:"On track"},
+  {key:"done", label:"Done"}
+];
+let active = "all";
+
+function matches(t, key){
+  if(key==="all") return true;
+  if(key==="attention") return t.status==="stalled"||t.status==="blocked";
+  if(key==="ceo") return t.ceo;
+  if(key==="ok") return t.status==="ok";
+  if(key==="done") return t.status==="done";
+  return true;
+}
+function countFor(key){ return TASKS.filter(t=>matches(t,key)).length; }
+
+function renderFilters(){
+  const el = document.getElementById("filters");
+  el.innerHTML = FILTERS.map(f=>
+    `<button class="fbtn${f.key===active?' active':''}" data-k="${f.key}" role="tab" aria-selected="${f.key===active}">${f.label}<span class="c">${countFor(f.key)}</span></button>`
+  ).join("");
+  el.querySelectorAll(".fbtn").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.k;renderFilters();renderRows();}));
+}
+function renderRows(){
+  const rows = TASKS.filter(t=>matches(t,active));
+  document.getElementById("trkBody").innerHTML = rows.map(t=>`
+    <tr class="row">
+      <td><div class="task-t">${t.task} ${t.ceo?'<span class="ceoflag">● CEO</span>':''}</div><div class="task-n">${t.note}</div></td>
+      <td>${t.owner}</td>
+      <td class="col-hide">${t.dept}</td>
+      <td class="tnum">${t.due}</td>
+      <td class="col-hide tnum">${t.nudge}</td>
+      <td><span class="pill ${PILLCLASS[t.status]}">${LABELS[t.status]}</span></td>
+    </tr>`).join("");
+  document.getElementById("trkCount").textContent =
+    `Showing ${rows.length} of ${TASKS.length} items`;
+}
+function renderSummary(){
+  const ok = TASKS.filter(t=>t.status==="ok"||t.status==="done").length;
+  const risk = TASKS.filter(t=>t.status==="stalled").length;
+  const late = TASKS.filter(t=>t.status==="blocked").length;
+  const ceo = TASKS.filter(t=>t.ceo).length;
+  animate("sumOk",ok); animate("sumRisk",risk); animate("sumLate",late);
+  document.getElementById("sumCeo").textContent = ceo;
+}
+function animate(id,to){
+  const el=document.getElementById(id); let n=0;
+  const step=Math.max(1,Math.round(to/12));
+  const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t)}el.textContent=n;},38);
+}
+
+function buildDigest(){
+  const ceo = TASKS.filter(t=>t.ceo);
+  const stalled = TASKS.filter(t=>t.status==="stalled");
+  const shipped = TASKS.filter(t=>t.status==="done");
+  const closed = shipped.length, ceoN = ceo.length, stalledN = stalled.length;
+  const li = (t,cls)=>`<li class="${cls}"><b style="color:#fff">${t.task}</b> &mdash; ${t.note}. <span style="color:#8C99AE">(${t.owner})</span></li>`.replace('&mdash;',',');
+  let html = `
+    <h4>TL;DR</h4>
+    <ul><li class="l-ok">${TASKS.length} active items. ${ceoN} need a decision from you, ${stalledN} are stalled but handled, ${closed} shipped this week.</li></ul>
+    <h4>Needs you (decisions only)</h4>
+    <ul>${ceo.map(t=>li(t,"l-late")).join("")}</ul>
+    <h4>Stalled, I'm handling (just visibility)</h4>
+    <ul>${stalled.map(t=>li(t,"l-risk")).join("")}</ul>
+    <h4>Shipped this week</h4>
+    <ul>${shipped.map(t=>li(t,"l-ok")).join("")}</ul>
+    <h4>Numbers</h4>
+    <div class="dnum">
+      <div><b>${closed}</b>items closed</div>
+      <div><b>${stalledN}</b>stalled</div>
+      <div><b>${ceoN}</b>need you</div>
+      <div><b>42</b>new leads in CRM</div>
+    </div>`;
+  document.getElementById("digestBody").innerHTML = html;
+  const d=document.getElementById("digest");
+  d.classList.add("show");
+  d.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+renderFilters(); renderRows(); renderSummary();
+document.getElementById("genBtn").addEventListener("click",buildDigest);
+</script>
+</body>
+</html>
