@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Rivera · Rough Cuts, 3 tracks in practice</title>
+<meta name="description" content="The three breakdowns turned into actual rough cuts, one per track. My calls on footage, hook placement, beat-synced cutting and shareability. By Judah Rivera.">
+<style>
+  :root{
+    --bg:#0E0F1A; --card:#181A2B; --violet:#8B5CFF; --lime:#C8F45D;
+    --text:#F2F3FA; --muted:#9AA0BD; --hair:#262A40;
+    --shadow:0 18px 50px rgba(0,0,0,.4);
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.12;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:33px;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:18.5px;max-width:64ch}
+  .label{font-size:12.5px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--lime)}
+  a{color:inherit}
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,15,26,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:19px}
+  .brand span{color:var(--violet)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;border-radius:10px;font-weight:700;font-size:15.5px;padding:13px 22px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease}
+  .btn-ghost{background:transparent;border:1px solid var(--hair);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--violet)}
+  .nav-cta{padding:10px 18px;font-size:14.5px}
+
+  .hero{padding:72px 0 36px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,255,.28),transparent 62%);pointer-events:none}
+  .hero h1{font-size:50px;letter-spacing:-.03em;max-width:18ch}
+  .hero h1 .hl{color:var(--violet)}
+  .hero p.sub{margin:18px 0 8px;font-size:19px;color:var(--muted);max-width:64ch}
+
+  .note{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--lime);border-radius:12px;padding:16px 20px;margin:22px 0 0;color:var(--muted);font-size:15px;max-width:72ch}
+
+  section{padding:54px 0}
+  .cut{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:start;padding:34px 0;border-top:1px solid var(--hair)}
+  .cut:first-of-type{border-top:none}
+  .player{position:relative}
+  video{width:300px;max-width:100%;border-radius:16px;border:1px solid var(--hair);background:#000;box-shadow:var(--shadow);display:block}
+  .track{margin-top:12px;font-size:13px;color:var(--muted);text-align:center}
+  .track b{color:var(--lime)}
+  .meta .n{font-size:13px;font-weight:800;color:var(--violet);letter-spacing:.04em}
+  .meta h2{font-size:28px;margin:6px 0 4px}
+  .engine{display:inline-block;background:rgba(139,92,255,.14);border:1px solid rgba(139,92,255,.4);color:#cbb6ff;border-radius:99px;padding:5px 13px;font-size:13px;font-weight:600;margin-bottom:16px}
+  .rows{display:flex;flex-direction:column;gap:13px;margin-top:6px}
+  .row{display:grid;grid-template-columns:128px 1fr;gap:14px;align-items:start}
+  .row .k{font-size:12.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--lime);font-weight:700;padding-top:2px}
+  .row .v{color:var(--muted);font-size:15px}
+  .row .v b{color:var(--text)}
+
+  footer{border-top:1px solid var(--hair);padding:40px 0;color:var(--muted);font-size:14.5px}
+  footer a{color:var(--violet);text-decoration:none}
+
+  @media(max-width:760px){
+    .hero h1{font-size:36px}
+    .cut{grid-template-columns:1fr;gap:18px}
+    video{width:100%;max-width:320px;margin:0 auto}
+    .player{display:flex;flex-direction:column;align-items:center}
+    .row{grid-template-columns:96px 1fr}
+    .nav-links a:not(.nav-cta){display:none}
+  }
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <div class="brand">Judah <span>Rivera</span></div>
+  <div class="nav-links">
+    <a href="index.html">The breakdowns</a>
+    <a class="btn btn-ghost nav-cta" href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">Portfolio</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="label">Trial, part two</div>
+  <h1>The breakdowns, now <span class="hl">in practice</span>.</h1>
+  <p class="sub">You said the written analysis was clear but hard to picture as real content. Fair. So here are three rough cuts, one per track, each built on the engine I named in the breakdown. The point isn't polish, it's the calls: what footage, where the hook lands, how it cuts to your music, and why someone stops and shares it.</p>
+  <div class="note"><b style="color:var(--text)">On the "is this just AI" question:</b> these are rough. The footage is placeholder stock I picked by hand to stand in for the real shots, so you'll see watermarks and it's not graded. What I'm showing you is the judgment underneath: the structure, the cut timing against your beat drops, the caption beats and the shareability hook. On a real one I'd shoot or source clean footage and tighten every frame.</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- V1 -->
+  <section style="padding-top:8px"><div class="cut">
+    <div class="player">
+      <video controls preload="metadata" playsinline poster="">
+        <source src="clips/v1_confidence_energy.mp4" type="video/mp4">
+      </video>
+      <div class="track">Track: <b>confidence energy</b> · 14s</div>
+    </div>
+    <div class="meta">
+      <div class="n">CUT 01 · THE REVEAL</div>
+      <h2>One impossible cut, on the drop</h2>
+      <div class="engine">Engine: mechanical curiosity</div>
+      <div class="rows">
+        <div class="row"><div class="k">Steal from</div><div class="v">Zach King's broomstick. You know a reveal is coming, you just can't predict the <b>how</b>. That gap survives rewatching.</div></div>
+        <div class="row"><div class="k">Hook</div><div class="v"><b>"wait for the cut"</b> over an ordinary getting-ready shot. It plants a promise in the first second, so the brain stays to collect.</div></div>
+        <div class="row"><div class="k">The cut</div><div class="v">Quick build shots accelerate, then a hard cut from dim anticipation to the full confident reveal <b>exactly on the 27.7s beat drop</b> of your track. The music does the "transformation," the edit just lands it.</div></div>
+        <div class="row"><div class="k">Why shared</div><div class="v">"How did the cut work, watch it again." Rewatch plus a tag. Sharing it says you have taste in craft.</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- V2 -->
+  <section style="padding-top:0"><div class="cut">
+    <div class="player">
+      <video controls preload="metadata" playsinline>
+        <source src="clips/v2_galasalah_rendezvous.mp4" type="video/mp4">
+      </video>
+      <div class="track">Track: <b>galasalah rendez vous</b> · 22s</div>
+    </div>
+    <div class="meta">
+      <div class="n">CUT 02 · PERFECT MORNING (REALITY EDIT)</div>
+      <h2>Set the fantasy, then break it</h2>
+      <div class="engine">Engine: recognition then relief</div>
+      <div class="rows">
+        <div class="row"><div class="k">Steal from</div><div class="v">The Hilton reel. Open in a format people already trust (the dreamy morning routine), then subvert it. A "boring" idea goes viral by mocking the cliche it lives in.</div></div>
+        <div class="row"><div class="k">Hook</div><div class="v"><b>"my perfect morning (allegedly)"</b>. The word in the parentheses is the whole promise, you watch to see it fall apart.</div></div>
+        <div class="row"><div class="k">The arc</div><div class="v">Dreamy bed and coffee on your lush track, then the alarm, the spill, the doomscroll, then it resolves to one genuinely calm moment: <b>"turns out this was enough."</b> The aspirational music makes the fantasy land harder and the chaos funnier.</div></div>
+        <div class="row"><div class="k">Why shared</div><div class="v">It validates a shared frustration. Sharing says "I'm not fooled by fake-perfect content," an in-group signal.</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- V3 -->
+  <section style="padding-top:0"><div class="cut">
+    <div class="player">
+      <video controls preload="metadata" playsinline>
+        <source src="clips/v3_kumglatchko_give.mp4" type="video/mp4">
+      </video>
+      <div class="track">Track: <b>kumglatchko give</b> · 21s</div>
+    </div>
+    <div class="meta">
+      <div class="n">CUT 03 · THE SMALL THING</div>
+      <h2>Sincere joy, made remixable</h2>
+      <div class="engine">Engine: wholesome identity</div>
+      <div class="rows">
+        <div class="row"><div class="k">Steal from</div><div class="v">"It's Corn." One person's un-self-conscious joy, turned into a loop you can replay and, crucially, copy.</div></div>
+        <div class="row"><div class="k">Hook</div><div class="v"><b>"the small thing I'm irrationally happy about:"</b> a sincere setup that lands right before the beat drop, then the montage kicks.</div></div>
+        <div class="row"><div class="k">The cut</div><div class="v">On the <b>30.7s drop</b>, quick joyful cuts on the bounce, each with its own little caption (the bagel, the dog, fresh sheets). It ends on a duet-able line: <b>"what's your little thing? duet this."</b></div></div>
+        <div class="row"><div class="k">Why shared</div><div class="v">It invites participation, not just viewing. Everyone makes their own version, which is how this kind of format actually scales.</div></div>
+      </div>
+    </div>
+  </div></section>
+
+</main>
+
+<footer><div class="wrap">
+  Judah Rivera · <a href="index.html">back to the three breakdowns</a> · <a href="https://agentxxblue14.github.io/judah-content-portfolio/" target="_blank" rel="noopener">content portfolio</a><br>
+  Rough cuts for evaluation. Footage is hand-picked placeholder stock; final work would use clean licensed or original footage.
+</div></footer>
+</body>
+</html>
